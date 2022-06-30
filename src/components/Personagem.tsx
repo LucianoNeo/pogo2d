@@ -12,20 +12,14 @@ overflow: hidden;
 `
 
 type Props = {
-    side: SidesPersonagem;
+    position: number;
 }
+
+
 
 
 export const Personagem =(props)=>
 {
-    const sides = {
-        down : 0,
-        left : -64,
-        right : -128,
-        up: -196,
-    }
-
-
     return(
         <WrapperPersonagem>
         <div id='personagem' className={`top-[${props.position}px] absolute w-64 h-64 animate-walking `}>

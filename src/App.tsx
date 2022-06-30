@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Mapa from './components/Mapa';
 import HookMapa from './hooks/HookMapa';
 import Menu from './components/Menu';
+import Pokemon from './components/Pokemon';
 
 
 
@@ -29,6 +30,8 @@ function App() {
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)}
   }, [])
   
   const [side, setSide] = useState(0)

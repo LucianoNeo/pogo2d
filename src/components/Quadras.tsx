@@ -9,8 +9,9 @@ return(
   <>
 {arr.map((_, index) => (        
     <div key={index} className={`bg-[#88f99f] border-green-100 border-[10px] 
-    w-[250px] h-[450px]`
-    }>
+    w-[250px] h-[450px] items-center justify-center flex`}>
+      <a href="#"><img src={`../src/assets/img/pokemon/${index+1}.png`} alt="" className="w-[36px] h-[36px] left-10 "/></a>
+      
     </div>
     ))
 }

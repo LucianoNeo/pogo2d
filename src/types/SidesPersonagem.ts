@@ -1,0 +1,1 @@
+export type SidesPersonagem = 'down' | 'up' | 'left' | 'right'

@@ -1,16 +1,27 @@
+import Utils from '../utils';
+
+const utils = Utils()
+
+const arr = Array.from({ length: 100 }).map(() => true);
+
+
+
 
 function Pokemon(){
+return(
 
-    const arr = Array.from({ length: 10 }).map(() => true);
-    
-
-    
-        return(
-        <div key={arr.length} className={` relative w-[36px] h-[36px] left-[${Math.floor(Math.random() * 170)}px] top-[148px]`}>
-            <img src={`../src/assets/img/pokemon/1.png`} alt="" />
-        </div>
-        )
-    
+  <>
+{arr.map((_, index) => (        
+   <div 
+   key={index} 
+   style={{width:'36px', position: 'absolute', left:`${utils.random(80,2900)}px`, top:`${utils.random(100,4900)}px`}}>
+   <a href="#"> <img src={`../src/assets/img/pokemon/${utils.random(4,140)}.png`} alt="" className="w-[36px] h-[36px] "/>
+   </a>
+ </div>
+    ))
+}
+  </>
+    )
     
     }
     

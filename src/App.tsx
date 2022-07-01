@@ -4,37 +4,18 @@ import { useEffect, useState } from 'react';
 import Mapa from './components/Mapa';
 import HookMapa from './hooks/HookMapa';
 import Menu from './components/Menu';
-import Pokemon from './components/Pokemon';
+import Utils from './utils';
 
 
 
 
 
-const Tela = styled.div`
-position: relative;
-width:300px;
-height: 95vh;
-overflow: hidden;
-margin: 0 auto;
-margin-top: 20px;
-background-color: #208edb;
-border: 10px solid black;
-border-radius: 20px;
-`
 
 
 
 function App() {
 
   const mapa = HookMapa()
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown)
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown)}
-  }, [])
-  
-  const [side, setSide] = useState(0)
 
   const handleKeyDown = (e: KeyboardEvent) =>{
     switch (e.code) {
@@ -64,15 +45,40 @@ function App() {
   }
 
 
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)}
+  }, [])
+  
+  const [side, setSide] = useState(0)
+
+  
+
+
    return (
     
-    <Tela>
+    <div id='tela' className='relative w-screen h-screen overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh]' >
      <Menu/>
       <Mapa x={mapa.x} y={mapa.y}/>
     <Personagem position={side}/>
-    </Tela>
+    </div>
 
   )
 }
 
 export default App
+
+
+const Tela = styled.div`
+position: relative;
+width:300px;
+height: 95vh;
+overflow: hidden;
+margin: 0 auto;
+margin-top: 20px;
+background-color: #88f99f;
+border: 10px solid black;
+border-radius: 20px;
+`
+

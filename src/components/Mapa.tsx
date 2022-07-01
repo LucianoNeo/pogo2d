@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components'
+import LayerPokemon from './LayerPokemon';
 import Quadras from './Quadras';
 
 const Wrapper = styled.div<{left: number, top:number}>`
@@ -22,9 +23,21 @@ function Mapa({x,y}: Props) {
 
     
     return(
-        <Wrapper id='container' left={x} top={y}>
-            <Quadras/>
-        </Wrapper>
+        <div id='container' 
+        style={{
+            left:`${x}px`, 
+            top:`${y}px`,
+            display: 'flex',
+            flexWrap: 'wrap',
+            width: '3000px',
+            height: '3000px',
+            position: 'absolute',            
+            
+            }}>
+                 <Quadras/>
+            <LayerPokemon/>
+           
+        </div>
         
     )
     

@@ -9,6 +9,7 @@ position: relative;
 left: 40%;
 top: 45%;
 overflow: hidden;
+z-index: 12;
 `
 
 type Props = {
@@ -22,7 +23,13 @@ export const Personagem =(props)=>
 {
     return(
         <WrapperPersonagem>
-        <div id='personagem' className={`top-[${props.position}px] absolute w-64 h-64 animate-walking `}>
+        <div id='personagem' 
+        className='animate-walking'
+        style={{top:`${props.position}px`, 
+        position: 'absolute', 
+        width:'256px', 
+        height:'256px',
+        imageRendering:'pixelated' }}>
         <img src={red} alt=""/>
         </div>
         </WrapperPersonagem>

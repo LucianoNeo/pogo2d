@@ -5,7 +5,7 @@ import pokeball from '../assets/img/pokeball.png'
 
 function Menu() {
 return(
-<div className='w-full h-16 absolute bottom-10 z-10 px-2 justify-between flex items-center'>
+<div className='w-full h-16 absolute bottom-10 z-30 px-2 justify-between flex items-center'>
 
     <div id='facePersonagem'className='w-16 border-4 border-yellow-100 rounded-full h-16 overflow-hidden bg-gray-500'>
         <a href="#"><img src={redface} alt=""/></a>

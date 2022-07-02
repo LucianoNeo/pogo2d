@@ -1,9 +1,16 @@
 import redface from '../assets/img/redface.png'
 import pokeball from '../assets/img/pokeball.png'
+import { useContext } from 'react'
+import UserContext from '../contexts/userContext'
 
 
 
 function Menu() {
+
+const {user} = useContext(UserContext)
+
+
+
 return(
 <div className='w-full h-16 absolute bottom-10 z-30 px-2 justify-between flex items-center'>
 
@@ -17,7 +24,7 @@ return(
     </div>
 
     <div id='nomePersonagem' className='absolute bottom-[-40px] left-2'>
-        <h1 className='text-white text-md drop-shadow-md'>Red</h1>
+        <h1 className='text-white text-md drop-shadow-md'>{user}</h1>
     </div>
 
     <div id='level'className='absolute bottom-[-9px] left-1'>

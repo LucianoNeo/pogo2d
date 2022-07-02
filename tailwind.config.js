@@ -50,13 +50,17 @@ module.exports = {
       '0%': { left: '0' },
       '100%': { left: '-256px' },
     },
+    fadein: {
+      '0%': { opacity: '0' },
+      '100%': { opacity: '100' },
+    },
   },
   animation: {
     'walking': 'walk 1s infinite steps(4)',
+    'fadein': 'fadein 2s ease-out',
   },
+ 
 },
   plugins: [],
 }
 
-
- 

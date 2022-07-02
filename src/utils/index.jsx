@@ -14,6 +14,5 @@ function Utils() {
     }
     
 }
-console.log(random(0,10))
 
 export default Utils

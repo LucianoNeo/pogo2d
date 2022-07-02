@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const speed = 50
+const speed = 5
 
 const HookMapa = () => {
 

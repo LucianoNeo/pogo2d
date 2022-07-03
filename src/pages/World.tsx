@@ -4,7 +4,8 @@ import Mapa from '../components/Mapa';
 import HookMapa from '../hooks/HookMapa';
 import Menu from '../components/Menu';
 import UserContext from '../contexts/userContext';
-
+import Joystick from '../components/joystick';
+import buttonUp from '../assets/img/up.png'
 
 function World() {
 
@@ -60,9 +61,39 @@ function World() {
     <div id='tela' className='relative w-screen h-screen overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh]' >
     
      <Menu/>
+     
       <Mapa x={posGlobal.x} y={posGlobal.y}/>
     <Personagem position={side}/>
-    
+
+    <div className="absolute w-20 h-20 right-8 bottom-28 z-30 flex  flex-col justify-center items-center opacity-50 sm:hidden">
+            <img src={buttonUp} alt=""
+            onClick={()=>{
+              mapa.moveUp()
+              setSide(-196)
+            }}
+            style={{width:'30px',height:'30px',cursor:'pointer'}}/>
+            <div className='flex flex-row w-full justify-between '>
+            <img src={buttonUp} alt="" 
+            onClick={()=>{
+              mapa.moveLeft()
+              setSide(-64)
+            }}
+            style={{width:'30px',height:'30px',transform:'rotate(-90deg)',cursor:'pointer'}}/>
+            <img src={buttonUp} alt="" 
+            onClick={()=>{
+              mapa.moveRight()
+              setSide(-128)
+            }}
+            style={{width:'30px',height:'30px',transform:'rotate(90deg)',cursor:'pointer'}}/>
+            </div>
+            <img src={buttonUp} alt="" 
+            onClick={()=>{
+              mapa.moveDown()
+              setSide(0)
+            }}
+            style={{width:'30px',height:'30px',transform:'rotate(180deg)',cursor:'pointer'}}/>
+
+        </div>
     </div>
     </>
   )

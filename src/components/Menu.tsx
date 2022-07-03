@@ -2,6 +2,7 @@ import redface from '../assets/img/redface.png'
 import pokeball from '../assets/img/pokeball.png'
 import { useContext } from 'react'
 import UserContext from '../contexts/userContext'
+import Joystick from './joystick'
 
 
 
@@ -39,7 +40,6 @@ return(
 <div id='sightings'className='w-24 bg-white h-8 rounded-2xl translate-x-5 opacity-70'>
     
 </div>
-
 </div>
 )
 

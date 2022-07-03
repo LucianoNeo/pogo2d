@@ -1,7 +1,5 @@
 import { memo } from 'react';
 import Generate from './Generate';
-
-import Pokemon from './Generate';
 import Quadras from './Quadras';
 
 type Props ={

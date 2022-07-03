@@ -5,9 +5,9 @@ import UserContext from '../contexts/userContext';
 
 function Pokemon(props) {
     const navigate = useNavigate()
-    const {posGlobal,setPokemonImg,setNumberPoke,pokeballs,setPokeballs}= useContext(UserContext)    
+    const {numberPoke,pokemonImg}= useContext(UserContext)    
     const utils = Utils()
-    let numberPoke = utils.random(10,99)
+    let thisnumberPoke = utils.random(10,99)
     
     const [positionX,setPosX] =  useState(utils.random(80,2900))
     const [positionY,setPosY] = useState(utils.random(100,4900))
@@ -25,19 +25,20 @@ return(
     
     }}
     onClick={()=>{
-        setNumberPoke(numberPoke)
+        numberPoke.current = thisnumberPoke
         let thisPoke = document.getElementById(`pokemon${props.index}`)
         thisPoke.style.display= 'none'
-        setPokemonImg(`./assets/img/pokemon_catch/pokemon (${numberPoke}).gif`)
+        pokemonImg.current = `./assets/img/pokemon_catch/pokemon (${thisnumberPoke}).gif`
         return navigate('/catch')
     }}
     >
    <div
    className='absolute animate-walking' 
    style={{
-    backgroundImage: `url(./assets/img/sprites/0${numberPoke}.png)`,
+    backgroundImage: `url(./assets/img/sprites/0${thisnumberPoke}.png)`,
     width:'256px', 
     height:'256px',
+    imageRendering: 'pixelated'
    }}
    
    >

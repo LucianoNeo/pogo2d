@@ -7,17 +7,8 @@ import axios from 'axios'
 function Loading() {
 
 const navigate = useNavigate()
-const {pokemons,setPokemon} = useContext(UserContext)
 
 useEffect(() => {
-    async function puxaDados() {
-        for (let i = 1; i <= 151; i++) {
-          const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`)
-          setPokemon(prevState => [...prevState, response.data])
-        }
-  
-      }
-      puxaDados()  
     setTimeout(() => {
         return navigate('/world')
     }, 3000);

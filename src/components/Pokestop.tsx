@@ -1,7 +1,5 @@
 import Utils from '../utils';
 import { memo, useState ,useContext} from 'react';
-import stopblue from '../../public/assets/img/pokestopblue.png'
-import stoppink from '../../public/assets/img/pokestoppink.png'
 import {useNavigate} from 'react-router-dom'
 import UserContext from '../contexts/userContext';
 
@@ -12,9 +10,9 @@ const arr = Array.from({ length: 100 }).map(() => true);
 
 
 function Pokestop(props){
-    const {pokeballs, setPokeballs}= useContext(UserContext)
+    const {pokeballs}= useContext(UserContext)
     const navigate = useNavigate()
-    
+    let spinned = false
 
 return(
   <div style={{
@@ -23,16 +21,30 @@ return(
     position: 'absolute', 
     left:`${utils.random(80,2900)}px`, 
     top:`${utils.random(100,4900)}px`,
-    cursor:'pointer', }}
+    cursor:'pointer',
+    backgroundImage:'url(./assets/img/pokestopblue.png)',
+    backgroundSize:'cover'
+
+}}
    id={`pokestop${props.index}`} key={props.index}
     onClick={()=>{ 
+        if (!spinned ){
+        const thispokestop = document.getElementById(`pokestop${props.index}`)
+        thispokestop.style.backgroundImage = 'url(./assets/img/pokestoppink.png)'
         let receivedBalls = utils.random(1,4)
-        setPokeballs(pokeballs + receivedBalls)
+        pokeballs.current += receivedBalls
         alert('Você ganhou '+receivedBalls+' pokebolas')
+        spinned= true
+        setTimeout(() => {
+            thispokestop.style.backgroundImage = 'url(./assets/img/pokestopblue.png)'
+            spinned= false
+        }, 60000);
+    }
+    else{alert('Você poderá girar a pokestop novamente em 1 minuto')}
         
     }}
     >
-        <img src={stopblue} alt="" />
+        
  </div>
 )
     

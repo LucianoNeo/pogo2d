@@ -8,9 +8,6 @@ import Joystick from './joystick'
 
 function Menu() {
 
-//const {user} = useContext(UserContext)
-
-
 
 return(
 <div className='w-full h-16 absolute bottom-10 z-30 px-2 justify-between flex items-center'>
@@ -33,7 +30,7 @@ return(
     </div>
     
     <div id='pokeball'className='w-12 ml-8'>
-        <img src={pokeball} alt=""  className='cursor-pointer'/>
+        <img src={pokeball} alt=""  className='cursor-pointer '/>
         
     </div>
 

@@ -9,12 +9,13 @@ import { Pokemons} from './components/array.js'
 
 const App = () => {
 
+const numberPoke = useRef(150)
 const [user,setUser] = useState('RED')
 const [posGlobal, setPosGlobal] = useState({x:130,y:270})
-const pokemonImg= useRef(null)
+const pokemonImg= useRef(`./assets/img/pokemon_catch/pokemon (${numberPoke.current}).gif`)
 const pokeballs = useRef(5)
 const pokemons = Pokemons
-const numberPoke = useRef(null)
+
 const pokemonBag = [{
     globalId:'999',
     id:'3',

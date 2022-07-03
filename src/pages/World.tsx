@@ -1,5 +1,6 @@
 import { Personagem } from '../components/Personagem'
 import { useEffect, useState,useContext,memo } from 'react';
+import {useNavigate} from 'react-router-dom'
 import Mapa from '../components/Mapa';
 import HookMapa from '../hooks/HookMapa';
 import Menu from '../components/Menu';
@@ -9,6 +10,7 @@ import buttonUp from '../../public/assets/img/up.png'
 function World() {
 
   const mapa = HookMapa()
+  const navigate = useNavigate()
   const {posGlobal,pos,setPosGlobal,pokemons,pokeballs}= useContext(UserContext)
 
   const handleKeyDown = (e: KeyboardEvent) =>{
@@ -52,11 +54,12 @@ function World() {
    return (
     <>
     <div className='z-40 text-white p-4 absolute bg-slate-500 opacity-90 rounded-xl'>
-    <h1>POS X: {mapa.x} </h1>
-    <h1>POS Y: {mapa.y} </h1>
+    <h1>DEBUG:</h1>
+    
     <h1>POSGLOBAL X: {posGlobal.x}</h1>
     <h1>POSGLOBAL Y: {posGlobal.y}</h1>
     <h1>POKEBOLAS: {pokeballs.current} </h1>
+    <button className='bg-slate-900 rounded-xl w-40' onClick={()=>{return navigate('/catch')}}>Catch Test</button>
     </div>
     <div id='tela' className='relative w-screen h-[90vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh]' >
     

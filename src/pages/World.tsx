@@ -58,7 +58,7 @@ function World() {
     <h1>POSGLOBAL X: {posGlobal.x}</h1>
     <h1>POSGLOBAL Y: {posGlobal.y}</h1>
     </div>
-    <div id='tela' className='relative w-screen h-screen overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh]' >
+    <div id='tela' className='relative w-screen h-[95vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh]' >
     
      <Menu/>
      

@@ -7,7 +7,7 @@ function Pokemon(props) {
     const navigate = useNavigate()
     const {numberPoke,pokemonImg}= useContext(UserContext)    
     const utils = Utils()
-    let thisnumberPoke = utils.random(10,99)
+    let thisnumberPoke = utils.random(1,140)
     
     const [positionX,setPosX] =  useState(utils.random(80,2900))
     const [positionY,setPosY] = useState(utils.random(100,4900))
@@ -35,7 +35,7 @@ return(
    <div
    className='absolute animate-walking' 
    style={{
-    backgroundImage: `url(./assets/img/sprites/0${thisnumberPoke}.png)`,
+    backgroundImage: `url(./assets/img/sprites/${utils.leftPad(thisnumberPoke,3)}.png)`,
     width:'256px', 
     height:'256px',
     imageRendering: 'pixelated'

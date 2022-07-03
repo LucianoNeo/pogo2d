@@ -1,5 +1,5 @@
 import styled, {keyframes} from 'styled-components'
-import red from '../assets/img/red.png'
+import red from '../../public/assets/img/red.png'
 import { SidesPersonagem } from '../types/SidesPersonagem'
 
 const WrapperPersonagem = styled.div`

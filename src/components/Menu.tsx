@@ -1,5 +1,5 @@
-import redface from '../assets/img/redface.png'
-import pokeball from '../assets/img/pokeball.png'
+import redface from '../../public/assets/img/redface.png'
+import pokeball from '../../public/assets/img/pokeball.png'
 import { useContext } from 'react'
 import UserContext from '../contexts/userContext'
 import Joystick from './joystick'

@@ -5,12 +5,12 @@ import HookMapa from '../hooks/HookMapa';
 import Menu from '../components/Menu';
 import UserContext from '../contexts/userContext';
 import Joystick from '../components/joystick';
-import buttonUp from '../assets/img/up.png'
+import buttonUp from '../../public/assets/img/up.png'
 
 function World() {
 
   const mapa = HookMapa()
-  const {posGlobal,pos,setPosGlobal,pokemons}= useContext(UserContext)
+  const {posGlobal,pos,setPosGlobal,pokemons,pokeballs}= useContext(UserContext)
 
   const handleKeyDown = (e: KeyboardEvent) =>{
     switch (e.code) {
@@ -57,6 +57,7 @@ function World() {
     <h1>POS Y: {mapa.y} </h1>
     <h1>POSGLOBAL X: {posGlobal.x}</h1>
     <h1>POSGLOBAL Y: {posGlobal.y}</h1>
+    <h1>POKEBOLAS: {pokeballs} </h1>
     </div>
     <div id='tela' className='relative w-screen h-[95vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh]' >
     

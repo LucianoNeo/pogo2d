@@ -6,16 +6,20 @@ import { useState ,useEffect} from 'react';
 
 const App = () => {
 
-
-
-
 const [user,setUser] = useState('RED')
 const [pokeballs,setPokeballs] = useState(5)
 const [posGlobal, setPosGlobal] = useState({x:130,y:270})
 const [ pokemonImg, setPokemonImg]= useState()
 const [pokemons,setPokemon] = useState([])
 const [numberPoke,setNumberPoke] = useState()
+const pokemonBag = [{
+    globalId:'999',
+    id:'3',
+    name:'Charmander',
+    img:'./assets/img/sprites/001.png'
+}]
 const speed = 5
+console.log(pokemons)
 
 
 return(

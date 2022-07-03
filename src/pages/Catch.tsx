@@ -1,5 +1,5 @@
 import React, { useContext,memo } from 'react'
-import bg from '../assets/img/bg.png'
+import bg from '../../public/assets/img/bg.png'
 import UserContext from '../contexts/userContext';
 import {useNavigate} from 'react-router-dom'
 
@@ -14,10 +14,10 @@ function Catch() {
 
     return(
         <>
-   <div style={{backgroundImage: `URL(${bg})`}} id='tela' className='relative w-screen h-screen overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh] bg-[url("../assets/img/bg.png")] bg-cover flex justify-center ' >
+   <div style={{backgroundImage: `URL(${bg})`}} id='tela' className='relative w-screen h-screen overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh] bg-[url("./assets/img/bg.png")] bg-cover flex justify-center ' >
 
         <div className='w-full h-20 flex justify-end p-4'>
-            <img src="../src/assets/img/running.png" alt="" 
+            <img src="./assets/img/running.png" alt="" 
             className='cursor-pointer hover:scale-150'
             onClick={()=>{return navigate('/world')}}
             />
@@ -29,7 +29,7 @@ function Catch() {
 
 
         <div id='menu' className=' w-[95%] h-28 absolute bottom-10 m-auto drop-shadow-lg flex flex-col items-center justify-center text-center'>
-            <img src="../src/assets/img/pokeball_catch.png" alt=""  className='w-20 hover:scale-110'
+            <img src="./assets/img/pokeball_catch.png" alt=""  className='w-20 hover:scale-110'
             onClick={()=>{
                 if(pokeballs > 0){
                 setPokeballs(pokeballs-1)

@@ -10,7 +10,6 @@ export function Router() {
             <Route path='/' element={ <Loading/>} />
             <Route path='/world/' element={ <World/>} />
             <Route path='/catch/' element={ <Catch/>} />
-            
         </Routes>
 
         

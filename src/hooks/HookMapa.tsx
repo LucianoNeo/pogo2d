@@ -1,17 +1,23 @@
-import { useState } from 'react'
+import { useState, useContext, memo } from 'react'
+import UserContext from '../contexts/userContext';
 
-const speed = 5
 
 const HookMapa = () => {
 
- const [pos, setPos] = useState({x: 100,y:230})
+    
+    const speed = 5
+    const {posGlobal, setPosGlobal}= useContext(UserContext)
+    const [pos, setPos] = useState({x:posGlobal.x,y:posGlobal.y})
 
- const moveLeft = () =>{
+
+    const moveLeft = () =>{
       setPos(pos => ({
 
         x: canMove(pos.x + speed,pos.y) ? pos.x +speed : pos.x,
         y: pos.y
+        
      }))
+     
  }
  const moveRight = () =>{
    
@@ -39,7 +45,6 @@ const HookMapa = () => {
  
  const canMove = (x: number, y: number) =>{
 
-    console.log(x,y);
     
     if( x >= 130 || y >= 290 ) return false
     if( y < -4660 ) return false
@@ -48,8 +53,8 @@ const HookMapa = () => {
  }
 
 return{ 
-    x: pos.x,
-    y: pos.y,
+    x:pos.x,
+    y:pos.y,
     moveDown,
     moveLeft,
     moveUp,

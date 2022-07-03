@@ -7,7 +7,7 @@ import UserContext from '../contexts/userContext'
 
 function Menu() {
 
-const {user} = useContext(UserContext)
+//const {user} = useContext(UserContext)
 
 
 
@@ -24,7 +24,7 @@ return(
     </div>
 
     <div id='nomePersonagem' className='absolute bottom-[-40px] left-2'>
-        <h1 className='text-white text-md drop-shadow-md'>{user}</h1>
+        <h1 className='text-white text-md drop-shadow-md'>red</h1>
     </div>
 
     <div id='level'className='absolute bottom-[-9px] left-1'>
@@ -32,7 +32,7 @@ return(
     </div>
     
     <div id='pokeball'className='w-12 ml-8'>
-        <a href="#"><img src={pokeball} alt=""  /></a>
+        <img src={pokeball} alt=""  className='cursor-pointer'/>
         
     </div>
 

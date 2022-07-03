@@ -1,15 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext,memo } from 'react'
 import bg from '../assets/img/bg.png'
 import UserContext from '../contexts/userContext';
 import {useNavigate} from 'react-router-dom'
 
 
+
+
+
 function Catch() {
     const navigate = useNavigate()
-    const {pokeballs, setPokeballs}= useContext(UserContext)
+    const {pokeballs, setPokeballs,pos,posGlobal,pokemonImg,pokemons,numberPoke}= useContext(UserContext)
     
-    return(
 
+    return(
+        <>
    <div style={{backgroundImage: `URL(${bg})`}} id='tela' className='relative w-screen h-screen overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh] bg-[url("../assets/img/bg.png")] bg-cover flex justify-center ' >
 
         <div className='w-full h-20 flex justify-end p-4'>
@@ -18,9 +22,9 @@ function Catch() {
             onClick={()=>{return navigate('/world')}}
             />
         </div>
-        <div id='pokemon' className='absolute  top-72 w-24 text-center items-center justify-center flex flex-col lg:top-52'>
-            <h1 className='bg-slate-600 text-white rounded-2xl px-2 py-1 min-w-fit'>Charmander</h1>
-            <img src={`../src/assets/img/pokemon_catch/pokemon (4).gif`} alt="" />
+        <div id='pokemon' className='absolute  top-60 w-60 text-center items-center justify-center flex flex-col lg:top-52'>
+            <h1 className='bg-slate-600 text-white rounded-2xl px-2 py-1 min-w-fit'>{pokemons[numberPoke-1].name[0].toUpperCase() + pokemons[numberPoke-1].name.substring(1)}</h1>
+            <img src={pokemonImg} alt="" />
         </div>
 
 
@@ -35,8 +39,9 @@ function Catch() {
             <h1 className='text-white text-2xl'>{pokeballs} x</h1>
         </div>
     </div>
+    </>
     )
     
 }
 
-export default Catch
+export default memo(Catch)

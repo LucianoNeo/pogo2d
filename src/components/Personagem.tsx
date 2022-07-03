@@ -17,8 +17,6 @@ type Props = {
 }
 
 
-
-
 export const Personagem =(props)=>
 {
     return(

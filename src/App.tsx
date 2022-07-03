@@ -18,8 +18,7 @@ const pokemonBag = [{
     name:'Charmander',
     img:'./assets/img/sprites/001.png'
 }]
-const speed = 5
-console.log(pokemons)
+const speed = 50
 
 
 return(

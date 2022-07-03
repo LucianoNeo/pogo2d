@@ -49,18 +49,3 @@ return(
 }
 
 export default memo(Pokemon) 
-
-
-
-// <a href="#" onClick={()=>{
-//       let thisPoke = document.getElementById(`img${index}`)
-  
-//       thisPoke.style.display= 'none'
-//       setNumberPoke(thisPoke.getAttribute('src')?.replace('../src/assets/img/pokemon/','').replace('.png',''))
-//       let imgNumber = thisPoke.getAttribute('src')?.replace('../src/assets/img/pokemon/','').replace('.png','')
-//         setPokemonImg(`../src/assets/img/pokemon_catch/pokemon (${imgNumber}).gif`)
-  
-//         return navigate('/catch')
-    
-//       }}> <img id={`img${index}`} src={`../src/assets/img/pokemon/${utils.random(4,140)}.png`} alt="" className="w-[36px] h-[36px] "/>
-//      </a>

@@ -4,7 +4,6 @@ import Mapa from '../components/Mapa';
 import HookMapa from '../hooks/HookMapa';
 import Menu from '../components/Menu';
 import UserContext from '../contexts/userContext';
-import Joystick from '../components/joystick';
 import buttonUp from '../../public/assets/img/up.png'
 
 function World() {
@@ -61,9 +60,8 @@ function World() {
     </div>
     <div id='tela' className='relative w-screen h-[90vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh]' >
     
-     <Menu/>
-     
-      <Mapa x={posGlobal.x} y={posGlobal.y}/>
+    <Menu/>
+    <Mapa x={posGlobal.x} y={posGlobal.y}/>
     <Personagem position={side}/>
 
     <div id='joystick' className="absolute w-20 h-20 right-8 bottom-44 z-30 flex  flex-col justify-center items-center opacity-50 sm:hidden scale-150">

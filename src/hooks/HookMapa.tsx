@@ -1,11 +1,11 @@
-import { useState, useContext, memo } from 'react'
+import { useState, useContext } from 'react'
 import UserContext from '../contexts/userContext';
 
 
 const HookMapa = () => {
 
     
-    const speed = 5
+    const speed = 55
     const {posGlobal, setPosGlobal}= useContext(UserContext)
     const [pos, setPos] = useState({x:posGlobal.x,y:posGlobal.y})
 

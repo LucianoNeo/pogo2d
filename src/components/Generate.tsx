@@ -1,14 +1,9 @@
-import Utils from '../utils';
+
 import {useNavigate} from 'react-router-dom'
-import { useState,useContext,memo } from 'react';
-import UserContext from '../contexts/userContext';
-import stopblue from '../assets/img/pokestopblue.png'
-import stoppink from '../assets/img/pokestoppink.png'
+import {memo } from 'react';
 import Pokemon from './Pokemon';
 import Pokestop from './Pokestop';
 
-
-const utils = Utils()
 
 const arr = Array.from({ length: 200 }).map(() => true);
 

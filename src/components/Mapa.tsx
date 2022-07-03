@@ -1,8 +1,6 @@
-import { useState,useContext,memo } from 'react';
-import styled from 'styled-components'
-import UserContext from '../contexts/userContext';
-import LayerPokemon from './LayerPokemon';
-import LayerPokestop from './LayerPokestop';
+import { memo } from 'react';
+import Generate from './Generate';
+
 import Pokemon from './Generate';
 import Quadras from './Quadras';
 
@@ -26,7 +24,8 @@ function Mapa({x,y}: Props) {
             
             }}>
             <Quadras/>
-            <Pokemon/>
+            <Generate/>
+            
         </div>
         
     )

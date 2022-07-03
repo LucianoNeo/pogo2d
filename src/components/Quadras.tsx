@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import Pokemon from './Generate';
+
 
 
 function Quadras(){

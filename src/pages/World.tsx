@@ -59,14 +59,14 @@ function World() {
     <h1>POSGLOBAL Y: {posGlobal.y}</h1>
     <h1>POKEBOLAS: {pokeballs} </h1>
     </div>
-    <div id='tela' className='relative w-screen h-[95vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh]' >
+    <div id='tela' className='relative w-screen h-[90vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh]' >
     
      <Menu/>
      
       <Mapa x={posGlobal.x} y={posGlobal.y}/>
     <Personagem position={side}/>
 
-    <div className="absolute w-20 h-20 right-8 bottom-28 z-30 flex  flex-col justify-center items-center opacity-50 sm:hidden">
+    <div id='joystick' className="absolute w-20 h-20 right-8 bottom-44 z-30 flex  flex-col justify-center items-center opacity-50 sm:hidden scale-150">
             <img src={buttonUp} alt=""
             onClick={()=>{
               mapa.moveUp()

@@ -8,7 +8,7 @@ const utils = Utils()
 
 
 function Pokestop(props){
-    const {pokeballs,pokestopmap,setPokeballs,setPksMap}= useContext(UserContext)
+    const {pokeballs,pokestopmap,setPokeballs,setPksMap,receivedBalls}= useContext(UserContext)
     const navigate = useNavigate()
     let spinned = false
 
@@ -26,18 +26,42 @@ return(
 }}
    id={`pokestop${props.index}`} key={props.index}
     onClick={()=>{ 
+    const itemsShow = document.getElementById('itemsShow')
+
         if (!pokestopmap[props.index].spinned ){
+            
         const thispokestop = document.getElementById(`pokestop${props.index}`)
-        pokestopmap[props.index].img= 'url(./assets/img/pokestoppink.png)'
-        let receivedBalls = utils.random(1,4)
-        setPokeballs(pokeballs + receivedBalls)
-        alert('Você ganhou '+receivedBalls+' pokebolas')
+        setPksMap(
+            (oldState) => {
+                const newState = [...oldState]
+                newState[props.index] = {...oldState[props.index], img: 'url(./assets/img/pokestoppink.png)'}
+                return newState
+              }
+        )
+        receivedBalls.current=utils.random(1,4)
+        setPokeballs(pokeballs + receivedBalls.current)
+        console.log(receivedBalls.current)
         pokestopmap[props.index].spinned= true
-        
+        itemsShow.style.display = 'block'
         setTimeout(() => {
-            pokestopmap[props.index].img= 'url(./assets/img/pokestopblue.png)'
-            thispokestop.style.backgroundImage = 'url(./assets/img/pokestopblue.png)'
-            pokestopmap[props.index].spinned= false
+            itemsShow.style.display = 'none'
+        }, 4000);
+        setTimeout(() => {
+            setPksMap(
+                (oldState) => {
+                    const newState = [...oldState]
+                    newState[props.index] = {...oldState[props.index], img: 'url(./assets/img/pokestopblue.png)'}
+                    return newState
+                  }
+            )
+          
+           setPksMap(
+            (oldState) => {
+                const newState = [...oldState]
+                newState[props.index] = {...oldState[props.index], spinned: false}
+                return newState
+              }
+        )
          
         }, 60000);
     }

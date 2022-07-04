@@ -1,6 +1,9 @@
+import { useContext } from 'react'
 import styled, {keyframes} from 'styled-components'
 import red from '../../public/assets/img/red.png'
+import UserContext from '../contexts/userContext'
 import { SidesPersonagem } from '../types/SidesPersonagem'
+
 
 const WrapperPersonagem = styled.div`
 width:64px;
@@ -19,10 +22,15 @@ type Props = {
 
 export const Personagem =(props)=>
 {
+
+    const {walking}= useContext(UserContext)
+
+
     return(
         <WrapperPersonagem>
         <div id='personagem' 
-        className='animate-walking'
+         className={`${walking && "animate-walking"}
+        `}  
         style={{top:`${props.position}px`, 
         position: 'absolute', 
         width:'256px', 

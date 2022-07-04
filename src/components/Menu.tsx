@@ -7,7 +7,7 @@ import Joystick from './joystick'
 
 
 function Menu() {
-
+    const {receivedBalls}= useContext(UserContext)
 
 return(
 <div className='w-full h-16 absolute bottom-10 z-30 px-2 justify-between flex items-center'>
@@ -29,11 +29,16 @@ return(
         <h1 className='text-white text-4xl font-extrabold drop-shadow'>1</h1>
     </div>
     
-    <div id='pokeball'className='w-12 ml-8'>
+    <div id='pokeball'className='w-12 ml-8'> 
         <img src={pokeball} alt=""  className='cursor-pointer '/>
         
     </div>
-
+    <div id='itemsShow' className='absolute bottom-2 animate-fadein-out w-full hidden'> 
+    <img id='pokeballsprite'src="./assets/img/pokeball_catch.png" alt=""  
+            className='absolute bottom-16 w-7 right-10'/>
+            <h1 className='text-white text-2xl font-extrabold drop-shadow-2xl shadow-black absolute bottom-16 w-6 right-4'>+{receivedBalls.current}</h1>
+    </div>
+    
 <div id='sightings'className='w-24 bg-white h-8 rounded-2xl translate-x-5 opacity-70'>
     
 </div>

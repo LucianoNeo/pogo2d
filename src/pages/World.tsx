@@ -11,7 +11,7 @@ function World() {
   
   const mapa = HookMapa()
   const navigate = useNavigate()
-  const {posGlobal,pos,setPosGlobal,pokemons,pokeballs,pokestopmap,setPksMap,pokemonmap}= useContext(UserContext)
+  const {posGlobal,walking,setWalking,pokeballs,}= useContext(UserContext)
 
 
   const handleKeyDown = (e: KeyboardEvent) =>{
@@ -20,28 +20,31 @@ function World() {
       case 'KeyA':
         mapa.moveLeft()
         setSide(-64)
+        
         break;
         case 'ArrowRight':
         case 'KeyD':
         mapa.moveRight()
         setSide(-128)
+      
         break;
         case 'ArrowUp':
         case 'KeyW':
         setSide(-196)  
         mapa.moveUp()
+       
         break;
         case 'ArrowDown':
         case 'KeyS':
         mapa.moveDown()
         setSide(0)
+      
         break;
     
     }
     
   }
-console.log(pokemonmap)
-console.log(pokestopmap)
+
   posGlobal.x=mapa.x
   posGlobal.y=mapa.y
 

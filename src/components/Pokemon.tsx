@@ -5,7 +5,7 @@ import UserContext from '../contexts/userContext';
 
 function Pokemon(props) {
     const navigate = useNavigate()
-    const {numberPoke,pokemonImg,pokemonmap}= useContext(UserContext)    
+    const {numberPoke,pokemonImg,pokemonmap,pokeballs}= useContext(UserContext)    
     const utils = Utils()
     
     
@@ -25,11 +25,13 @@ return(
     }}
     onClick={()=>{
         numberPoke.current = pokemonmap[props.index].number
+        if(pokeballs >0){
         let thisPoke = document.getElementById(`pokemon${props.index}`)
         thisPoke.style.display= 'none'
         pokemonmap.slice(1,[props.index])
-        pokemonImg.current = `./assets/img/pokemon_catch/pokemon (${pokemonmap[props.index].number}).gif`
         pokemonmap[props.index].img=''
+    }      
+        pokemonImg.current = `./assets/img/pokemon_catch/pokemon (${pokemonmap[props.index].number}).gif`
         return navigate('/catch')
     }}
     >

@@ -50,12 +50,13 @@ const numberPoke = useRef(150)
 const [user,setUser] = useState('RED')
 const [posGlobal, setPosGlobal] = useState({x:130,y:270})
 const [pokestopmap,setPksMap] = useState([])
+let walking = useRef(false)
 const [pokemonmap,setPkmMap] = useState([])
 const pokemonImg= useRef(`./assets/img/pokemon_catch/pokemon (${numberPoke.current}).gif`)
 const [pokeballs,setPokeballs] = useState(5)
 const pokemons = Pokemons
 const speed = 10
-
+const receivedBalls = useRef(1)
 
 
 const pokemonBag = [{
@@ -76,7 +77,7 @@ useEffect(() => {
 return(
     <BrowserRouter>
     <UserContext.Provider 
-    value={{user, setUser,pokeballs,setPokeballs,speed,posGlobal, setPosGlobal,pokemonImg, pokemons,numberPoke,pokestopmap,setPksMap,pokemonmap}}>
+    value={{user, setUser,pokeballs,setPokeballs,speed,posGlobal, setPosGlobal,pokemonImg, pokemons,numberPoke,pokestopmap,setPksMap,pokemonmap,walking,receivedBalls}}>
     <Router/>
     </UserContext.Provider>
     </BrowserRouter>

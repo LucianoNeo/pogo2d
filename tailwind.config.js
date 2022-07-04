@@ -52,12 +52,40 @@ module.exports = {
     },
     fadein: {
       '0%': { opacity: '0' },
-      '100%': { opacity: '100' },
+      '100%': { opacity: '100'},
+    },
+    fadeinout: {
+      '0%': { opacity: '0' },
+      '50%': { opacity: '100'},
+      '90%': { opacity: '100'},
+      '100%': { opacity: '0'},
+    },
+    fadeinScale: {
+      '0%': { opacity: '0' ,transform: 'scale(1)'},
+      '100%': { opacity: '100', transform: 'scale(1.5)' },
+    },
+    shake: {
+      '0%': { bottom: '40px' },
+      '75%': { bottom: '50px' },
+      '100%': { bottom: '40px' },
+    },
+    throw: {
+      '0%': { bottom: '30px', width: '80px'  },
+      '50%': { bottom: '250px',transform: 'rotate(-45deg)' },
+      '60%': { bottom: '300px',transform: 'rotate(-45deg)' },
+      '50%': { bottom: '400px',transform: 'rotate(-45deg)' },
+      '75%': { bottom: '350px',width: '40px',transform: 'rotate(-50deg)' },
+      
+      '100%': { bottom: '300px',width: '40px',transform: 'rotate(-10deg)' },
     },
   },
   animation: {
     'walking': 'walk 1s infinite steps(4)',
     'fadein': 'fadein 2s ease-out',
+    'fadein-out': 'fadeinout 4s ease-out',
+    'fadeinscale': 'fadeinScale 2s ease-out',
+    'pokeball-shake': 'shake 1s infinite ease-in-out',
+    'pokeball-throw': 'throw 2s infinite ease-out',
   },
  
 },

@@ -9,8 +9,8 @@ import {useNavigate} from 'react-router-dom'
 
 function Catch() {
     const navigate = useNavigate()
-    const {pokeballs,pokemonImg,pokemons,numberPoke}= useContext(UserContext)
-    const [pbUpdated,setpbUpd] = useState(pokeballs.current)
+    const {pokeballs,pokemonImg,pokemons,numberPoke,setPokeballs}= useContext(UserContext)
+    
     
     
     return(
@@ -32,13 +32,12 @@ function Catch() {
         <div id='menu' className=' w-[95%] h-28 absolute bottom-10 m-auto drop-shadow-lg flex flex-col items-center justify-center text-center'>
             <img src="./assets/img/pokeball_catch.png" alt=""  className='w-20 hover:scale-110'
             onClick={()=>{
-                if(pokeballs.current > 0){
-                pokeballs.current -=1
-                setpbUpd(pokeballs.current)
+                if(pokeballs > 0){
+                setPokeballs(pokeballs -1)
             }
             }}
             />
-            <h1 className='text-white text-2xl'>{pbUpdated} x</h1>
+            <h1 className='text-white text-2xl'>{pokeballs} x</h1>
         </div>
     </div>
     </>

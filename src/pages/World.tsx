@@ -8,10 +8,11 @@ import UserContext from '../contexts/userContext';
 import buttonUp from '../../public/assets/img/up.png'
 
 function World() {
-
+  
   const mapa = HookMapa()
   const navigate = useNavigate()
-  const {posGlobal,pos,setPosGlobal,pokemons,pokeballs}= useContext(UserContext)
+  const {posGlobal,pos,setPosGlobal,pokemons,pokeballs,pokestopmap,setPksMap,pokemonmap}= useContext(UserContext)
+
 
   const handleKeyDown = (e: KeyboardEvent) =>{
     switch (e.code) {
@@ -39,7 +40,8 @@ function World() {
     }
     
   }
-
+console.log(pokemonmap)
+console.log(pokestopmap)
   posGlobal.x=mapa.x
   posGlobal.y=mapa.y
 
@@ -58,7 +60,7 @@ function World() {
     
     <h1>POSGLOBAL X: {posGlobal.x}</h1>
     <h1>POSGLOBAL Y: {posGlobal.y}</h1>
-    <h1>POKEBOLAS: {pokeballs.current} </h1>
+    <h1>POKEBOLAS: {pokeballs} </h1>
     <button className='bg-slate-900 rounded-xl w-40' onClick={()=>{return navigate('/catch')}}>Catch Test</button>
     </div>
     <div id='tela' className='relative w-screen h-[90vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh]' >

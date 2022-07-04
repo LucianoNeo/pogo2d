@@ -5,8 +5,7 @@ import UserContext from '../contexts/userContext';
 const HookMapa = () => {
 
     
-    const speed = 55
-    const {posGlobal, setPosGlobal}= useContext(UserContext)
+    const {posGlobal, setPosGlobal,speed}= useContext(UserContext)
     const [pos, setPos] = useState({x:posGlobal.x,y:posGlobal.y})
 
 

@@ -55,7 +55,7 @@ const [pokemonmap,setPkmMap] = useState([])
 const pokemonImg= useRef(`./assets/img/pokemon_catch/pokemon (${numberPoke.current}).gif`)
 const [pokeballs,setPokeballs] = useState(5)
 const pokemons = Pokemons
-const speed = 10
+const speed = 30
 const receivedBalls = useRef(1)
 
 

@@ -74,27 +74,27 @@ function World() {
 
     <div id='joystick' className="absolute w-20 h-20 right-8 bottom-44 z-30 flex  flex-col justify-center items-center opacity-50 sm:hidden scale-150">
             <img src={buttonUp} alt=""
-            onClick={()=>{
+            onMouseDown={()=>{
               mapa.moveUp()
               setSide(-196)
             }}
             style={{width:'30px',height:'30px',cursor:'pointer'}}/>
             <div className='flex flex-row w-full justify-between '>
             <img src={buttonUp} alt="" 
-            onClick={()=>{
+            onMouseDown={()=>{
               mapa.moveLeft()
               setSide(-64)
             }}
             style={{width:'30px',height:'30px',transform:'rotate(-90deg)',cursor:'pointer'}}/>
             <img src={buttonUp} alt="" 
-            onClick={()=>{
+            onMouseDown={()=>{
               mapa.moveRight()
               setSide(-128)
             }}
             style={{width:'30px',height:'30px',transform:'rotate(90deg)',cursor:'pointer'}}/>
             </div>
             <img src={buttonUp} alt="" 
-            onClick={()=>{
+            onMouseDown={()=>{
               mapa.moveDown()
               setSide(0)
             }}

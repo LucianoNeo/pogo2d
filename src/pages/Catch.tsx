@@ -25,7 +25,7 @@ function Catch() {
 
         <div id='catch' style={{position: 'absolute', display:'none'}} className='text-3xl font-extrabold text-gray-500 bottom-[400px] animate-fadeinscale'>CATCH!</div>
 
-        <div id='pokesprite' className='absolute  bottom-[350px] w-60 text-center items-center justify-center flex flex-col sm:bottom-[300px]'> 
+        <div id='pokesprite' className='absolute  bottom-[300px] w-60 text-center items-center justify-center flex flex-col sm:bottom-[300px]'> 
             <h1 className='bg-slate-600 text-white rounded-2xl px-2 py-1 min-w-fit'>{pokemons[numberPoke.current-1].name[0].toUpperCase() + pokemons[numberPoke.current-1].name.substring(1)}
             </h1>
             <img src={pokemonImg.current} alt="" style={{width:'160px',imageRendering: 'pixelated'}}/>

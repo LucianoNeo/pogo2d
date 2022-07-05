@@ -7,5 +7,5 @@
 - [x] menu
 - [x] catch screen
 - [ ] pokemon removal on catch 
-- [ ] mobile joywtick
+- [ ] mobile joystick
 - [ ] map boundaries

@@ -20,7 +20,8 @@ const generatePokemonMap = ()=>{
         left:`${utils.random(80,2900)}px`, 
         top:`${utils.random(100,4900)}px`,
         img: `url(./assets/img/sprites/${utils.leftPad(thispokenumber,3)}.png)`,
-        number: thispokenumber
+        number: thispokenumber,
+        activespawn: true
     
     }    
     pkmmap.push(newpoke)
@@ -77,7 +78,7 @@ useEffect(() => {
 return(
     <BrowserRouter>
     <UserContext.Provider 
-    value={{user, setUser,pokeballs,setPokeballs,speed,posGlobal, setPosGlobal,pokemonImg, pokemons,numberPoke,pokestopmap,setPksMap,pokemonmap,walking,receivedBalls}}>
+    value={{user, setUser,pokeballs,setPokeballs,speed,posGlobal, setPosGlobal,pokemonImg, pokemons,numberPoke,pokestopmap,setPksMap,pokemonmap,setPkmMap,walking,receivedBalls}}>
     <Router/>
     </UserContext.Provider>
     </BrowserRouter>

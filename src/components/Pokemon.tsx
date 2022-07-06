@@ -27,7 +27,7 @@ return(
     onClick={()=>{
         numberPoke.current = pokemonmap[props.index].number
         if(pokeballs >0){
-        let thisPoke = document.getElementById(`pokemon${props.index}`)
+     
         setPkmMap(
             (oldState) => {
                 const newState = [...oldState]

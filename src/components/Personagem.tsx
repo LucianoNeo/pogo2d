@@ -1,19 +1,7 @@
 import { useContext } from 'react'
 import styled, {keyframes} from 'styled-components'
-import red from '../../public/assets/img/red.png'
 import UserContext from '../contexts/userContext'
 import { SidesPersonagem } from '../types/SidesPersonagem'
-
-
-const WrapperPersonagem = styled.div`
-width:64px;
-height:64px;
-position: relative;
-left: 40%;
-top: 45%;
-overflow: hidden;
-z-index: 12;
-`
 
 type Props = {
     position: number;
@@ -22,12 +10,10 @@ type Props = {
 
 export const Personagem =(props)=>
 {
-
-    const {walking}= useContext(UserContext)
-
-
-    return(
-        <WrapperPersonagem>
+    const {walking,screenWidth,screenHeight,charSprite}= useContext(UserContext)
+    
+      return(
+        <div style={{width:'64px',height:'64px',position:'relative',left:`${screenWidth.current*0.5-32}px`,top:`${screenHeight.current*0.5}px`,overflow:'hidden',zIndex:'12'}}>
         <div id='personagem' 
          className={`${walking && "animate-walking"}
         `}  
@@ -36,8 +22,8 @@ export const Personagem =(props)=>
         width:'256px', 
         height:'256px',
         imageRendering:'pixelated' }}>
-        <img src={red} alt=""/>
+        <img src={charSprite} alt=""/>
         </div>
-        </WrapperPersonagem>
+        </div>
     )   
 }

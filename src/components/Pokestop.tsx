@@ -31,6 +31,7 @@ return(
         if (!pokestopmap[props.index].spinned ){
             
         const thispokestop = document.getElementById(`pokestop${props.index}`)
+        
         setPksMap(
             (oldState) => {
                 const newState = [...oldState]

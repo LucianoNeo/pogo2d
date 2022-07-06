@@ -56,8 +56,15 @@ const [pokemonmap,setPkmMap] = useState([])
 const pokemonImg= useRef(`./assets/img/pokemon_catch/pokemon (${numberPoke.current}).gif`)
 const [pokeballs,setPokeballs] = useState(5)
 const pokemons = Pokemons
-const speed = 30
+const [speed,setSpeed] = useState(5)
 const receivedBalls = useRef(1)
+const [screenSize,setScreenSize]= useState({w:200,h:600})
+const screenWidth = useRef(1)
+const screenHeight = useRef(1)
+const [charFace,setcharFace] = useState()
+const [charSprite,setcharSprite] = useState()
+const [charName,setCharName] = useState('user')
+
 
 
 const pokemonBag = [{
@@ -78,7 +85,7 @@ useEffect(() => {
 return(
     <BrowserRouter>
     <UserContext.Provider 
-    value={{user, setUser,pokeballs,setPokeballs,speed,posGlobal, setPosGlobal,pokemonImg, pokemons,numberPoke,pokestopmap,setPksMap,pokemonmap,setPkmMap,walking,receivedBalls}}>
+    value={{user, setUser,pokeballs,setPokeballs,speed,posGlobal, setPosGlobal,pokemonImg, pokemons,numberPoke,pokestopmap,setPksMap,pokemonmap,setPkmMap,walking,receivedBalls,screenSize,setScreenSize,screenWidth,screenHeight,setSpeed,charFace,setcharFace,charSprite,setcharSprite,charName,setCharName}}>
     <Router/>
     </UserContext.Provider>
     </BrowserRouter>

@@ -7,8 +7,9 @@
 - [x] menu
 - [x] catch screen
 - [x] pokemon removal on catch 
-- [ ] map boundaries
+- [x] map boundaries
 - [ ] mobile joystick
+- [ ] change alerts for screen texts
 - [ ] CP calculation
 - [ ] Add pokemon types
 - [ ] pokemon bag

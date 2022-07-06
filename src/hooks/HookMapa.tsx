@@ -5,8 +5,8 @@ import UserContext from '../contexts/userContext';
 const HookMapa = () => {
 
     
-    const {posGlobal}= useContext(UserContext)
-    const speed = 5
+    const {posGlobal,screenHeight,screenWidth,speed}= useContext(UserContext)
+    
     const [pos, setPos] = useState({x:posGlobal.x,y:posGlobal.y})
 
 
@@ -52,9 +52,9 @@ const HookMapa = () => {
  const canMove = (x: number, y: number) =>{
 
     
-    if( x >= 130 || y >= 290 ) return false
-    if( y < -4660 ) return false
-    if( x < -2840 ) return false
+    if( x >= screenWidth.current*0.55 || y >= screenHeight.current*0.55 ) return false
+    if( y < (screenHeight.current*0.45)-4900 ) return false
+    if( x < (screenWidth.current*0.45)-3000 ) return false
     return true
  }
 

@@ -4,9 +4,8 @@ import UserContext from '../contexts/userContext';
 import { useNavigate   } from 'react-router-dom'
 
 import ConfirmButton from '../components/ConfirmButton';
+import { useMeasure } from 'react-use';
 
-
-let selected 
 
 
 
@@ -17,13 +16,25 @@ const navigate = useNavigate()
 
 const {setcharFace,setcharSprite,setCharName,charLevel,setLevel}= useContext(UserContext)
 
+let selected 
+
+
+function fullscreen() {
+    if(window.screen.width < 600){
+        document.documentElement.requestFullscreen()
+    }
+        
+}
+const [screensize, { width,height}] = useMeasure<HTMLDivElement>();
 
 useEffect(() => {
+    
     const red = document.getElementById('selectRED')
     const green = document.getElementById('selectGREEN')
     red.addEventListener('click',handleRED)
     green.addEventListener('click',handleGREEN)
 }, [])
+
 
 
 function handleRED(){
@@ -33,6 +44,7 @@ function handleRED(){
     setcharSprite('./assets/img/sprites/red.png')
     setCharName("RED")
     setLevel(1)
+   
     selected = 'red'
     if(selected == 'red'){
     red.style='filter: grayscale(0);transform: scale(1.3) translateX(50px); z-index:2 ',
@@ -47,6 +59,7 @@ function handleGREEN(){
             setcharSprite('./assets/img/sprites/green.png')
             setLevel(1)
             setCharName("GREEN")
+            
             selected = 'green'
             if(selected == 'green'){
             green.style='filter: grayscale(0);transform: scale(1.3) translateX(-50px); z-index:2',
@@ -70,7 +83,11 @@ function handleGREEN(){
         <img id='selectGREEN'src="./assets/img/green-selection.png" alt=""  className='bg-green-400 rounded w-[45%] cursor-pointer grayscale hover:grayscale-0 hover:scale-110'
         />
        </div>
-       <ConfirmButton onclick={()=>{navigate('/char-name-select')}}/>
+       <ConfirmButton onclick={()=>{
+        fullscreen()
+        navigate('/char-name-select')
+        
+        }}/>
        </div>
     </div>
     )

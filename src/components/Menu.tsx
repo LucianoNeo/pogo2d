@@ -7,7 +7,7 @@ import UserContext from '../contexts/userContext'
 
 
 function Menu() {
-    const {receivedBalls,screenHeight,charFace,charName}= useContext(UserContext)
+    const {receivedBalls,screenHeight,charFace,charName,charLevel}= useContext(UserContext)
 
 return(
 <div className='w-full h-16 absolute bottom-10 z-30 px-2 justify-between flex items-center'>
@@ -26,7 +26,7 @@ return(
     </div>
 
     <div id='level'className='absolute bottom-[-9px] left-1'>
-        <h1 className='text-white text-4xl font-extrabold '>1</h1>
+        <h1 className='text-white text-4xl font-extrabold '>{charLevel}</h1>
     </div>
     
     <div id='pokeball'className='w-12 ml-8'> 

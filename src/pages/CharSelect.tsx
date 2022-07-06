@@ -15,7 +15,7 @@ function CharSelect() {
 
 const navigate = useNavigate()
 
-const {setcharFace,setcharSprite,setCharName}= useContext(UserContext)
+const {setcharFace,setcharSprite,setCharName,charLevel,setLevel}= useContext(UserContext)
 
 
 useEffect(() => {
@@ -31,6 +31,8 @@ function handleRED(){
     const green = document.getElementById('selectGREEN')
     setcharFace('./assets/img/redface.png')
     setcharSprite('./assets/img/sprites/red.png')
+    setCharName("RED")
+    setLevel(1)
     selected = 'red'
     if(selected == 'red'){
     red.style='filter: grayscale(0);transform: scale(1.3) translateX(50px); z-index:2 ',
@@ -43,6 +45,8 @@ function handleGREEN(){
     const green = document.getElementById('selectGREEN')
     setcharFace('./assets/img/greenface.png')
             setcharSprite('./assets/img/sprites/green.png')
+            setLevel(1)
+            setCharName("GREEN")
             selected = 'green'
             if(selected == 'green'){
             green.style='filter: grayscale(0);transform: scale(1.3) translateX(-50px); z-index:2',

@@ -115,6 +115,7 @@ function moveright(){
 
    return (
     <>
+    
     <div id='debug'className='z-40 text-white p-4 absolute bg-slate-500 opacity-90 rounded-xl opacity-0 '>
     <h1>DEBUG:</h1>
     

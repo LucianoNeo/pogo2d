@@ -61,10 +61,10 @@ const receivedBalls = useRef(1)
 const [screenSize,setScreenSize]= useState({w:200,h:600})
 const screenWidth = useRef(1)
 const screenHeight = useRef(1)
-const [charFace,setcharFace] = useState()
-const [charSprite,setcharSprite] = useState()
-const [charName,setCharName] = useState('user')
-
+const [charFace,setcharFace] = useState('./assets/img/oakface.png')
+const [charSprite,setcharSprite] = useState('./assets/img/sprites/oak.png')
+const [charName,setCharName] = useState('Prof. Carvalho')
+const [charLevel,setLevel] = useState(99)
 
 
 const pokemonBag = [{
@@ -85,7 +85,7 @@ useEffect(() => {
 return(
     <BrowserRouter>
     <UserContext.Provider 
-    value={{user, setUser,pokeballs,setPokeballs,speed,posGlobal, setPosGlobal,pokemonImg, pokemons,numberPoke,pokestopmap,setPksMap,pokemonmap,setPkmMap,walking,receivedBalls,screenSize,setScreenSize,screenWidth,screenHeight,setSpeed,charFace,setcharFace,charSprite,setcharSprite,charName,setCharName}}>
+    value={{user, setUser,pokeballs,setPokeballs,speed,posGlobal, setPosGlobal,pokemonImg, pokemons,numberPoke,pokestopmap,setPksMap,pokemonmap,setPkmMap,walking,receivedBalls,screenSize,setScreenSize,screenWidth,screenHeight,setSpeed,charFace,setcharFace,charSprite,setcharSprite,charName,setCharName,charLevel,setLevel}}>
     <Router/>
     </UserContext.Provider>
     </BrowserRouter>

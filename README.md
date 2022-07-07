@@ -8,7 +8,7 @@
 - [x] catch screen
 - [x] pokemon removal on catch 
 - [x] map boundaries
-- [ ] mobile joystick
+- [x] mobile joystick
 - [ ] change alerts for screen texts
 - [ ] CP calculation
 - [ ] Add pokemon types

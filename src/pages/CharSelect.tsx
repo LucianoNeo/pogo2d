@@ -22,6 +22,7 @@ let selected
 function fullscreen() {
     if(window.screen.width < 600){
         document.documentElement.requestFullscreen()
+        document.documentElement.webkitRequestFullscreen()
     }
         
 }

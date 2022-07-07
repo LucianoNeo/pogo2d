@@ -22,7 +22,7 @@ useEffect(() => {
         <img src="./assets/img/NEO1.jpg" alt="" className='rounded-full w-20 h-20' />
        <h1 className="text-2xl text-center animate-fadein">Desenvolvido por LucianoNeo</h1>
        </div>
-       <h1>v0.6</h1>
+       <h1>v0.61</h1>
     </div>
     )
     

@@ -20,7 +20,7 @@ function Catch() {
 
         <div className='w-full h-20 flex justify-end p-4'>
             <img src="./assets/img/running.png" alt="" 
-            className='cursor-pointer hover:scale-150'
+            className='w-14 h-14 cursor-pointer hover:scale-150'
             onClick={()=>{return navigate('/world')}}
             />
         </div>

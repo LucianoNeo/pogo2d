@@ -1,5 +1,5 @@
 import { Personagem } from '../components/Personagem'
-import { useEffect, useState,useContext,memo } from 'react';
+import { useEffect, useState,useContext,memo ,useRef} from 'react';
 import {useNavigate} from 'react-router-dom'
 import Mapa from '../components/Mapa';
 import HookMapa from '../hooks/HookMapa';
@@ -18,19 +18,7 @@ import { useMeasure } from 'react-use'
 
 function World() {
 
-
-let movecima = false
-var loop
-
-function lerolero() {
-  if(movecima){
-   loop = setInterval(()=>{
-    console.log('moveu')
-    mapa.moveUp()
-  },500)
-  }
-  
-}
+ 
 
   
 
@@ -57,7 +45,29 @@ function moveright(){
   setSide(-128)
 }
 
+let intervalo = useRef()
+  
+function handleUp() {
+  intervalo.current = setInterval(moveup, 30);
+}
 
+function handleDown() {
+  intervalo.current = setInterval(movedown, 30);
+} 
+
+function handleLeft() {
+  intervalo.current = setInterval(moveleft, 30);
+} 
+
+function handleRight() {
+  intervalo.current = setInterval(moveright, 30);
+} 
+      
+ 
+function handletouchup() {
+
+   clearInterval(intervalo.current);
+}
 
   const mapa = HookMapa()
   const navigate = useNavigate()
@@ -104,25 +114,15 @@ function moveright(){
   useEffect(() => {
     
     const debug = document.getElementById('debug')
-    
-   
-  
-    
     history.pushState(null, null, location.href);
     window.onpopstate = function(event) {
       history.go(1);
     };
 
-    const botao = document.getElementById('upbutton')
-
-
-
     window.addEventListener('keydown', handleKeyDown)
     window.addEventListener("contextmenu", function(e){
       e.preventDefault();
    }, false);
-
-    
   }, [])
   
   const [side, setSide] = useState(0)
@@ -158,21 +158,25 @@ function moveright(){
     </div>
     <div id='joystick' className="absolute w-24 h-20, right-8 bottom-44 z-30 flex  flex-col justify-center items-center opacity-50 sm:hidden scale-150">
             <img id='upbutton'src={dirbutton} alt=""
-            onMouseDown={moveup}
+            onTouchStart={handleUp}
+            onTouchEnd={handletouchup}
             style={{width:'30px',height:'30px',cursor:'pointer'}}/>
 
             <div className='flex flex-row w-full justify-between '>
             <img src={dirbutton} alt="" 
-            onMouseDown={moveleft}
+            onTouchStart={handleLeft}
+            onTouchEnd={handletouchup}
             style={{width:'30px',height:'30px',transform:'rotate(-90deg)',cursor:'pointer'}}/>
             
             <img src={dirbutton} alt="" 
-            onMouseDown={moveright}
+            onTouchStart={handleRight}
+            onTouchEnd={handletouchup}
             style={{width:'30px',height:'30px',transform:'rotate(90deg)',cursor:'pointer'}}/>
             
             </div>
             <img src={dirbutton} alt="" 
-            onMouseDown={movedown}
+            onTouchStart={handleDown}
+            onTouchEnd={handletouchup}
             style={{width:'30px',height:'30px',transform:'rotate(180deg)',cursor:'pointer'}}/>
 
         </div>

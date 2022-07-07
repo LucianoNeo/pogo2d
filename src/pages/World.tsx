@@ -146,7 +146,7 @@ function handletouchup() {
    return (
     <>
 
-    <div id='debug'className='z-40 text-white p-4 absolute bg-slate-500 opacity-90 rounded-xl opacity-0 '>
+    <div id='debug'className='hidden z-40 text-white p-4 absolute bg-slate-500 opacity-90 rounded-xl opacity-0 '>
     <h1>DEBUG:</h1>
     
     <h1>POSGLOBAL X: {posGlobal.x}</h1>

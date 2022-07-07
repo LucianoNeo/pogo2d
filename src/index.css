@@ -29,7 +29,8 @@ body {
     -webkit-text-stroke-color: #000;
 }
 
-
+body { -webkit-touch-callout: none !important; }
+a { -webkit-user-select: none !important; }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

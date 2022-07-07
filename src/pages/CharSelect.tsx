@@ -25,7 +25,9 @@ function fullscreen() {
             if (elem.requestFullscreen) {
               elem.requestFullscreen();
             } else if (elem.webkitRequestFullscreen) { /* Safari */
-              elem.webkitRequestFullscreen();
+             elem.webkitRequestFullscreen();
+         }   else if (elem.webkitSupportsFullscreen) { /* Safari */
+              elem.webkitEnterFullscreen();
             } else if (elem.msRequestFullscreen) { /* IE11 */
               elem.msRequestFullscreen();
             }

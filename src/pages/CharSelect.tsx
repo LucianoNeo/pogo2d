@@ -17,12 +17,19 @@ const navigate = useNavigate()
 const {setcharFace,setcharSprite,setCharName,charLevel,setLevel}= useContext(UserContext)
 
 let selected 
-
+let elem=document.documentElement
 
 function fullscreen() {
     if(window.screen.width < 600){
-        document.documentElement.requestFullscreen()
-        document.documentElement.webkitRequestFullscreen()
+        {
+            if (elem.requestFullscreen) {
+              elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) { /* Safari */
+              elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE11 */
+              elem.msRequestFullscreen();
+            }
+          }
     }
         
 }

@@ -69,6 +69,10 @@ module.exports = {
       '75%': { bottom: '50px' },
       '100%': { bottom: '40px' },
     },
+    load: {
+      '0%': {width: '1%' },
+      '100%': {width: '90%' },      
+    },
     throw: {
       '0%': { bottom: '30px', width: '80px'  },
       '50%': { bottom: '250px',transform: 'rotate(-45deg)' },
@@ -86,6 +90,7 @@ module.exports = {
     'fadeinscale': 'fadeinScale 2s ease-out',
     'pokeball-shake': 'shake 1s infinite ease-in-out',
     'pokeball-throw': 'throw 2s infinite ease-out',
+    'loading': 'load 5s infinite ease-in-out ',
   },
  
 },

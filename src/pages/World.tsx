@@ -7,7 +7,8 @@ import Menu from '../components/Menu';
 import UserContext from '../contexts/userContext';
 import dirbutton from '../../public/assets/img/up.png'
 import { useMeasure } from 'react-use'
-
+import SoundControll from '../components/SoundControll';
+import {SpeakerSimpleSlash,SpeakerHigh} from 'phosphor-react'
 
 
 
@@ -18,8 +19,9 @@ import { useMeasure } from 'react-use'
 
 function World() {
 
- 
+  let music = useRef()
 
+  
   
 
 function moveup(){
@@ -71,7 +73,7 @@ function handletouchup() {
 
   const mapa = HookMapa()
   const navigate = useNavigate()
-  const {posGlobal,walking,setWalking,pokeballs,screenWidth,screenHeight}= useContext(UserContext)
+  const {posGlobal,walking,setWalking,pokeballs,screenWidth,screenHeight,soundON,setSound,setSoundIcon,soundIcon,started}= useContext(UserContext)
   
   let debugOn = false
   const handleKeyDown = (e: KeyboardEvent) =>{
@@ -112,7 +114,14 @@ function handletouchup() {
   posGlobal.y=mapa.y
   
   useEffect(() => {
+    music.current = new Audio("./assets/music/worldtheme.mp3")
+    if(soundON.current && !started.current){
     
+    music.current.play()
+  } else{
+    music.current.pause()
+  }
+  started.current = true
     const debug = document.getElementById('debug')
     history.pushState(null, null, location.href);
     window.onpopstate = function(event) {
@@ -125,6 +134,8 @@ function handletouchup() {
    }, false);
   }, [])
   
+  
+
   const [side, setSide] = useState(0)
   
   const [screensize, { width,height}] = useMeasure<HTMLDivElement>();
@@ -143,12 +154,29 @@ function handletouchup() {
     <h1>POKEBOLAS: {pokeballs} </h1>
     <button className='bg-slate-900 rounded-xl w-40' onClick={()=>{return navigate('/catch')}}>Catch Test</button>
     </div>
-    <div ref={screensize} id='tela' className='relative w-screen h-[100vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh]' >
+    <div ref={screensize} id='tela' className='relative w-screen h-[100vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh]' >
     
     <Menu/>
     
     <Mapa x={posGlobal.x} y={posGlobal.y}/>
     <Personagem position={side}/>
+    <button className='text-white z-30 absolute top-5 cursor-pointer p-2 hover:text-red-700'
+    onClick={()=>{
+      
+      if(soundON.current){
+      setSoundIcon(<SpeakerHigh size={32} />)
+      music.current.pause()
+      soundON.current= false
+      console.log(soundON)
+    }else{
+      setSoundIcon(<SpeakerSimpleSlash size={32} />)
+      //music.current.play()
+      soundON.current= true
+      console.log(soundON)
+    }
+      }}>
+      {soundIcon}
+    </button>
 
     <div style={{ width: '128px', position: 'absolute', left:'210px', top:'150px',opacity:'0'}}>
 	  <img src="./assets/img/joystick-base.png"/>

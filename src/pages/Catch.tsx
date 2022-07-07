@@ -16,7 +16,7 @@ function Catch() {
 
     return(
         <>
-   <div style={{backgroundImage: `URL(${bg})`}} id='tela' className='relative w-screen h-[100vh] overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[98vh] bg-[url("./assets/img/bg.png")] bg-cover flex justify-center ' >
+   <div style={{backgroundImage: `URL(${bg})`}} id='tela' className='relative w-screen h-[100vh] overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] bg-[url("./assets/img/bg.png")] bg-cover flex justify-center ' >
 
         <div className='w-full h-20 flex justify-end p-4'>
             <img src="./assets/img/running.png" alt="" 

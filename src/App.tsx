@@ -65,6 +65,7 @@ const [charFace,setcharFace] = useState('./assets/img/oakface.png')
 const [charSprite,setcharSprite] = useState('./assets/img/sprites/oak.png')
 const [charName,setCharName] = useState('Prof. Carvalho')
 const [charLevel,setLevel] = useState(99)
+const [msgPokeball,setMsgPokeball]= useState(false)
 let soundON = useRef(true)
 const [soundIcon,setSoundIcon] = useState(<SpeakerSimpleSlash size={32}/>)
 let started = useRef(false)
@@ -86,7 +87,7 @@ useEffect(() => {
 return(
     <BrowserRouter>
     <UserContext.Provider 
-    value={{user, setUser,pokeballs,setPokeballs,speed,posGlobal, setPosGlobal,pokemonImg, pokemons,numberPoke,pokestopmap,setPksMap,pokemonmap,setPkmMap,walking,receivedBalls,screenSize,setScreenSize,screenWidth,screenHeight,setSpeed,charFace,setcharFace,charSprite,setcharSprite,charName,setCharName,charLevel,setLevel,soundON,setSoundIcon,soundIcon,started}}>
+    value={{user, setUser,pokeballs,setPokeballs,speed,posGlobal, setPosGlobal,pokemonImg, pokemons,numberPoke,pokestopmap,setPksMap,pokemonmap,setPkmMap,walking,receivedBalls,screenSize,setScreenSize,screenWidth,screenHeight,setSpeed,charFace,setcharFace,charSprite,setcharSprite,charName,setCharName,charLevel,setLevel,soundON,setSoundIcon,soundIcon,started,msgPokeball,setMsgPokeball}}>
     <Router/>
     </UserContext.Provider>
     </BrowserRouter>

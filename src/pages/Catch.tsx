@@ -2,7 +2,8 @@ import React, { useContext,memo, useState,useEffect } from 'react'
 import bg from '../../public/assets/img/bg.png'
 import UserContext from '../contexts/userContext';
 import {useNavigate} from 'react-router-dom'
-
+import Popup from '../components/Popup';
+const soundError = new Audio("./assets/sfx/error.mp3")
 
 
 
@@ -11,13 +12,13 @@ import {useNavigate} from 'react-router-dom'
    
 function Catch() {
     const navigate = useNavigate()
-    const {pokeballs,pokemonImg,pokemons,numberPoke,setPokeballs,screenWidth,screenHeight}= useContext(UserContext)
+    const {pokeballs,pokemonImg,pokemons,numberPoke,setPokeballs,setMsgPokeball}= useContext(UserContext)
     const [effect, setEffect] = useState(false);
 
     return(
         <>
-   <div style={{backgroundImage: `URL(${bg})`}} id='tela' className='relative w-screen h-[100vh] overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] bg-[url("./assets/img/bg.png")] bg-cover flex justify-center ' >
-
+   <div style={{backgroundImage: `URL(${bg})`}} id='tela' className='relative w-screen h-[100vh] overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] bg-[url("./assets/img/bg.png")] bg-cover flex justify-center sm:max-h-[600px]' >
+    <Popup text='Você está sem pokebolas'/>
         <div className='w-full h-20 flex justify-end p-4'>
             <img src="./assets/img/running.png" alt="" 
             className='w-14 h-14 cursor-pointer hover:scale-150'
@@ -75,7 +76,11 @@ function Catch() {
                  
             }
             else{
-                alert("Você está sem pokebolas!")
+                soundError.play()
+                setMsgPokeball(true)
+                setTimeout(() => {
+                    setMsgPokeball(false)
+                }, 4000);
             } 
             }} 
             

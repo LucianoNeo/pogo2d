@@ -8,9 +8,9 @@ const utils = Utils()
 
 
 function Pokestop(props){
-    const {pokeballs,pokestopmap,setPokeballs,setPksMap,receivedBalls}= useContext(UserContext)
+    const {pokeballs,pokestopmap,setPokeballs,setPksMap,receivedBalls,setMsgPokeball}= useContext(UserContext)
     const navigate = useNavigate()
-    let spinned = false
+    
 
 return(
   <div style={{
@@ -39,10 +39,16 @@ return(
                 return newState
               }
         )
+        setPksMap(
+            (oldState) => {
+                const newState = [...oldState]
+                newState[props.index] = {...oldState[props.index], spinned: true}
+                return newState
+              }
+        )
         receivedBalls.current=utils.random(1,4)
         setPokeballs(pokeballs + receivedBalls.current)
-        console.log(receivedBalls.current)
-        pokestopmap[props.index].spinned= true
+        //pokestopmap[props.index].spinned= true
         itemsShow.style.display = 'block'
         setTimeout(() => {
             itemsShow.style.display = 'none'
@@ -66,7 +72,12 @@ return(
          
         }, 60000);
     }
-    else{alert('Você poderá girar a pokestop novamente em 1 minuto')}
+    else{
+        setMsgPokeball(true)
+    setTimeout(() => {
+        setMsgPokeball(false)
+    }, 4000);
+    }
         
     }}
     >

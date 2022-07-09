@@ -9,7 +9,7 @@
 - [x] pokemon removal on catch 
 - [x] map boundaries
 - [x] mobile joystick
-- [ ] change alerts for screen texts
+- [x] change alerts for screen texts
 - [ ] CP calculation
 - [ ] Add pokemon types
 - [ ] pokemon bag

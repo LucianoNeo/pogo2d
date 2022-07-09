@@ -9,6 +9,7 @@ import dirbutton from '../../public/assets/img/up.png'
 import { useMeasure } from 'react-use'
 import SoundControll from '../components/SoundControll';
 import {SpeakerSimpleSlash,SpeakerHigh} from 'phosphor-react'
+import Popup from '../components/Popup';
 
 
 
@@ -73,7 +74,7 @@ function handletouchup() {
 
   const mapa = HookMapa()
   const navigate = useNavigate()
-  const {posGlobal,walking,setWalking,pokeballs,screenWidth,screenHeight,soundON,setSound,setSoundIcon,soundIcon,started}= useContext(UserContext)
+  const {posGlobal,walking,setWalking,pokeballs,screenWidth,screenHeight,soundON,setSound,setSoundIcon,soundIcon,started,pokestopmap}= useContext(UserContext)
   
   let debugOn = false
   const handleKeyDown = (e: KeyboardEvent) =>{
@@ -115,9 +116,11 @@ function handletouchup() {
   
   useEffect(() => {
     music.current = new Audio("./assets/music/worldtheme.mp3")
+   
     if(soundON.current && !started.current){
     
     music.current.play()
+    music.volume = 0.01
   } else{
     music.current.pause()
   }
@@ -142,7 +145,10 @@ function handletouchup() {
   screenHeight.current = height
   screenWidth.current = width
  
-
+if(pokestopmap == ''){
+  navigate('/')
+  return (<> </>)
+}
    return (
     <>
 
@@ -154,8 +160,8 @@ function handletouchup() {
     <h1>POKEBOLAS: {pokeballs} </h1>
     <button className='bg-slate-900 rounded-xl w-40' onClick={()=>{return navigate('/catch')}}>Catch Test</button>
     </div>
-    <div ref={screensize} id='tela' className='relative w-screen h-[100vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh]' >
-    
+    <div ref={screensize} id='tela' className='relative w-screen h-[100vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px]' >
+    <Popup text='Espere 1 minuto para poder girar novamente!'/>
     <Menu/>
     
     <Mapa x={posGlobal.x} y={posGlobal.y}/>

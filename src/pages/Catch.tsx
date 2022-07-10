@@ -25,7 +25,7 @@ function Catch() {
         if(soundON.current){
         music.current.play()
     }
-        music.current.volume = 0.05
+        music.current.volume = 0.08
     }, [])
     
     return(
@@ -100,6 +100,7 @@ function Catch() {
                     
                     music.current = new Audio("./assets/music/captured.mp3")
                     if(soundON.current){
+                    music.current.volume = 0.08
                     music.current.play()}
 
                 },4100)

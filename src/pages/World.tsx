@@ -122,7 +122,7 @@ function handletouchup() {
     if (soundON.current){
     music.current.play()
     }
-    music.current.volume = 0.05
+    music.current.volume = 0.08
   
     const debug = document.getElementById('debug')
     history.pushState(null, null, location.href);

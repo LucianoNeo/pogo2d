@@ -39,7 +39,7 @@ return(
         <h1 className='text-white text-4xl font-extrabold '>{charLevel}</h1>
     </div>
     
-    <div id='pokeball-menu' className={`w-full h-16 flex bottom-16 absolute items-center justify-center px-32 sm:px-24 animate-fadeinmenu scale-150 hidden`}>    
+    <div id='pokeball-menu' className={`w-full h-16 bottom-16 absolute items-center justify-center px-32 sm:px-20 animate-fadeinmenu scale-150 hidden`}>    
         <PokemonBagButton onclick={openPokemonBag}/>
         <PokemonItemsButton/>
         

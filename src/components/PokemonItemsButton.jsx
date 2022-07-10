@@ -8,8 +8,8 @@ function PokemonItemsButton(props) {
        style={{
         display:'flex',
         backgroundColor:'#1F8394',
-        width: '30px',
-        height: '30px',
+        width: '40px',
+        height: '40px',
         color: 'white',
         margin: '0 auto',
         textAlign: 'center',

@@ -37,9 +37,10 @@ function PokemonBagScreen(){
         onChange={(ev) => setBusca(ev.target.value)}
         placeholder='🔍 Procurar'/>
         
-        <div className="flex w-full flex-wrap mt-5 mx-auto items-center justify-center">
+        <div className="flex w-full flex-wrap mt-5 mx-auto items-center justify-center h-[77vh] sm:h-[68%] overflow-auto"
+        style={{scrollbarWidth:'thin'}}>
         {filtrados.map((pokemon) =>
-        <div className="hover:scale-110 w-28 h-28 flex  flex-col justify-center text-center  sm:w-20 sm:h-20 mb-5"
+        <div className="hover:scale-110 w-28 h-28 flex  flex-col justify-center text-center  sm:w-14 sm:h-16 sm:mb-14 sm:mx-2 mt-6"
         key={pokemon.id}>
         <div className="flex text-center items-center gap-2 justify-center ">
         <span className="text-sm font-mono">CP </span>

@@ -7,6 +7,7 @@ function Loading2() {
 const navigate = useNavigate()
 
 useEffect(() => {
+    music.volume = 0.08
     music.play()
     setTimeout(() => {
         return navigate('/world')

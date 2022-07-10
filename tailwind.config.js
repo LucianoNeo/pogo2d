@@ -1,7 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './src/**/*.tsx'
+    './src/**/*.tsx',
+    './src/**/*.jsx'
   ],
   theme: {
     screens: {
@@ -88,6 +89,7 @@ module.exports = {
     'fadein': 'fadein 2s ease-out',
     'fadein-out': 'fadeinout 3s ease-out',
     'fadeinscale': 'fadeinScale 2s ease-out',
+    'fadeinmenu': 'fadeinScale 1s',
     'pokeball-shake': 'shake 1s infinite ease-in-out',
     'pokeball-throw': 'throw 2s infinite ease-out',
     'loading': 'load 5s infinite ease-in-out ',

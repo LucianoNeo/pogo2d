@@ -25,7 +25,7 @@ function Catch() {
         if(soundON.current){
         music.current.play()
     }
-        music.current.volume = 0.03
+        music.current.volume = 0.05
     }, [])
     
     return(
@@ -34,7 +34,7 @@ function Catch() {
     <Popup text='Você está sem pokebolas'/>
         <div className='w-full h-20 flex justify-end p-4'>
             <img src="./assets/img/running.png" alt="" 
-            className='w-14 h-14 cursor-pointer hover:scale-150'
+            className='w-14 h-14 cursor-pointer hover:scale-125 z-10'
             onClick={()=>{
                 soundRunning.play()
                 music.current.pause()
@@ -112,8 +112,8 @@ function Catch() {
                 let newCatch = {
                     globalID: pokemonmap[pokemonIndex].id,
                     name: pokemonmap[pokemonIndex].name,
-                    number: pokemonmap[pokemonIndex].number,
-                    imgbag: pokemonmap[pokemonIndex].imgbag,
+                    number: numberPoke.current+1,
+                    imgbag: pokemonImg.current,
                     cp: pokemonmap[pokemonIndex].cp,
                     weight: pokemonmap[pokemonIndex].weight,
                     height: pokemonmap[pokemonIndex].height,

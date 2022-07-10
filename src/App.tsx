@@ -62,7 +62,7 @@ const generatePokemonMap = ()=>{
         img: `url(./assets/img/sprites/${imgNumber}.png)`,
         number: randompokenumber,
         activespawn: true,
-        imgbag: `url(./assets/img/pokemon_catch/pokemon (${randompokenumber}).gif)`,
+        imgbag: `./assets/img/pokemon_catch/pokemon (${randompokenumber}).gif`,
         cp: utils.random(10,600),
         weight: ((pokemons[randompokenumber].weight*0.1).toFixed(0)),
         height: ((pokemons[randompokenumber].height*0.1).toFixed(2)),

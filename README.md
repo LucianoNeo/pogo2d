@@ -15,7 +15,7 @@
 - [x] pokemon bag
 - [x] character selection
 - [x] bag creation
-- [ ] bag screen
+- [x] bag screen
 - [ ] items bag creation
 - [ ] items bag screen
 - [ ] pokemon details screen

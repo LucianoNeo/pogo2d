@@ -172,12 +172,12 @@ if(pokestopmap == ''){
       setSoundIcon(<SpeakerHigh size={32} />)
       music.current.pause()
       soundON.current= false
-      console.log(soundON)
+    
     }else{
       setSoundIcon(<SpeakerSimpleSlash size={32} />)
       music.current.play()
       soundON.current= true
-      console.log(soundON)
+  
     }
       }}>
       {soundIcon}
@@ -189,7 +189,7 @@ if(pokestopmap == ''){
 	  <img src="./assets/img/joystick-blue.png"/>		
 	  </div>
     </div>
-    <div id='joystick' className="absolute w-24 h-20, right-8 bottom-44 z-30 flex  flex-col justify-center items-center opacity-50 sm:hidden scale-150">
+    <div id='joystick' className="absolute w-24 h-20, right-8 bottom-52 z-30 flex  flex-col justify-center items-center opacity-50 sm:hidden scale-150">
             <img id='upbutton'src={dirbutton} alt=""
             onTouchStart={handleUp}
             onTouchEnd={handletouchup}

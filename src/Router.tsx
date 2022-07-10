@@ -6,6 +6,7 @@ import CharSelect from './pages/CharSelect'
 import CharNameSelect from './pages/CharNameSelect'
 import { AppleLogo } from 'phosphor-react'
 import Loading2 from './pages/Loading2'
+import PokemonBagScreen from './pages/PokemonBag'
 
 
 export function Router() {
@@ -18,6 +19,7 @@ export function Router() {
             <Route path='/loading' element={ <Loading2/>} />
             <Route path='/world' element={ <World/>} />
             <Route path='/catch' element={ <Catch/>} />
+            <Route path='/pkbag' element={ <PokemonBagScreen/>} />
         </Routes>
 
         

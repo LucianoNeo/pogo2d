@@ -1,14 +1,24 @@
 import redface from '../../public/assets/img/redface.png'
 import pokeball from '../../public/assets/img/pokeball.png'
-import { useContext } from 'react'
+import { useContext, useRef, useState } from 'react'
 import UserContext from '../contexts/userContext'
-
-
-
+import ConfirmButton from './ConfirmButton'
+import PokemonBagButton from './PokemonBagButton'
+import PokemonItemsButton from './PokemonItemsButton'
+import {useNavigate} from 'react-router-dom'
 
 function Menu() {
-    const {receivedBalls,screenHeight,charFace,charName,charLevel}= useContext(UserContext)
+    const navigate = useNavigate()
 
+    function openPokemonBag() {
+        return navigate('/pkbag')
+    }
+
+
+
+    const {receivedBalls,screenHeight,screenWidth,charFace,charName,charLevel}= useContext(UserContext)
+    const [pokeballMenuOpen,setpokeballMenuOpen] = useState(false)
+    const soundSelect = new Audio("./assets/sfx/select.mp3")
 return(
 <div className='w-full h-16 absolute bottom-16 z-30 px-2 justify-between flex items-center '>
 
@@ -29,8 +39,29 @@ return(
         <h1 className='text-white text-4xl font-extrabold '>{charLevel}</h1>
     </div>
     
+    <div id='pokeball-menu' className={`w-full h-16 flex bottom-16 absolute items-center justify-center px-32 sm:px-24 animate-fadeinmenu scale-150 hidden`}>    
+        <PokemonBagButton onclick={openPokemonBag}/>
+        <PokemonItemsButton/>
+        
+    </div>
+
     <div id='pokeball'className='w-16 ml-8'> 
-        <img src={pokeball} alt=""  className='cursor-pointer '/>
+        <img src={pokeball} alt=""  className='cursor-pointer '
+        onClick={()=>{
+            soundSelect.play()
+            if(!pokeballMenuOpen){
+                setpokeballMenuOpen(true)
+               
+            document.getElementById('pokeball-menu').style.display='flex'
+            }else{
+                soundSelect.play()
+                setpokeballMenuOpen(false)
+                document.getElementById('pokeball-menu').style.display='none'    
+                
+            }
+            
+        }}
+        />
         
     </div>
     <div id='itemsShow' className={`absolute animate-fadein-out w-full right-2 hidden`}

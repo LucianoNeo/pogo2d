@@ -20,7 +20,7 @@ function Popup(props) {
     }
     
     return(
-        <div className="absolute w-full h-full flex items-center justify-center z-50"> 
+        <div className="absolute w-full h-full flex items-center justify-center"> 
             <div className=" animate-fadein-out "
             style={{
                 display:`${turnon}`,

@@ -1,4 +1,4 @@
-import React, { useContext,memo, useState,useEffect } from 'react'
+import React, { useContext,memo, useState,useEffect,useRef } from 'react'
 import bg from '../../public/assets/img/bg.png'
 import UserContext from '../contexts/userContext';
 import {useNavigate} from 'react-router-dom'
@@ -16,6 +16,7 @@ const soundCatching = new Audio("./assets/sfx/catching.mp3")
    
 function Catch() {
     const navigate = useNavigate()
+    const capturing = useRef(false)
     const {pokeballs,pokemonImg,pokemons,numberPoke,setPokeballs,setMsgPokeball,pokemonBag,setPokemonBag,pokemonmap,pokemonIndex,music,soundON}= useContext(UserContext)
     const [effect, setEffect] = useState(false);
   
@@ -58,7 +59,8 @@ function Catch() {
             absolute bottom-10 w-20 `}  
               
             onClick={() => {
-                
+                if(!capturing.current){
+                capturing.current=true
                 const pokeSprite = document.getElementById('pokesprite')
                 const pokeballSprite = document.getElementById('pokeballsprite')
                 const catchtext = document.getElementById('catch')
@@ -106,6 +108,7 @@ function Catch() {
                 },4100)
                 setTimeout(()=>{
                     music.current.pause()
+                    capturing.current=false
                     return navigate('/world')
 
                 },8800)
@@ -132,7 +135,7 @@ function Catch() {
                 }, 4000);
             } 
             }} 
-            
+        }
               
   
             />

@@ -183,12 +183,6 @@ if(pokestopmap == ''){
       {soundIcon}
     </button>
 
-    <div style={{ width: '128px', position: 'absolute', left:'210px', top:'150px',opacity:'0'}}>
-	  <img src="./assets/img/joystick-base.png"/>
-	  <div id="stick1" style={{position: 'absolute', left:'32px', top:'32px',}}>
-	  <img src="./assets/img/joystick-blue.png"/>		
-	  </div>
-    </div>
     <div id='joystick' className="absolute w-24 h-20, right-8 bottom-52 z-30 flex  flex-col justify-center items-center opacity-50 sm:hidden scale-150">
             <img id='upbutton'src={dirbutton} alt=""
             onTouchStart={handleUp}

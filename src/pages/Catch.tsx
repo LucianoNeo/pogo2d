@@ -37,6 +37,7 @@ function Catch() {
             <img src="./assets/img/running.png" alt="" 
             className='w-14 h-14 cursor-pointer hover:scale-125 z-10'
             onClick={()=>{
+                setMsgPokeball(false)
                 soundRunning.play()
                 music.current.pause()
                 return navigate('/world')

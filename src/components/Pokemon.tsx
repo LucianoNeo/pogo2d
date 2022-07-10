@@ -1,14 +1,13 @@
-import Utils from '../utils';
 import {useNavigate} from 'react-router-dom'
-import { useState,useContext,memo, useEffect } from 'react';
+import { useContext,memo } from 'react';
 import UserContext from '../contexts/userContext';
 
 function Pokemon(props) {
     const navigate = useNavigate()
-    const {numberPoke,pokemonImg,pokemonmap,pokeballs,setPkmMap}= useContext(UserContext)    
-    const utils = Utils()
+    const {numberPoke,pokemonImg,pokemonmap,pokeballs,setPkmMap,setPokemonIndex}= useContext(UserContext)       
     
     
+
 if(!pokemonmap[props.index].activespawn)    
 return <></>
 
@@ -25,7 +24,9 @@ return(
     
     }}
     onClick={()=>{
+        setPokemonIndex( props.index)
         numberPoke.current = pokemonmap[props.index].number
+       
         if(pokeballs >0){
      
         setPkmMap(
@@ -38,7 +39,7 @@ return(
         pokemonmap[props.index].activespawn=false
 
     }      
-        pokemonImg.current = `./assets/img/pokemon_catch/pokemon (${pokemonmap[props.index].number}).gif`
+        pokemonImg.current = `./assets/img/pokemon_catch/pokemon (${pokemonmap[props.index].number+1}).gif`
      
         return navigate('/catch')
         

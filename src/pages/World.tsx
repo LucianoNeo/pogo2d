@@ -20,7 +20,7 @@ import Popup from '../components/Popup';
 
 function World() {
 
-  let music = useRef()
+  
 
   
   
@@ -74,7 +74,7 @@ function handletouchup() {
 
   const mapa = HookMapa()
   const navigate = useNavigate()
-  const {posGlobal,walking,setWalking,pokeballs,screenWidth,screenHeight,soundON,setSound,setSoundIcon,soundIcon,started,pokestopmap}= useContext(UserContext)
+  const {posGlobal,walking,setWalking,pokeballs,screenWidth,screenHeight,soundON,setSound,setSoundIcon,soundIcon,started,pokestopmap,pokemonmap,pokemonBag,music}= useContext(UserContext)
   
   let debugOn = false
   const handleKeyDown = (e: KeyboardEvent) =>{
@@ -115,16 +115,15 @@ function handletouchup() {
   posGlobal.y=mapa.y
   
   useEffect(() => {
-    music.current = new Audio("./assets/music/worldtheme.mp3")
-   
-    if(soundON.current && !started.current){
+    console.log('Pokemon capturados: ')
+    console.log(pokemonBag)
     
+    music.current = new Audio("./assets/music/worldtheme.mp3")
+    if (soundON.current){
     music.current.play()
-    music.volume = 0.01
-  } else{
-    music.current.pause()
-  }
-  started.current = true
+    }
+    music.current.volume = 0.05
+  
     const debug = document.getElementById('debug')
     history.pushState(null, null, location.href);
     window.onpopstate = function(event) {
@@ -176,7 +175,7 @@ if(pokestopmap == ''){
       console.log(soundON)
     }else{
       setSoundIcon(<SpeakerSimpleSlash size={32} />)
-      //music.current.play()
+      music.current.play()
       soundON.current= true
       console.log(soundON)
     }

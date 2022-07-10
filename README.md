@@ -10,9 +10,13 @@
 - [x] map boundaries
 - [x] mobile joystick
 - [x] change alerts for screen texts
-- [ ] CP calculation
-- [ ] Add pokemon types
-- [ ] pokemon bag
-- [ ] character selection
-- [ ] user creation
+- [x] CP calculation
+- [x] Add pokemon types
+- [x] pokemon bag
+- [x] character selection
+- [x] bag creation
+- [ ] bag screen
+- [ ] items bag creation
+- [ ] items bag screen
+- [ ] pokemon details screen
 - [ ] user login

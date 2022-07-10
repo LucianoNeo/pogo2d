@@ -5,6 +5,7 @@ import { useNavigate   } from 'react-router-dom'
 
 import ConfirmButton from '../components/ConfirmButton';
 import { useMeasure } from 'react-use';
+import { MusicNote } from 'phosphor-react';
 
 
 
@@ -13,8 +14,8 @@ import { useMeasure } from 'react-use';
 function CharSelect() {
 
 const navigate = useNavigate()
-
-const {setcharFace,setcharSprite,setCharName,charLevel,setLevel}= useContext(UserContext)
+const soundSelect = new Audio("./assets/sfx/select.mp3")
+const {setcharFace,setcharSprite,setCharName,music,setLevel}= useContext(UserContext)
 
 let selected 
 let elem=document.documentElement
@@ -38,7 +39,8 @@ function fullscreen() {
 const [screensize, { width,height}] = useMeasure<HTMLDivElement>();
 
 useEffect(() => {
-    
+    music.current = new Audio("./assets/music/main.mp3")
+    music.current.play()
     const red = document.getElementById('selectRED')
     const green = document.getElementById('selectGREEN')
     red.addEventListener('click',handleRED)
@@ -48,6 +50,7 @@ useEffect(() => {
 
 
 function handleRED(){
+    soundSelect.play()
     const red = document.getElementById('selectRED')
     const green = document.getElementById('selectGREEN')
     setcharFace('./assets/img/redface.png')
@@ -63,6 +66,7 @@ function handleRED(){
 }
 
 function handleGREEN(){
+    soundSelect.play()
     const red = document.getElementById('selectRED')
     const green = document.getElementById('selectGREEN')
     setcharFace('./assets/img/greenface.png')
@@ -94,6 +98,7 @@ function handleGREEN(){
         />
        </div>
        <ConfirmButton onclick={()=>{
+        soundSelect.play()
         fullscreen()
         navigate('/char-name-select')
         

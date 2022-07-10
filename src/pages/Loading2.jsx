@@ -10,7 +10,7 @@ useEffect(() => {
     music.play()
     setTimeout(() => {
         return navigate('/world')
-    }, 7000);
+    }, 4000);
     
 }, [])
 

@@ -5,10 +5,10 @@ import UserContext from '../contexts/userContext';
 
 
 const utils = Utils()
-
-
+const soundError = new Audio("./assets/sfx/error.mp3")
+const soundPokestop = new Audio("./assets/sfx/pokestop.mp3")
 function Pokestop(props){
-    const {pokeballs,pokestopmap,setPokeballs,setPksMap,receivedBalls,setMsgPokeball}= useContext(UserContext)
+    const {pokeballs,pokestopmap,setPokeballs,setPksMap,receivedBalls,setMsgPokeball,soundON}= useContext(UserContext)
     const navigate = useNavigate()
     
 
@@ -29,7 +29,7 @@ return(
     const itemsShow = document.getElementById('itemsShow')
 
         if (!pokestopmap[props.index].spinned ){
-            
+           
         const thispokestop = document.getElementById(`pokestop${props.index}`)
         
         setPksMap(
@@ -46,11 +46,14 @@ return(
                 return newState
               }
         )
+        if(soundON.current){
+            soundPokestop.play()} 
         receivedBalls.current=utils.random(1,4)
         setPokeballs(pokeballs + receivedBalls.current)
         //pokestopmap[props.index].spinned= true
         itemsShow.style.display = 'block'
         setTimeout(() => {
+            
             itemsShow.style.display = 'none'
         }, 4000);
         setTimeout(() => {
@@ -73,6 +76,7 @@ return(
         }, 60000);
     }
     else{
+        soundError.play()
         setMsgPokeball(true)
     setTimeout(() => {
         setMsgPokeball(false)

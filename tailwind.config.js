@@ -86,7 +86,7 @@ module.exports = {
   animation: {
     'walking': 'walk 1s infinite steps(4)',
     'fadein': 'fadein 2s ease-out',
-    'fadein-out': 'fadeinout 4s ease-out',
+    'fadein-out': 'fadeinout 3s ease-out',
     'fadeinscale': 'fadeinScale 2s ease-out',
     'pokeball-shake': 'shake 1s infinite ease-in-out',
     'pokeball-throw': 'throw 2s infinite ease-out',

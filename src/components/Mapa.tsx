@@ -1,5 +1,6 @@
 import { memo } from 'react';
-import Generate from './Generate';
+import GeneratePokemon from './GeneratePokemon';
+import GeneratePokestop from './GeneratePokestop';
 import Quadras from './Quadras';
 
 type Props ={
@@ -22,7 +23,8 @@ function Mapa({x,y}: Props) {
             
             }}>
             <Quadras/>
-            <Generate/>
+            <GeneratePokemon/>
+            <GeneratePokestop/>
             
         </div>
         

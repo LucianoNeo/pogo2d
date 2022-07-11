@@ -129,11 +129,12 @@ function Catch() {
                  
             }
             else{
+                capturing.current=false
                 soundError.play()
                 setMsgPokeball(true)
                 setTimeout(() => {
                     setMsgPokeball(false)
-                }, 4000);
+                }, 3000);
             } 
             }} 
         }

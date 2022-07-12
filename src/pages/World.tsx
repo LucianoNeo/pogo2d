@@ -183,24 +183,24 @@ function World() {
           <img id='upbutton' src={dirbutton} alt=""
             onTouchStart={handleUp}
             onTouchEnd={handletouchup}
-            style={{ width: '30px', height: '30px', cursor: 'pointer' }} />
+            style={{ width: '30px', height: '30px', cursor: 'pointer',userSelect:'none',WebkitUserSelect:'none' }} />
 
           <div className='flex flex-row w-full justify-between '>
             <img src={dirbutton} alt=""
               onTouchStart={handleLeft}
               onTouchEnd={handletouchup}
-              style={{ width: '30px', height: '30px', transform: 'rotate(-90deg)', cursor: 'pointer' }} />
+              style={{ width: '30px', height: '30px', transform: 'rotate(-90deg)', cursor: 'pointer' ,userSelect:'none',WebkitUserSelect:'none'}} />
 
             <img src={dirbutton} alt=""
               onTouchStart={handleRight}
               onTouchEnd={handletouchup}
-              style={{ width: '30px', height: '30px', transform: 'rotate(90deg)', cursor: 'pointer' }} />
+              style={{ width: '30px', height: '30px', transform: 'rotate(90deg)', cursor: 'pointer' ,userSelect:'none',WebkitUserSelect:'none'}} />
 
           </div>
           <img src={dirbutton} alt=""
             onTouchStart={handleDown}
             onTouchEnd={handletouchup}
-            style={{ width: '30px', height: '30px', transform: 'rotate(180deg)', cursor: 'pointer' }} />
+            style={{ width: '30px', height: '30px', transform: 'rotate(180deg)', cursor: 'pointer' ,userSelect:'none',WebkitUserSelect:'none'}} />
 
         </div>
       </div>

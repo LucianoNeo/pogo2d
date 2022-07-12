@@ -33,6 +33,7 @@ function Continue() {
 
     function continueGame() {
         soundPlayerSelect.play()
+        fullscreen()
         setTimeout(() => {
             navigate('/loading')   
         }, 1000);
@@ -41,6 +42,7 @@ function Continue() {
 
     function confirm() {
         soundError.play()
+        fullscreen()
         const confirmScreen = document.getElementById('confirm')
         confirmScreen.style.display = 'flex'
     }
@@ -60,7 +62,8 @@ function Continue() {
         setPokeballs(5)
         return navigate('/char-select')
     }
-
+    
+    let elem = document.documentElement
 
     function fullscreen() {
         if (window.screen.width < 600) {
@@ -87,7 +90,9 @@ function Continue() {
         <div id='tela' className='relative w-screen h-[100vh] overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px] flex '
             style={{ background: 'linear-gradient(170deg, rgba(57,154,93,1) 20%, rgba(46,103,115,1) 83%)' }}>
  
-            <div id='confirm' className='absolute left-2 top-44 w-[96%] h-[60%] bg-slate-50 text-center rounded justify-evenly items-center flex-col z-10 p-2  gap-4 hidden animate-screenShake text-xl sm:text-sm'>
+            <div id='confirm' className='absolute left-2 top-44 w-[96%] h-[60%] bg-slate-50 text-center rounded justify-evenly items-center flex-col z-10 p-2  gap-4 hidden animate-screenShake text-xl sm:text-sm'
+            style={{userSelect:'none',WebkitUserSelect:'none'}}
+            >
                 <img src="./assets/img/warning.png" alt="" 
                 className='w-60 sm:w-40'
                 />
@@ -106,6 +111,7 @@ function Continue() {
 
                     <div className='w-[90%] h-28 flex items-center px-5 gap-4 border-2 rounded-md justify-between hover:scale-110 cursor-pointer'
                         onClick={continueGame}
+                        style={{userSelect:'none',WebkitUserSelect:'none'}}
                     >
                         <img id='continue' src={charFace} alt=""
                             className='bg-red-400 rounded  h-24 cursor-pointer ' />

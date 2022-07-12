@@ -6,6 +6,9 @@ import axios from 'axios'
 import Social from '../components/Social';
 import React from 'react';
 
+
+
+
 function Loading() {
 
     const {setcharFace,setcharSprite,setCharName,setLevel,setPokemonBag,setPokeballs}= useContext(UserContext)

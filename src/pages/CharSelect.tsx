@@ -8,7 +8,8 @@ import ConfirmButton from '../components/ConfirmButton';
 import React from 'react';
 
 
-
+const img = document.querySelector('img')
+img.setAttribute("draggable", false);
 
 
 function CharSelect() {

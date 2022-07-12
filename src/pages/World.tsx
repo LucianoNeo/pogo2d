@@ -11,7 +11,8 @@ import Popup from '../components/Popup';
 import UserContext from '../contexts/userContext';
 import HookMapa from '../hooks/HookMapa';
 
-
+const img = document.querySelector('img')
+img.setAttribute("draggable", false);
 
 
 function World() {

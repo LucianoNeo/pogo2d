@@ -6,7 +6,8 @@ import React from 'react';
 import ConfirmButton from '../components/ConfirmButton';
 import CloseButton from '../components/CloseButton';
 
-
+const img = document.querySelector('img')
+img.setAttribute("draggable", false);
 
 
 
@@ -62,7 +63,7 @@ function Continue() {
         setPokeballs(5)
         return navigate('/char-select')
     }
-    
+
     let elem = document.documentElement
 
     function fullscreen() {

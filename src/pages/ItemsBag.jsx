@@ -4,6 +4,10 @@ import UserContext from "../contexts/userContext"
 import { useNavigate } from 'react-router-dom'
 import { Trash, TrashSimple } from "phosphor-react"
 
+const img = document.querySelector('img')
+img.setAttribute("draggable", false);
+
+
 function ItemsBag() {
 
 

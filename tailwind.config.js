@@ -70,6 +70,13 @@ module.exports = {
       '75%': { bottom: '50px' },
       '100%': { bottom: '40px' },
     },
+    screenShake: {
+      '0%': { transform: 'translateX(0)' },
+      '25%': { transform: 'translateX(-15px)' },
+      '50%': { transform: 'translateX(15px)' },
+      '75%': { transform: 'translateX(-15px)' },
+      '100%': { transform: 'translateX(0)' },
+    },
     load: {
       '0%': {width: '1%' },
       '100%': {width: '90%' },      
@@ -89,10 +96,11 @@ module.exports = {
     'fadein': 'fadein 2s ease-out',
     'fadein-out': 'fadeinout 3s ease-out',
     'fadeinscale': 'fadeinScale 2s ease-out',
-    'fadeinmenu': 'fadeinScale 1s',
+    'fadeinmenu': 'fadeinScale 500ms',
     'pokeball-shake': 'shake 1s infinite ease-in-out',
     'pokeball-throw': 'throw 2s infinite ease-out',
     'loading': 'load 5s infinite ease-in-out ',
+    'screenShake': 'screenShake 200ms',
   },
  
 },

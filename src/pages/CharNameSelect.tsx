@@ -3,6 +3,7 @@ import { useState,useContext,useEffect } from 'react';
 import UserContext from '../contexts/userContext';
 import { useNavigate   } from 'react-router-dom'
 import ConfirmButton from '../components/ConfirmButton';
+import React from 'react';
 
 
 function CharNameSelect() {
@@ -18,9 +19,13 @@ const {setcharFace,setcharSprite,setCharName,charName}= useContext(UserContext)
         <div className='flex flex-col items-center w-screen h-[60%] justify-evenly'>
         <h1 className="text-xl text-white text-center ">Escolha seu nome:</h1>
             <input 
-
+            autoFocus
             id='name'
-            onChange={e => setCharName(e.target.value)}
+            onChange={(e) => {
+                setCharName(e.target.value)
+                localStorage.setItem('username',e.target.value)
+            }
+            }
             className='rounded text-lg p-2 text-gray-500 text-center'
             type="text" name="" autoComplete='off'/>
             <div className='absolute bottom-20'>

@@ -8,8 +8,8 @@ function ConfirmButton(props) {
        style={{
         display:'flex',
         backgroundColor:'#1F8394',
-        width: '70px',
-        height: '70px',
+        width: '50px',
+        height: '50px',
         color: 'white',
         margin: '0 auto',
         textAlign: 'center',

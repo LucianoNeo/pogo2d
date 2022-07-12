@@ -1,4 +1,4 @@
-import redface from '../../public/assets/img/redface.png'
+
 import pokeball from '../../public/assets/img/pokeball.png'
 import { useContext, useRef, useState } from 'react'
 import UserContext from '../contexts/userContext'
@@ -6,6 +6,7 @@ import ConfirmButton from './ConfirmButton'
 import PokemonBagButton from './PokemonBagButton'
 import PokemonItemsButton from './PokemonItemsButton'
 import {useNavigate} from 'react-router-dom'
+import React from 'react'
 
 function Menu() {
     const navigate = useNavigate()
@@ -14,9 +15,13 @@ function Menu() {
         return navigate('/pkbag')
     }
 
+    function openItemsBag() {
+        return navigate('/itbag')
+    }
 
 
-    const {receivedBalls,screenHeight,screenWidth,charFace,charName,charLevel}= useContext(UserContext)
+
+    const {receivedBalls,screenHeight,screenWidth,charFace,charName,charLevel,data,setData}= useContext(UserContext)
     const [pokeballMenuOpen,setpokeballMenuOpen] = useState(false)
     const soundSelect = new Audio("./assets/sfx/select.mp3")
 return(
@@ -39,9 +44,9 @@ return(
         <h1 className='text-white text-4xl font-extrabold '>{charLevel}</h1>
     </div>
     
-    <div id='pokeball-menu' className={`w-full h-16 bottom-16 absolute items-center justify-center px-32 sm:px-20 animate-fadeinmenu scale-150 hidden`}>    
+    <div id='pokeball-menu' className={`w-full h-16 bottom-16 absolute items-center justify-center px-32 sm:px-20 animate-fadeinmenu scale-150 hidden gap-5`}>    
         <PokemonBagButton onclick={openPokemonBag}/>
-        <PokemonItemsButton/>
+        <PokemonItemsButton onclick={openItemsBag}/>
         
     </div>
 

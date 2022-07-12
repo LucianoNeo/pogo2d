@@ -26,7 +26,7 @@ function Catch() {
         if(soundON.current){
         music.current.play()
     }
-        music.current.volume = 0.08
+        music.current.volume = 0.3
     }, [])
     
     return(
@@ -69,7 +69,8 @@ function Catch() {
                 setEffect(true); 
                 if(soundON.current){
                 soundPokeball.play()}
-                setPokeballs(pokeballs -1)      
+                setPokeballs(pokeballs -1)
+                      
                 setTimeout(()=>{
                     if(soundON.current){
                         soundCatching.play()}
@@ -110,7 +111,9 @@ function Catch() {
                 setTimeout(()=>{
                     music.current.pause()
                     capturing.current=false
+                    
                     return navigate('/world')
+                    
 
                 },8800)
 
@@ -126,6 +129,10 @@ function Catch() {
                     type2: pokemonmap[pokemonIndex].type2 
                 }
                  setPokemonBag(prevState => [...prevState,newCatch])
+                 
+                 
+                     
+                
                  
             }
             else{

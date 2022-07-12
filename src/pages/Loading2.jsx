@@ -1,17 +1,20 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useNavigate   } from 'react-router-dom'
+import UserContext from '../contexts/userContext';
 
-const music = new Audio("./assets/music/start.mp3")
+
 function Loading2() {
 
 const navigate = useNavigate()
-
+const {music}= useContext(UserContext)
 useEffect(() => {
-    music.volume = 0.08
-    music.play()
+    music.current.pause()
+    music.current = new Audio("./assets/music/start.mp3")
+    music.current.volume = 0.08
+    music.current.play()
     setTimeout(() => {
         return navigate('/world')
-    }, 4000);
+    }, 6000);
     
 }, [])
 

@@ -2,6 +2,7 @@ import Utils from '../utils';
 import { memo, useState ,useContext} from 'react';
 import {useNavigate} from 'react-router-dom'
 import UserContext from '../contexts/userContext';
+import React from 'react';
 
 
 const utils = Utils()
@@ -50,6 +51,7 @@ return(
             soundPokestop.play()} 
         receivedBalls.current=utils.random(1,4)
         setPokeballs(pokeballs + receivedBalls.current)
+       
         //pokestopmap[props.index].spinned= true
         itemsShow.style.display = 'block'
         setTimeout(() => {

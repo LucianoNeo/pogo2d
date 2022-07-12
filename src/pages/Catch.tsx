@@ -10,9 +10,7 @@ const soundPokeballWobble = new Audio("./assets/sfx/pokeball-wobble.mp3")
 const soundRunning = new Audio("./assets/sfx/running.mp3")
 const soundCatching = new Audio("./assets/sfx/catching.mp3")
 
-const img = document.querySelector('img')
-img.setAttribute("draggable", false);
-  
+ 
  
    
 function Catch() {

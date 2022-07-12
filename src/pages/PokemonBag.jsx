@@ -3,10 +3,6 @@ import CloseButton from "../components/CloseButton"
 import UserContext from "../contexts/userContext"
 import {useNavigate} from 'react-router-dom'
 
-const img = document.querySelector('img')
-img.setAttribute("draggable", false);
-
-
 
 function PokemonBagScreen(){
    

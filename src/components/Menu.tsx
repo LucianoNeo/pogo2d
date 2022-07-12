@@ -8,8 +8,6 @@ import PokemonItemsButton from './PokemonItemsButton'
 import {useNavigate} from 'react-router-dom'
 import React from 'react'
 
-const img = document.querySelector('img')
-img.setAttribute("draggable", false);
 
 function Menu() {
     const navigate = useNavigate()

@@ -6,10 +6,6 @@ import React from 'react';
 import ConfirmButton from '../components/ConfirmButton';
 import CloseButton from '../components/CloseButton';
 
-const img = document.querySelector('img')
-img.setAttribute("draggable", false);
-
-
 
 
 

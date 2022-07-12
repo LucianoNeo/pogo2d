@@ -11,6 +11,9 @@ O projeto está totalmente responsivo para pc e android e parcialmente para IOS 
 <img src='./screenshots/pokemonbag.jpg' height='400px'/>
 <img src='./screenshots/itemsbag.jpg' height='400px'/>
 </p>
+
+LINK PARA O JOGO:<br>
+https://pokemongo2d.vercel.app/
 # Pokemon Go 2D Roadmap to 1.00
 
 - [x] loading screen

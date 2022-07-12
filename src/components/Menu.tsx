@@ -31,7 +31,7 @@ return(
     <div id='facePersonagem'className='w-20 border-4 border-yellow-100 rounded-full h-20 overflow-hidden bg-gray-500'
     style={{userSelect:'none',WebkitUserSelect:'none'}}
     >
-        <a href="#"><img src={charFace} draggable='false' alt=""/></a>
+        <img src={charFace} draggable='false' alt=""/>
         
     </div>
 

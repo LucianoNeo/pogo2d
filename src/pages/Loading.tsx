@@ -47,7 +47,7 @@ setTimeout(() => {
        <h1 className="text-2xl text-center animate-fadein mt-5">Desenvolvido por LucianoNeo</h1>
        </div>
        <Social/>
-       <h1>v0.8</h1>
+       <h1>v0.82</h1>
     </div>
     )
     

@@ -1,4 +1,4 @@
-import { SpeakerHigh, SpeakerSimpleSlash } from 'phosphor-react';
+import { SpeakerHigh, SpeakerSimpleSlash, WindowsLogo } from 'phosphor-react';
 import React from 'react';
 import { memo, useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -65,7 +65,7 @@ function World() {
 
   const mapa = HookMapa()
   const navigate = useNavigate()
-  const { posGlobal, walking, setWalking, pokeballs, screenWidth, screenHeight, soundON, setSound, setSoundIcon, soundIcon, started, pokestopmap, pokemonmap, pokemonBag, music, data, setData } = useContext(UserContext)
+  const { posGlobal, walking, setWalking, pokeballs, screenWidth, screenHeight, soundON, setSound, setSoundIcon, soundIcon, started, pokestopmap, pokemonmap, pokemonBag, music, data, setData ,screenH} = useContext(UserContext)
 
   let debugOn = false
   const handleKeyDown = (e: KeyboardEvent) => {
@@ -102,7 +102,6 @@ function World() {
 
   }
 
-
   posGlobal.x = mapa.x
   posGlobal.y = mapa.y
   let hasStarted = useRef(false)
@@ -125,7 +124,7 @@ function World() {
     window.onpopstate = function (event) {
       history.go(1);
     };
-
+    
     window.addEventListener('keydown', handleKeyDown)
     window.addEventListener("contextmenu", function (e) {
       e.preventDefault();
@@ -155,7 +154,10 @@ function World() {
         <h1>POKEBOLAS: {pokeballs} </h1>
         <button className='bg-slate-900 rounded-xl w-40' onClick={() => { return navigate('/catch') }}>Catch Test</button>
       </div>
-      <div ref={screensize} id='tela' className='relative w-screen h-[100vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px]' >
+      <div ref={screensize} id='tela' className='relative w-screen overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px]'
+      style={{ height: `${screenH.current}vh`}}
+    >
+        
         <Popup text='Espere 1 minuto para poder girar novamente!' />
         <Menu />
 

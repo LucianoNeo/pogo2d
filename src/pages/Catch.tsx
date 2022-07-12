@@ -16,7 +16,7 @@ const soundCatching = new Audio("./assets/sfx/catching.mp3")
 function Catch() {
     const navigate = useNavigate()
     const capturing = useRef(false)
-    const {pokeballs,pokemonImg,pokemons,numberPoke,setPokeballs,setMsgPokeball,pokemonBag,setPokemonBag,pokemonmap,pokemonIndex,music,soundON}= useContext(UserContext)
+    const {pokeballs,pokemonImg,pokemons,numberPoke,setPokeballs,setMsgPokeball,pokemonBag,setPokemonBag,pokemonmap,pokemonIndex,music,soundON,screenH}= useContext(UserContext)
     const [effect, setEffect] = useState(false);
   
     useEffect(() => {
@@ -30,7 +30,8 @@ function Catch() {
     
     return(
         <>
-   <div style={{backgroundImage: `URL(${bg})`}} id='tela' className='relative w-screen h-[100vh] overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] bg-[url("./assets/img/bg.png")] bg-cover flex justify-center sm:max-h-[600px]' >
+   <div style={{height: `${screenH.current}vh`,backgroundImage: `URL(${bg})`}} id='tela' className='relative w-screen  overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] bg-[url("./assets/img/bg.png")] bg-cover flex justify-center sm:max-h-[600px]'
+    >
     <Popup text='Você está sem pokebolas'/>
         <div className='w-full h-20 flex justify-end p-4'>
             <img src="./assets/img/running.png" draggable='false' alt="" 

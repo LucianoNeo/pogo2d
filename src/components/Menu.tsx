@@ -28,8 +28,10 @@ function Menu() {
 return(
 <div className='w-full h-16 absolute bottom-16 z-30 px-2 justify-between flex items-center '>
 
-    <div id='facePersonagem'className='w-20 border-4 border-yellow-100 rounded-full h-20 overflow-hidden bg-gray-500'>
-        <a href="#"><img src={charFace} draggable='false' alt=""/></a>
+    <div id='facePersonagem'className='w-20 border-4 border-yellow-100 rounded-full h-20 overflow-hidden bg-gray-500'
+    style={{userSelect:'none',WebkitUserSelect:'none'}}
+    >
+        <img src={charFace} draggable='false' alt=""/>
         
     </div>
 
@@ -37,7 +39,8 @@ return(
         <div className="bg-blue-600 h-[10.1px] rounded-full w-[10%]"></div>
     </div>
 
-    <div id='nomePersonagem' className='absolute bottom-[-40px] left-2'>
+    <div id='nomePersonagem' className='absolute bottom-[-40px] left-2'
+    style={{userSelect:'none',WebkitUserSelect:'none'}}>
         <h1 className='text-white text-md drop-shadow-md'>{charName}</h1>
     </div>
 

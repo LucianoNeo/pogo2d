@@ -43,7 +43,7 @@ setTimeout(() => {
     return(
         <div id='tela' className='relative w-screen h-[100vh] overflow-hidden bg-white m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] flex flex-col items-center justify-evenly sm:max-h-[600px]'>
         <div className='items-center flex flex-col justify-center'>
-        <img src="./assets/img/NEO1.jpg" alt="" className='rounded-full w-20 h-20' />
+        <img src="./assets/img/NEO1.jpg" alt="" className='rounded-full w-20 h-20' draggable='false' />
        <h1 className="text-2xl text-center animate-fadein mt-5">Desenvolvido por LucianoNeo</h1>
        </div>
        <Social/>

@@ -31,7 +31,7 @@ function ItemsBag() {
                 <h1 className="mt-5">ITEMS</h1>
                 <hr style={{height:'1px',color:'black',width:'100%'}}></hr>
                 <div className="flex items-center gap-4 p-1 justify-between w-full relative">
-                    <img src="./assets/img/pokeball_catch.png" alt="" width={80} />
+                    <img src="./assets/img/pokeball_catch.png" draggable='false' alt="" width={80} />
                     <div className="bottom-2 left-2 absolute bg-gray-400 rounded-xl p-1 text-center items-center flex justify-center opacity-80">
                         <p className="font-sans font-bold">x{pokeballs}</p>
                     </div>

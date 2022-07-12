@@ -96,11 +96,11 @@ function CharSelect() {
             >
                 <h1 className="text-xl text-white text-center ">Escolha seu personagem:</h1>
                 <div className='flex w-full p-2 justify-between'>
-                    <img id='selectRED' src="./assets/img/red-selection.png" alt="" className='bg-red-400 rounded w-[45%] cursor-pointer grayscale hover:grayscale-0 hover:scale-110'
+                    <img id='selectRED' src="./assets/img/red-selection.png" draggable='false' alt="" className='bg-red-400 rounded w-[45%] cursor-pointer grayscale hover:grayscale-0 hover:scale-110'
 
 
                     />
-                    <img id='selectGREEN' src="./assets/img/green-selection.png" alt="" className='bg-green-400 rounded w-[45%] cursor-pointer grayscale hover:grayscale-0 hover:scale-110'
+                    <img id='selectGREEN' src="./assets/img/green-selection.png" draggable='false' alt="" className='bg-green-400 rounded w-[45%] cursor-pointer grayscale hover:grayscale-0 hover:scale-110'
                     />
                 </div>
                 <ConfirmButton onclick={() => {

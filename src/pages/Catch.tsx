@@ -33,7 +33,7 @@ function Catch() {
    <div style={{backgroundImage: `URL(${bg})`}} id='tela' className='relative w-screen h-[100vh] overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] bg-[url("./assets/img/bg.png")] bg-cover flex justify-center sm:max-h-[600px]' >
     <Popup text='Você está sem pokebolas'/>
         <div className='w-full h-20 flex justify-end p-4'>
-            <img src="./assets/img/running.png" alt="" 
+            <img src="./assets/img/running.png" draggable='false' alt="" 
             className='w-14 h-14 cursor-pointer hover:scale-125 z-10'
             onClick={()=>{
                 setMsgPokeball(false)
@@ -49,12 +49,12 @@ function Catch() {
         <div id='pokesprite' className='absolute  bottom-[300px] w-60 text-center items-center justify-center flex flex-col sm:bottom-[300px]'> 
             <h1 className='bg-slate-600 text-white rounded-2xl px-2 py-1 min-w-fit'>{pokemons[numberPoke.current].name[0].toUpperCase() + pokemons[numberPoke.current].name.substring(1)}
             </h1>
-            <img src={pokemonImg.current} alt="" style={{width:'160px',imageRendering: 'pixelated'}}/>
+            <img src={pokemonImg.current} draggable='false' alt="" style={{width:'160px',imageRendering: 'pixelated'}}/>
         </div>
 
         
         <div id='menu' className=' w-[95%] h-28 absolute bottom-10 m-auto drop-shadow-lg flex flex-col items-center justify-center text-center'>
-            <img id='pokeballsprite'src="./assets/img/pokeball_catch.png" alt=""  
+            <img id='pokeballsprite'src="./assets/img/pokeball_catch.png" draggable='false' alt=""  
             className={`${effect && "animate-pokeball-throw"}
             absolute bottom-10 w-20 `}  
               

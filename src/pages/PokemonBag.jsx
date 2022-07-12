@@ -53,7 +53,7 @@ function PokemonBagScreen(){
           <p>{pokemon.cp}</p>
           </div>
           <div className="h-12 flex w-gull items-center justify-center ">
-          <img src={pokemon.imgbag} alt='' style={{ margin: '0 auto' }} />
+          <img src={pokemon.imgbag} alt='' draggable='false' style={{ margin: '0 auto' }} />
           </div>
           <p className="text-md sm:text-xs font-mono">{pokemon.name}</p>
           

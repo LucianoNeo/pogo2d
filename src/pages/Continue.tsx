@@ -90,7 +90,7 @@ function Continue() {
             <div id='confirm' className='absolute left-2 top-44 w-[96%] h-[60%] bg-slate-50 text-center rounded justify-evenly items-center flex-col z-10 p-2  gap-4 hidden animate-screenShake text-xl sm:text-sm'
             style={{userSelect:'none',WebkitUserSelect:'none'}}
             >
-                <img src="./assets/img/warning.png" alt="" 
+                <img src="./assets/img/warning.png" draggable='false' alt="" 
                 className='w-60 sm:w-40'
                 />
                 <h1 >CONFIRMA REMOÇÃO PERMANTENTE DOS DADOS?</h1>
@@ -101,7 +101,7 @@ function Continue() {
             </div>
             <div className='flex flex-col justify-start w-full py-9 h-full gap-10'>
                 <div className='flex items-center justify-center'>
-                    <img src="./assets/img/logo.png" alt="" width={200} />
+                    <img src="./assets/img/logo.png" draggable='false' alt="" width={200} />
                 </div>
  
                 <div className='flex w-full p-2 flex-col text-white items-center gap-7'>
@@ -110,7 +110,7 @@ function Continue() {
                         onClick={continueGame}
                         style={{userSelect:'none',WebkitUserSelect:'none'}}
                     >
-                        <img id='continue' src={charFace} alt=""
+                        <img id='continue' src={charFace} draggable='false' alt=""
                             className='bg-red-400 rounded  h-24 cursor-pointer ' />
                         <div className='flex flex-col justify-center h-full' >
                             <p className='font-sans text-xs'>{charName}</p>

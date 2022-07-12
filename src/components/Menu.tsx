@@ -29,7 +29,7 @@ return(
 <div className='w-full h-16 absolute bottom-16 z-30 px-2 justify-between flex items-center '>
 
     <div id='facePersonagem'className='w-20 border-4 border-yellow-100 rounded-full h-20 overflow-hidden bg-gray-500'>
-        <a href="#"><img src={charFace} alt=""/></a>
+        <a href="#"><img src={charFace} draggable='false' alt=""/></a>
         
     </div>
 
@@ -52,7 +52,7 @@ return(
     </div>
 
     <div id='pokeball'className='w-16 ml-8'> 
-        <img src={pokeball} alt=""  className='cursor-pointer '
+        <img src={pokeball} alt=""  draggable='false' className='cursor-pointer '
         onClick={()=>{
             soundSelect.play()
             if(!pokeballMenuOpen){
@@ -72,7 +72,7 @@ return(
     </div>
     <div id='itemsShow' className={`absolute animate-fadein-out w-full right-2 hidden`}
     style={{top:`-${screenHeight.current/1.8}px`}}> 
-    <img id='pokeballsprite'src="./assets/img/pokeball_catch.png" alt=""  
+    <img id='pokeballsprite'src="./assets/img/pokeball_catch.png" draggable='false' alt=""  
             className='absolute bottom-16 w-7 right-10'/>
             <h1 className='text-white text-2xl font-extrabold drop-shadow-2xl shadow-black absolute bottom-16 w-6 right-2'>+{receivedBalls.current}</h1>
     </div>

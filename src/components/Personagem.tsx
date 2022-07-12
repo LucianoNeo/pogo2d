@@ -1,3 +1,4 @@
+import React from 'react'
 import { useContext } from 'react'
 import styled, {keyframes} from 'styled-components'
 import UserContext from '../contexts/userContext'
@@ -22,7 +23,7 @@ export const Personagem =(props)=>
         width:'256px', 
         height:'256px',
         imageRendering:'pixelated' }}>
-        <img src={charSprite} alt=""/>
+        <img draggable='false' src={charSprite} alt=""/>
         </div>
         </div>
     )   

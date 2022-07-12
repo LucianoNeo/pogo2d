@@ -108,6 +108,8 @@ function World() {
   let hasStarted = useRef(false)
 
   useEffect(() => {
+    
+       
     localStorage.removeItem("pokemonbag");
     localStorage.setItem("pokemonbag", JSON.stringify(pokemonBag));
     localStorage.removeItem('pokeballsQty')

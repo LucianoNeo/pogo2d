@@ -108,7 +108,23 @@ function World() {
   let hasStarted = useRef(false)
 
   useEffect(() => {
-    
+    /* Storing user's device details in a variable*/
+    let details = navigator.userAgent;
+  
+    /* Creating a regular expression 
+    containing some mobile devices keywords 
+    to search it in details string*/
+    let regexp = /iphone/i;
+
+    /* Using test() method to search regexp in details
+    it returns boolean value*/
+    let isMobileDevice = regexp.test(details);
+
+    if (isMobileDevice) {
+        alert("You are using a Iphone");
+    } else {
+      console.log("You are using Desktop");
+    }
        
     localStorage.removeItem("pokemonbag");
     localStorage.setItem("pokemonbag", JSON.stringify(pokemonBag));

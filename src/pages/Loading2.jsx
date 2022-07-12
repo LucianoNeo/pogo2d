@@ -6,7 +6,7 @@ import UserContext from '../contexts/userContext';
 function Loading2() {
 
 const navigate = useNavigate()
-const {music}= useContext(UserContext)
+const {music,screenH}= useContext(UserContext)
 useEffect(() => {
     music.current.pause()
     music.current = new Audio("./assets/music/start.mp3")
@@ -22,6 +22,7 @@ useEffect(() => {
     return(
         <div id='tela' className='relative w-screen h-[100vh] overflow-hidden bg-white m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] flex flex-col items-center justify-evenly opacity-85 sm:max-h-[600px]'
         style={{
+            height: `${screenH.current}vh`,
             backgroundImage:'url(./assets/img/loading.png)',
             backgroundSize:'cover',
         }}

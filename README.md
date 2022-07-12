@@ -2,7 +2,7 @@ Pokémon GO 2D VERSION é minha reimaginação do clássico sucesso mundial, ond
 O jogo está sendo desenvolvido com REACT JS, Tailwind CSS , Javacript e Typescript para o front-end.
 O back-end será desenvolvido na versão 2.00, onde usará rest api em node express e banco de dados com MONGODB.
 O projeto está totalmente responsivo para pc e android e parcialmente para IOS (devido à limitações de uso do navegador SAFARI)
-* Para uma experiência completa no iphone, adicione o site à sua pagina inicial de apps, assim ele abrirá em FULL-SCREEN.
+
 <div style='align-items: center'>
 <img src='./screenshots/home.jpg' width='200px'/>
 <img src='./screenshots/select.jpg'width='200px'/>

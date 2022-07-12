@@ -14,7 +14,7 @@ import HookMapa from '../hooks/HookMapa';
 
 function World() {
 
-
+let screenH = 100
 
   function moveup() {
     setSide(-196)
@@ -121,7 +121,7 @@ function World() {
     let isMobileDevice = regexp.test(details);
 
     if (isMobileDevice) {
-        alert("You are using a Iphone");
+        screenH = 90
     } else {
       console.log("You are using Desktop");
     }
@@ -171,7 +171,7 @@ function World() {
         <h1>POKEBOLAS: {pokeballs} </h1>
         <button className='bg-slate-900 rounded-xl w-40' onClick={() => { return navigate('/catch') }}>Catch Test</button>
       </div>
-      <div ref={screensize} id='tela' className='relative w-screen h-[100vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px]' >
+      <div ref={screensize} id='tela' className={`relative w-screen h-[${screenH}vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px]`}>
         <Popup text='Espere 1 minuto para poder girar novamente!' />
         <Menu />
 

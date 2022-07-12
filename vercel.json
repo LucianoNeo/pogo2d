@@ -1,5 +1,12 @@
 {
   "rewrites":  [
-    {"source": "/(.*)", "destination": "/"}
+    {"source": "/char-select", "destination": "/"},
+    {"source": "/char-name-select", "destination": "/"},
+    {"source": "/loading", "destination": "/"},
+    {"source": "/world", "destination": "/"},
+    {"source": "/catch", "destination": "/"},
+    {"source": "/pkbag", "destination": "/"},
+    {"source": "/itbag", "destination": "/"}
+
   ]
 }

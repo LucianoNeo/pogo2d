@@ -3,14 +3,14 @@ O jogo está sendo desenvolvido com REACT JS, Tailwind CSS , Javacript e Typescr
 O back-end será desenvolvido na versão 2.00, onde usará rest api em node express e banco de dados com MONGODB.
 O projeto está totalmente responsivo para pc e android e parcialmente para IOS (devido à limitações de uso do navegador SAFARI)
 
-<div style='align-items: center'>
-<img src='./screenshots/home.jpg' width='200px'/>
-<img src='./screenshots/select.jpg'width='200px'/>
-<img src='./screenshots/world.jpg'width='200px'/>
-<img src='./screenshots/catch.jpg'width='200px'/>
-<img src='./screenshots/pokemonbag.jpg'width='200px'/>
-<img src='./screenshots/itemsbag.jpg'width='200px'/>
-</div>
+<p align="center">
+<img src='./screenshots/home.jpg' height='400px'/>
+<img src='./screenshots/select.jpg' height='400px'/>
+<img src='./screenshots/world.jpg' height='400px'/>
+<img src='./screenshots/catch.jpg' height='400px'/>
+<img src='./screenshots/pokemonbag.jpg' height='400px'/>
+<img src='./screenshots/itemsbag.jpg' height='400px'/>
+</p>
 # Pokemon Go 2D Roadmap to 1.00
 
 - [x] loading screen

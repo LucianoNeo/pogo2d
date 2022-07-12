@@ -6,8 +6,8 @@ O projeto está totalmente responsivo para pc e android e parcialmente para IOS 
 <div style='align-items: center'>
 <img src='./screenshots/home.jpg' width='200px'/>
 <img src='./screenshots/select.jpg'width='200px'/>
-<img src='./screenshots/catch.jpg'width='200px'/>
 <img src='./screenshots/world.jpg'width='200px'/>
+<img src='./screenshots/catch.jpg'width='200px'/>
 <img src='./screenshots/pokemonbag.jpg'width='200px'/>
 <img src='./screenshots/itemsbag.jpg'width='200px'/>
 </div>

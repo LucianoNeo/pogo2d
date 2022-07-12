@@ -109,7 +109,7 @@ it returns boolean value*/
 let isMobileDevice = regexp.test(details);
 
 if (isMobileDevice) {
-    screenH.current = 80
+    screenH.current = 85
 } 
   
     

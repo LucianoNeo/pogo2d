@@ -9,8 +9,7 @@ import { Trash, TrashSimple } from "phosphor-react"
 function ItemsBag() {
 
 
-    const { music, pokeballs ,soundON} = useContext(UserContext)
-    const [busca, setBusca] = useState('')
+    const { music, pokeballs ,soundON,screenH} = useContext(UserContext)
     const navigate = useNavigate()
 
 
@@ -24,7 +23,7 @@ function ItemsBag() {
 
     return (
         <div id='tela' className='relative w-screen h-[100vh] overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px] flex items-center justify-center'
-            style={{ background: 'linear-gradient(170deg, rgba(57,154,93,1) 20%, rgba(46,103,115,1) 83%)' }}
+            style={{height: `${screenH.current}vh`, background: 'linear-gradient(170deg, rgba(57,154,93,1) 20%, rgba(46,103,115,1) 83%)' }}
         >
             <div className="w-[95%] h-full bg-white p-2 flex flex-col items-center text-center gap-3">
 

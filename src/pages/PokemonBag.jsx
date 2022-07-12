@@ -7,7 +7,7 @@ import {useNavigate} from 'react-router-dom'
 function PokemonBagScreen(){
    
     
-    const {pokemonBag,setPokemonBag,music,soundON}= useContext(UserContext)
+    const {pokemonBag,setPokemonBag,music,soundON,screenH}= useContext(UserContext)
     const [busca, setBusca] = useState('')
     const navigate = useNavigate()
 
@@ -30,8 +30,9 @@ function PokemonBagScreen(){
 
 
     return(
-        <div id='tela' className='relative w-screen h-[100vh] overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px] flex items-center justify-center'
-        style={{background: 'linear-gradient(170deg, rgba(57,154,93,1) 20%, rgba(46,103,115,1) 83%)'}}
+        <div id='tela' className='relative w-screen overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px] flex items-center justify-center'
+        style={{height: `${screenH.current}vh`,background: 'linear-gradient(170deg, rgba(57,154,93,1) 20%, rgba(46,103,115,1) 83%)'}}
+        
         >
         <div className="w-[95%] h-full bg-white p-2 flex flex-col items-center text-center">
     

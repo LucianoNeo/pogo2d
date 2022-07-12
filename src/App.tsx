@@ -93,6 +93,24 @@ const App = () => {
         }
 
     )
+    let screenH = useRef(100)
+
+
+    /* Storing user's device details in a variable*/
+let details = navigator.userAgent;
+  
+/* Creating a regular expression 
+containing some mobile devices keywords 
+to search it in details string*/
+let regexp = /iphone/i;
+
+/* Using test() method to search regexp in details
+it returns boolean value*/
+let isMobileDevice = regexp.test(details);
+
+if (isMobileDevice) {
+    screenH.current = 80
+} 
   
     
     const generatePokemonMap = () => {
@@ -161,7 +179,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <UserContext.Provider
-                value={{ user, setUser, pokeballs, setPokeballs, speed, posGlobal, setPosGlobal, pokemonImg, pokemons, numberPoke, pokestopmap, setPksMap, pokemonmap, setPkmMap, walking, receivedBalls, screenSize, setScreenSize, screenWidth, screenHeight, setSpeed, charFace, setcharFace, charSprite, setcharSprite, charName, setCharName, charLevel, setLevel, soundON, setSoundIcon, soundIcon, started, msgPokeball, setMsgPokeball, globalId, pokemonBag, setPokemonBag, pokemonIndex, setPokemonIndex, music,data, setData }}>
+                value={{ user, setUser, pokeballs, setPokeballs, speed, posGlobal, setPosGlobal, pokemonImg, pokemons, numberPoke, pokestopmap, setPksMap, pokemonmap, setPkmMap, walking, receivedBalls, screenSize, setScreenSize, screenWidth, screenHeight, setSpeed, charFace, setcharFace, charSprite, setcharSprite, charName, setCharName, charLevel, setLevel, soundON, setSoundIcon, soundIcon, started, msgPokeball, setMsgPokeball, globalId, pokemonBag, setPokemonBag, pokemonIndex, setPokemonIndex, music,data, setData ,screenH}}>
                 <Router />
             </UserContext.Provider>
         </BrowserRouter>

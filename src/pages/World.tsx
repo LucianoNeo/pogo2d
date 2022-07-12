@@ -65,7 +65,7 @@ function World() {
 
   const mapa = HookMapa()
   const navigate = useNavigate()
-  const { posGlobal, walking, setWalking, pokeballs, screenWidth, screenHeight, soundON, setSound, setSoundIcon, soundIcon, started, pokestopmap, pokemonmap, pokemonBag, music, data, setData } = useContext(UserContext)
+  const { posGlobal, walking, setWalking, pokeballs, screenWidth, screenHeight, soundON, setSound, setSoundIcon, soundIcon, started, pokestopmap, pokemonmap, pokemonBag, music, data, setData ,screenH} = useContext(UserContext)
 
   let debugOn = false
   const handleKeyDown = (e: KeyboardEvent) => {
@@ -102,23 +102,6 @@ function World() {
 
   }
 
-
-let screenH = 100
-/* Storing user's device details in a variable*/
-let details = navigator.userAgent;
-  
-/* Creating a regular expression 
-containing some mobile devices keywords 
-to search it in details string*/
-let regexp = /iphone/i;
-
-/* Using test() method to search regexp in details
-it returns boolean value*/
-let isMobileDevice = regexp.test(details);
-
-if (isMobileDevice) {
-    screenH = 90
-} 
   posGlobal.x = mapa.x
   posGlobal.y = mapa.y
   let hasStarted = useRef(false)
@@ -172,7 +155,7 @@ if (isMobileDevice) {
         <button className='bg-slate-900 rounded-xl w-40' onClick={() => { return navigate('/catch') }}>Catch Test</button>
       </div>
       <div ref={screensize} id='tela' className='relative w-screen overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px]'
-      style={{ height: `${screenH}vh`}}
+      style={{ height: `${screenH.current}vh`}}
     >
         
         <Popup text='Espere 1 minuto para poder girar novamente!' />

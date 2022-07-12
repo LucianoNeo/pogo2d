@@ -171,7 +171,10 @@ if (isMobileDevice) {
         <h1>POKEBOLAS: {pokeballs} </h1>
         <button className='bg-slate-900 rounded-xl w-40' onClick={() => { return navigate('/catch') }}>Catch Test</button>
       </div>
-      <div ref={screensize} id='tela' className={`relative w-screen h-[${screenH}vh] overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px]`}>
+      <div ref={screensize} id='tela' className='relative w-screen overflow-hidden bg-blue-600 m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px]'
+      style={{ height: `${screenH}vh`}}
+    >
+        
         <Popup text='Espere 1 minuto para poder girar novamente!' />
         <Menu />
 

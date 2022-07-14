@@ -15,11 +15,12 @@ import HookMapa from '../hooks/HookMapa';
 function World() {
 
 
+    
+
 
   function moveup() {
     setSide(-196)
     mapa.moveUp()
-
   }
 
   function movedown() {
@@ -31,6 +32,7 @@ function World() {
 
     mapa.moveLeft()
     setSide(-64)
+    var el = document.getElementById('personagem');
   }
 
   function moveright() {
@@ -104,11 +106,22 @@ function World() {
 
   posGlobal.x = mapa.x
   posGlobal.y = mapa.y
+
+
+  function handleUnload(){
+    alert('Sair da pagina pode quebrar o jogo!')
+  }
+
+
+const handleRefresh = ()=>{
+alert('saindo')
+}
   let hasStarted = useRef(false)
 
+  
   useEffect(() => {
     
-       
+    
     localStorage.removeItem("pokemonbag");
     localStorage.setItem("pokemonbag", JSON.stringify(pokemonBag));
     localStorage.removeItem('pokeballsQty')
@@ -167,12 +180,12 @@ function World() {
           onClick={() => {
 
             if (soundON.current) {
-              setSoundIcon(<SpeakerHigh size={32} />)
+              setSoundIcon(<SpeakerSimpleSlash size={32} />)
               music.current.pause()
               soundON.current = false
 
             } else {
-              setSoundIcon(<SpeakerSimpleSlash size={32} />)
+              setSoundIcon(<SpeakerHigh size={32} />)
               music.current.play()
               soundON.current = true
 

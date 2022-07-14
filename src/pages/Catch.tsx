@@ -34,7 +34,7 @@ function Catch() {
     >
     <Popup text='Você está sem pokebolas'/>
         <div className='w-full h-20 flex justify-end p-4'>
-            <img src="./assets/img/running.png" draggable='false' alt="" 
+            <img id='run' src="./assets/img/running.png" draggable='false' alt="" 
             className='w-14 h-14 cursor-pointer hover:scale-125 z-10'
             onClick={()=>{
                 setMsgPokeball(false)
@@ -62,6 +62,8 @@ function Catch() {
             onClick={() => {
                 if(!capturing.current){
                 capturing.current=true
+                const runningbutton = document.getElementById('run')
+                runningbutton.style.display= 'none'
                 const pokeSprite = document.getElementById('pokesprite')
                 const pokeballSprite = document.getElementById('pokeballsprite')
                 const catchtext = document.getElementById('catch')

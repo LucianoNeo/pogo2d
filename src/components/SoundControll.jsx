@@ -8,8 +8,8 @@ function SoundControll() {
 
     return(
        <div className='z-30 absolute'>
-        <SpeakerSimpleSlash onclick={()=>{music.stop()}} size={32} className='cursor-pointer'/>
-        <SpeakerHigh size={32} />
+        <SpeakerHigh onclick={()=>{music.stop()}} size={32} className='cursor-pointer'/>
+        
        </div>
     )
 }

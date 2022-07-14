@@ -38,6 +38,7 @@ function Catch() {
             className='w-14 h-14 cursor-pointer hover:scale-125 z-10'
             onClick={()=>{
                 setMsgPokeball(false)
+                music.current.volume = 0.08
                 soundRunning.play()
                 music.current.pause()
                 return navigate('/world')

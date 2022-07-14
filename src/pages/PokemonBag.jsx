@@ -16,7 +16,8 @@ function PokemonBagScreen(){
         music.current.pause()
         music.current = new Audio("./assets/music/menutheme.mp3")
         if(soundON.current){
-        music.current.play()
+            music.current.volume = 0.08
+            music.current.play()
     }
     }, [])
     

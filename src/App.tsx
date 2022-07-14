@@ -132,8 +132,8 @@ if (isMobileDevice) {
             {
                 id: `${newid}`,
                 name: `${pokemons[randompokenumber].name[0].toUpperCase() + pokemons[randompokenumber].name.substring(1)}`,
-                left: `${utils.random(80,4000)}px`,
-                top: `${utils.random(100,5000)}px`,
+                left: `${utils.random(80,2900)}px`,
+                top: `${utils.random(100,4900)}px`,
                 img: `url(./assets/img/sprites/${imgNumber}.png)`,
                 number: randompokenumber,
                 activespawn: true,

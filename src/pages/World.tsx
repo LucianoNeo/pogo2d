@@ -125,8 +125,9 @@ alert('saindo')
     
     localStorage.removeItem("pokemonbag");
     localStorage.setItem("pokemonbag", JSON.stringify(pokemonBag));
-    localStorage.removeItem('pokeballsQty')
+    
     localStorage.setItem('pokeballsQty', pokeballs)
+   
     music.current = new Audio("./assets/music/worldtheme.mp3")
     if (soundON.current && hasStarted.current == false) {
       music.current.play()

@@ -27,7 +27,7 @@ useEffect(() => {
     setcharSprite(sprite)
     setLevel(level)
     setPokemonBag(pokemonbag)
-    setPokeballs(pokeballsQty)
+    setPokeballs(Number(pokeballsQty))
     setTimeout(() => {
         return navigate('/continue')
     }, 5000);

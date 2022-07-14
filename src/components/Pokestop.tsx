@@ -51,7 +51,7 @@ return(
             soundPokestop.play()} 
         receivedBalls.current=utils.random(1,4)
         setPokeballs(pokeballs + receivedBalls.current)
-       
+        localStorage.removeItem('pokeballsQty')
         //pokestopmap[props.index].spinned= true
         itemsShow.style.display = 'block'
         setTimeout(() => {

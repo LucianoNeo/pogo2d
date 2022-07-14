@@ -114,7 +114,7 @@ if (isMobileDevice) {
   
     
     const generatePokemonMap = () => {
-        for (let i = 0; i < 200; i++) {
+        for (let i = 0; i < 150; i++) {
             let randompokenumber = (utils.random(1, 140))
             let pokemonNumber = randompokenumber + 1
             let imgNumber = utils.leftPad(pokemonNumber, 3)
@@ -132,12 +132,12 @@ if (isMobileDevice) {
             {
                 id: `${newid}`,
                 name: `${pokemons[randompokenumber].name[0].toUpperCase() + pokemons[randompokenumber].name.substring(1)}`,
-                left: `${utils.random(80, 2000)}px`,
-                top: `${utils.random(100, 4000)}px`,
+                left: `${utils.random(80,4000)}px`,
+                top: `${utils.random(100,5000)}px`,
                 img: `url(./assets/img/sprites/${imgNumber}.png)`,
                 number: randompokenumber,
                 activespawn: true,
-                imgbag: `./assets/img/pokemon_catch/pokemon (${randompokenumber}).gif`,
+                imgbag: `./assets/img/pokemon_catch/pokemon (${randompokenumber+1}).gif`,
                 cp: utils.random(10, 600),
                 weight: ((pokemons[randompokenumber].weight * 0.1).toFixed(0)),
                 height: ((pokemons[randompokenumber].height * 0.1).toFixed(2)),

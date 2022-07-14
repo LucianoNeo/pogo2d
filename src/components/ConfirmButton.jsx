@@ -39,7 +39,7 @@ function ConfirmButton(props) {
         }}
         onClick={props.onclick}
         >
-        <Check size={40}/>
+        <Check size={20}/>
         </button>
        </div>
     )

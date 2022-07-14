@@ -35,8 +35,8 @@ function CloseButton(props) {
             border:'solid 2px #9CF5E7 ',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize:'25px',
-            fontFamily:'cursive'
+            fontSize:'14px',
+            fontFamily: "sans-serif"
             
         }}
         onClick={props.onclick}

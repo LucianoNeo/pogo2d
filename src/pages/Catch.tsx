@@ -48,8 +48,16 @@ function Catch() {
         <div id='catch' style={{position: 'absolute', display:'none'}} className='text-3xl font-extrabold text-gray-500 bottom-[400px] animate-fadeinscale scale-150'>GOTCHA!</div>
 
         <div id='pokesprite' className='absolute  bottom-[300px] w-60 text-center items-center justify-center flex flex-col sm:bottom-[300px]'> 
-            <h1 className='bg-slate-600 text-white rounded-2xl px-2 py-1 min-w-fit'>{pokemons[numberPoke.current].name[0].toUpperCase() + pokemons[numberPoke.current].name.substring(1)}
+        <div className='flex bg-slate-600 text-white rounded-full px-3 py-2 min-w-fit gap-2 opacity-80'>
+            <div className=' flex h-6 items-center justify-center w-3'>
+            <img src="./assets/img/pokeball-icon-white.jpg" alt=""/>
+            </div>
+            <h1 className=''>{pokemons[numberPoke.current].name[0].toUpperCase() + pokemons[numberPoke.current].name.substring(1) }
             </h1>
+            <p>/</p>
+            <p className='text-xs flex items-center font-sans font-bold'>CP</p>
+            <p>{pokemonmap[pokemonIndex].cp}</p>
+            </div>
             <img src={pokemonImg.current} draggable='false' alt="" style={{width:'160px',imageRendering: 'pixelated'}}/>
         </div>
 
@@ -62,8 +70,7 @@ function Catch() {
             onClick={() => {
                 if(!capturing.current){
                 capturing.current=true
-                const runningbutton = document.getElementById('run')
-                runningbutton.style.display= 'none'
+              
                 const pokeSprite = document.getElementById('pokesprite')
                 const pokeballSprite = document.getElementById('pokeballsprite')
                 const catchtext = document.getElementById('catch')
@@ -78,6 +85,8 @@ function Catch() {
                         soundCatching.play()}
                 pokeSprite.style='display:none'
                 },1200)
+                const runningbutton = document.getElementById('run')
+                runningbutton.style.display= 'none'
                 setEffect(true);  
                 setTimeout(() => {   
                 setEffect(false)

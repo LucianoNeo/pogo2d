@@ -29,6 +29,7 @@ function Continue() {
 
 
     function continueGame() {
+        soundPlayerSelect.volume = 0.08
         soundPlayerSelect.play()
         fullscreen()
         setTimeout(() => {

@@ -77,7 +77,7 @@ if(!nearby.current){
 
             </div>
 
-            <div id='pokeball' className='w-16 ml-8'>
+            <div id='pokeball' className='w-16 ml-14'>
                 <img src={pokeball} alt="" draggable='false' className='cursor-pointer '
                     onClick={() => {
                         soundSelect.play()
@@ -103,10 +103,10 @@ if(!nearby.current){
                 <h1 className='text-white text-2xl font-extrabold drop-shadow-2xl shadow-black absolute bottom-16 w-6 right-2'>+{receivedBalls.current}</h1>
             </div>
 
-            <div id='nearby' className='w-24 bg-white h-8 rounded-2xl translate-x-7 opacity-70 flex   overflow-hidden pl-1 gap-1'>
+            <div id='nearby' className='w-28 bg-white h-10 sm:h-8 rounded-2xl sm:translate-x-6 translate-x-7 opacity-70 flex   overflow-hidden pl-2 gap-1'>
                 {nearby.current.map((pokemon) =>
                 
-                    <div className="flex items-center brightness-0 min-w-[20px] max-w-[20px]">
+                    <div className="flex items-center brightness-0 sm:min-w-[20px] min-w-[24px]  ">
                         <img src={pokemon.imgbag} alt='' draggable='false' style={{ margin: '0 auto' }} />
                     </div>
                 

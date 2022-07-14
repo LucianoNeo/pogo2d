@@ -8,6 +8,7 @@ import Mapa from '../components/Mapa';
 import Menu from '../components/Menu';
 import { Personagem } from '../components/Personagem';
 import Popup from '../components/Popup';
+import Settings from '../components/Settings';
 import UserContext from '../contexts/userContext';
 import HookMapa from '../hooks/HookMapa';
 
@@ -176,7 +177,7 @@ alert('saindo')
 
         <Mapa x={posGlobal.x} y={posGlobal.y} />
         <Personagem position={side} />
-        <button className='text-white z-30 absolute top-5 cursor-pointer p-2 hover:text-red-700'
+        <button className='text-white z-50 absolute top-5  p-2 hover:text-red-700'
           onClick={() => {
 
             if (soundON.current) {
@@ -192,8 +193,9 @@ alert('saindo')
             }
           }}>
           {soundIcon}
+          
         </button>
-
+        <Settings/>
         <div id='joystick' className="absolute w-24 h-20, right-8 bottom-52 z-30 flex  flex-col justify-center items-center opacity-50 sm:hidden scale-150">
           <img id='upbutton' src={dirbutton} draggable='false' alt=""
             onTouchStart={handleUp}

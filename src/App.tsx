@@ -1,4 +1,4 @@
-import { SpeakerSimpleSlash } from 'phosphor-react';
+import { SpeakerHigh } from 'phosphor-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Pokemons } from './components/array.js';
@@ -32,7 +32,7 @@ const App = () => {
     const [pokemonBag, setPokemonBag] = useState([])
     const [msgPokeball, setMsgPokeball] = useState(false)
     let soundON = useRef(true)
-    const [soundIcon, setSoundIcon] = useState(<SpeakerSimpleSlash size={32} />)
+    const [soundIcon, setSoundIcon] = useState(<SpeakerHigh size={32} />)
     let started = useRef(false)
     const pkmmap = []
     let music = useRef()

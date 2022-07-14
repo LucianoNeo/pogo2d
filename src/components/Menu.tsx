@@ -1,12 +1,15 @@
 
 import pokeball from '../../public/assets/img/pokeball.png'
-import { useContext, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import UserContext from '../contexts/userContext'
 import ConfirmButton from './ConfirmButton'
 import PokemonBagButton from './PokemonBagButton'
 import PokemonItemsButton from './PokemonItemsButton'
 import { useNavigate } from 'react-router-dom'
 import React from 'react'
+
+
+
 
 
 function Menu() {
@@ -23,8 +26,28 @@ function Menu() {
 
 
     const { receivedBalls, screenHeight, screenWidth, charFace, charName, charLevel, data, setData, pokemonmap } = useContext(UserContext)
-    const [pokeballMenuOpen, setpokeballMenuOpen] = useState(false)
+
+
+
+    
+
+    
+
+useEffect(() => {
+    const nearbyCalc = () => {
+        return pokemonmap.filter((filtrado) => filtrado.activespawn == true)
+    }
+    nearby.current = nearbyCalc()
+}, [])
+
+const [pokeballMenuOpen, setpokeballMenuOpen] = useState(false)
     const soundSelect = new Audio("./assets/sfx/select.mp3")
+    const nearby = useRef(null)
+   
+if(!nearby.current){
+    return <></>
+}
+
     return (
         <div className='w-full h-16 absolute bottom-16 z-30 px-2 justify-between flex items-center '>
 
@@ -74,23 +97,20 @@ function Menu() {
 
             </div>
             <div id='itemsShow' className={`absolute animate-fadein-out w-full right-2 hidden`}
-                style={{ top: `-${screenHeight.current / 1.8}px` }}>
+                style={{ top: `-${screenHeight.current / 2}px` }}>
                 <img id='pokeballsprite' src="./assets/img/pokeball_catch.png" draggable='false' alt=""
                     className='absolute bottom-16 w-7 right-10' />
                 <h1 className='text-white text-2xl font-extrabold drop-shadow-2xl shadow-black absolute bottom-16 w-6 right-2'>+{receivedBalls.current}</h1>
             </div>
 
-            <div id='nearby' className='w-24 bg-white h-8 rounded-2xl translate-x-5 opacity-70 flex px-1 gap-1'>
+            <div id='nearby' className='w-24 bg-white h-8 rounded-2xl translate-x-7 opacity-70 flex   overflow-hidden pl-1 gap-1'>
+                {nearby.current.map((pokemon) =>
                 
-                <div className="h-full flex w-6 items-center justify-center brightness-0">
-                    <img src={pokemonmap[0].imgbag} alt='' draggable='false' style={{ margin: '0 auto' }} />
-                </div>
-                <div className="h-full flex w-6 items-center justify-center brightness-0">
-                    <img src={pokemonmap[1].imgbag} alt='' draggable='false' style={{ margin: '0 auto' }} />
-                </div>
-                <div className="h-full flex w-6 items-center justify-center brightness-0">
-                    <img src={pokemonmap[2].imgbag} alt='' draggable='false' style={{ margin: '0 auto' }} />
-                </div>
+                    <div className="flex items-center brightness-0 min-w-[20px] max-w-[20px]">
+                        <img src={pokemon.imgbag} alt='' draggable='false' style={{ margin: '0 auto' }} />
+                    </div>
+                
+                )}
 
 
             </div>

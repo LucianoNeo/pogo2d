@@ -20,8 +20,16 @@ body {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none;
-  
 
+
+}
+
+img:focus{
+  outline: none;
+}
+
+button:focus{
+  outline: none;
 }
 
 #level h1{ 

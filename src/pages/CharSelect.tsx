@@ -39,6 +39,7 @@ function CharSelect() {
 
     useEffect(() => {
         music.current = new Audio("./assets/music/main.mp3")
+        music.current.volume = 0.1
         music.current.play()
         const red = document.getElementById('selectRED')
         const green = document.getElementById('selectGREEN')

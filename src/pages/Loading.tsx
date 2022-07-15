@@ -9,7 +9,7 @@ import React from 'react';
 
 function Loading() {
 
-    const { setcharFace, setcharSprite, setCharName, setLevel, setPokemonBag, setPokeballs, screenH,notLoaded,pokemonBag } = useContext(UserContext)
+    const { setcharFace, setcharSprite, setCharName, setLevel, setPokemonBag, setPokeballs, screenH} = useContext(UserContext)
 
     const navigate = useNavigate()
     const username = localStorage.getItem('username')

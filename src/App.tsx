@@ -1,6 +1,6 @@
 import { SpeakerHigh } from 'phosphor-react';
 import React, { useEffect, useRef, useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter,MemoryRouter } from 'react-router-dom';
 import { Pokemons } from './components/array.js';
 import UserContext from './contexts/userContext';
 import { Router } from './Router';
@@ -94,7 +94,6 @@ const App = () => {
 
     )
     let screenH = useRef(100)
-    let notLoaded = useRef(true)
 
 
  
@@ -170,12 +169,12 @@ const App = () => {
 
 
     return (
-        <BrowserRouter>
+        <MemoryRouter>
             <UserContext.Provider
-                value={{ user, setUser, pokeballs, setPokeballs, speed, posGlobal, setPosGlobal, pokemonImg, pokemons, numberPoke, pokestopmap, setPksMap, pokemonmap, setPkmMap, walking, receivedBalls, screenSize, setScreenSize, screenWidth, screenHeight, setSpeed, charFace, setcharFace, charSprite, setcharSprite, charName, setCharName, charLevel, setLevel, soundON, setSoundIcon, soundIcon, started, msgPokeball, setMsgPokeball, globalId, pokemonBag, setPokemonBag, pokemonIndex, setPokemonIndex, music, data, setData, screenH, notLoaded }}>
+                value={{ user, setUser, pokeballs, setPokeballs, speed, posGlobal, setPosGlobal, pokemonImg, pokemons, numberPoke, pokestopmap, setPksMap, pokemonmap, setPkmMap, walking, receivedBalls, screenSize, setScreenSize, screenWidth, screenHeight, setSpeed, charFace, setcharFace, charSprite, setcharSprite, charName, setCharName, charLevel, setLevel, soundON, setSoundIcon, soundIcon, started, msgPokeball, setMsgPokeball, globalId, pokemonBag, setPokemonBag, pokemonIndex, setPokemonIndex, music, data, setData, screenH }}>
                 <Router />
             </UserContext.Provider>
-        </BrowserRouter>
+        </MemoryRouter>
     )
 
 }

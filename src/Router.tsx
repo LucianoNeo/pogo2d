@@ -1,10 +1,9 @@
-import {Route, Routes} from 'react-router-dom'
+import {Route, Routes } from 'react-router-dom'
 import Loading from './pages/Loading'
 import World from './pages/World'
 import Catch from './pages/Catch'
 import CharSelect from './pages/CharSelect'
 import CharNameSelect from './pages/CharNameSelect'
-import { AppleLogo } from 'phosphor-react'
 import Loading2 from './pages/Loading2'
 import PokemonBagScreen from './pages/PokemonBag'
 import Continue from './pages/Continue'
@@ -14,6 +13,7 @@ import ItemsBag from './pages/ItemsBag'
 
 export function Router() {
     return(
+       
         <Routes>
             <Route path='*' element={ <Loading/>} />
             <Route path='/' element={ <Loading/>} />
@@ -26,7 +26,6 @@ export function Router() {
             <Route path='/pkbag' element={ <PokemonBagScreen/>} />
             <Route path='/itbag' element={ <ItemsBag/>} />
         </Routes>
-
         
     )
     

@@ -63,7 +63,7 @@ function World() {
 
   const mapa = HookMapa()
   const navigate = useNavigate()
-  const { posGlobal, walking, setWalking, pokeballs, screenWidth, screenHeight, soundON, setSound, setSoundIcon, soundIcon, started, pokestopmap, pokemonmap, pokemonBag, music, data, setData, screenH, notLoaded } = useContext(UserContext)
+  const { posGlobal,  pokeballs, screenWidth, screenHeight, soundON, setPokemonBag, setSoundIcon, soundIcon, pokemonBag, music, screenH} = useContext(UserContext)
   const [side, setSide] = useState(0)
   const [screensize, { width, height }] = useMeasure<HTMLDivElement>();
   screenHeight.current = height
@@ -111,10 +111,6 @@ function World() {
 
   useEffect(() => {
 
-    if (notLoaded.current === true) {
-  
-      navigate('/')
-    }
     localStorage.removeItem("pokemonbag");
     localStorage.setItem("pokemonbag", JSON.stringify(pokemonBag));
     localStorage.setItem('pokeballsQty', pokeballs)
@@ -137,10 +133,7 @@ function World() {
     }, false);
   }, [])
 
-  if (notLoaded.current === true) {
   
-    return <></>
-  }
 
   return (
     <>

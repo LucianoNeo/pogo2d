@@ -48,8 +48,8 @@ const App = () => {
                         name: 'red',
                         avatar: '',
                         level: 1,
-                        sprite:'./assets/img/sprites/red.png',
-                        xp:0,
+                        sprite: './assets/img/sprites/red.png',
+                        xp: 0,
                         pokemonBag: [
                             {
                                 globalID: '1',
@@ -94,25 +94,18 @@ const App = () => {
 
     )
     let screenH = useRef(100)
+    let notLoaded = useRef(true)
 
 
-    /* Storing user's device details in a variable*/
-let details = navigator.userAgent;
-  
-/* Creating a regular expression 
-containing some mobile devices keywords 
-to search it in details string*/
-let regexp = /iphone/i;
+ 
+    let details = navigator.userAgent;
+    let regexp = /iphone/i;
+    let isMobileDevice = regexp.test(details);
+    if (isMobileDevice) {
+        screenH.current = 85
+    }
 
-/* Using test() method to search regexp in details
-it returns boolean value*/
-let isMobileDevice = regexp.test(details);
 
-if (isMobileDevice) {
-    screenH.current = 85
-} 
-  
-    
     const generatePokemonMap = () => {
         for (let i = 0; i < 150; i++) {
             let randompokenumber = (utils.random(1, 140))
@@ -132,12 +125,12 @@ if (isMobileDevice) {
             {
                 id: `${newid}`,
                 name: `${pokemons[randompokenumber].name[0].toUpperCase() + pokemons[randompokenumber].name.substring(1)}`,
-                left: `${utils.random(80,2900)}px`,
-                top: `${utils.random(100,4900)}px`,
+                left: `${utils.random(80, 2900)}px`,
+                top: `${utils.random(100, 4900)}px`,
                 img: `url(./assets/img/sprites/${imgNumber}.png)`,
                 number: randompokenumber,
                 activespawn: true,
-                imgbag: `./assets/img/pokemon_catch/pokemon (${randompokenumber+1}).gif`,
+                imgbag: `./assets/img/pokemon_catch/pokemon (${randompokenumber + 1}).gif`,
                 cp: utils.random(10, 600),
                 weight: ((pokemons[randompokenumber].weight * 0.1).toFixed(0)),
                 height: ((pokemons[randompokenumber].height * 0.1).toFixed(2)),
@@ -179,7 +172,7 @@ if (isMobileDevice) {
     return (
         <BrowserRouter>
             <UserContext.Provider
-                value={{ user, setUser, pokeballs, setPokeballs, speed, posGlobal, setPosGlobal, pokemonImg, pokemons, numberPoke, pokestopmap, setPksMap, pokemonmap, setPkmMap, walking, receivedBalls, screenSize, setScreenSize, screenWidth, screenHeight, setSpeed, charFace, setcharFace, charSprite, setcharSprite, charName, setCharName, charLevel, setLevel, soundON, setSoundIcon, soundIcon, started, msgPokeball, setMsgPokeball, globalId, pokemonBag, setPokemonBag, pokemonIndex, setPokemonIndex, music,data, setData ,screenH}}>
+                value={{ user, setUser, pokeballs, setPokeballs, speed, posGlobal, setPosGlobal, pokemonImg, pokemons, numberPoke, pokestopmap, setPksMap, pokemonmap, setPkmMap, walking, receivedBalls, screenSize, setScreenSize, screenWidth, screenHeight, setSpeed, charFace, setcharFace, charSprite, setcharSprite, charName, setCharName, charLevel, setLevel, soundON, setSoundIcon, soundIcon, started, msgPokeball, setMsgPokeball, globalId, pokemonBag, setPokemonBag, pokemonIndex, setPokemonIndex, music, data, setData, screenH, notLoaded }}>
                 <Router />
             </UserContext.Provider>
         </BrowserRouter>

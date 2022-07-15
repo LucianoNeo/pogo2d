@@ -1,23 +1,22 @@
 
-import {memo } from 'react';
+import React, { memo } from 'react';
 import Pokestop from './Pokestop';
 
 
-const arr = Array.from({ length:50 }).map(() => true);
+const arr = Array.from({ length: 50 }).map(() => true);
 
-function GeneratePokestop(){
+function GeneratePokestop() {
 
-  
-return(
-  <>
-{arr.map((_, index) => (        
-  <> 
- <Pokestop index={index}/>
- 
- </>
-    ))
+
+  return (
+    <>
+      {arr.map((_, index) => (
+        <>
+          <Pokestop index={index} />
+        </>
+      ))
+      }
+    </>
+  )
 }
-</>
-)
-}
-    export default memo(GeneratePokestop)
+export default memo(GeneratePokestop)

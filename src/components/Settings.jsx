@@ -1,5 +1,4 @@
 import {Gear} from 'phosphor-react'
-import { useContext } from 'react'
 
 function Settings() {
 

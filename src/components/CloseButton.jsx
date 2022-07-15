@@ -1,4 +1,3 @@
-//import {X size} from 'phosphor-react'
 
 function CloseButton(props) {
 
@@ -48,7 +47,3 @@ function CloseButton(props) {
 }
 
 export default CloseButton
-
-
-
-//bg-[#1F8394] w-12 h-12 text-white border-2 hover:scale-105 border-[#9CF5E7]

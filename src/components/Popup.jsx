@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { useContext } from "react"
 import UserContext from "../contexts/userContext"
 const soundError = new Audio("./assets/sfx/error.mp3")

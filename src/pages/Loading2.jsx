@@ -6,11 +6,12 @@ import UserContext from '../contexts/userContext';
 function Loading2() {
 
 const navigate = useNavigate()
-const {music,screenH}= useContext(UserContext)
+const {music,screenH,notLoaded}= useContext(UserContext)
 useEffect(() => {
+    notLoaded.current = false
     music.current.pause()
     music.current = new Audio("./assets/music/start.mp3")
-    music.current.volume = 0.08
+    music.current.volume = 0.1
     music.current.play()
     setTimeout(() => {
         return navigate('/world')

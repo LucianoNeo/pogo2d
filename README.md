@@ -1,7 +1,7 @@
 Pokémon GO 2D VERSION é minha reimaginação do clássico sucesso mundial, onde você anda pela cidade, capturando os monstrinhos.<br>
 O jogo está sendo desenvolvido com REACT JS, Tailwind CSS , Javacript e Typescript para o front-end.<br>
-O back-end ainda não foi implantado mas já está sendo desenvolvido ,ele utilizará NODEJS +EXPRESS para a API REST MONGODB para o banco de dados, e fará a parte de criação e login de usuário, assim como controle de dados dos itens e bolsa de pokémon do jogador.<br>
-O projeto está totalmente responsivo para PC ANDROID e IOS.
+O back-end ainda não foi implantado mas já está sendo desenvolvido ,ele utilizará NODEJS +EXPRESS para a API REST, MONGODB para o banco de dados, e fará a parte de criação e login de usuário, assim como controle de dados dos itens e bolsa de pokémon do jogador.<br>
+O projeto está totalmente responsivo para PC, ANDROID e IOS.
 
 <p align="center">
 <img src='./screenshots/home.jpg' height='400px'/>
@@ -33,7 +33,7 @@ Inicialmente (na versão 0.85) estão sendo utilizados:
 - number(id)
 - types
 <br>
-Para o sistema de batalhas as informações que serão adicionadas serão:
+Para o sistema de batalhas as informações que serão adicionadas serão:<br>
 - baseStats (attack, defense, stamina)
 - movesets
 

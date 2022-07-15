@@ -2,7 +2,6 @@
 import pokeball from '../../public/assets/img/pokeball.png'
 import { useContext, useEffect, useRef, useState } from 'react'
 import UserContext from '../contexts/userContext'
-import ConfirmButton from './ConfirmButton'
 import PokemonBagButton from './PokemonBagButton'
 import PokemonItemsButton from './PokemonItemsButton'
 import { useNavigate } from 'react-router-dom'
@@ -14,6 +13,10 @@ import React from 'react'
 
 function Menu() {
     const navigate = useNavigate()
+    const [pokeballMenuOpen, setpokeballMenuOpen] = useState(false)
+    const soundSelect = new Audio("./assets/sfx/select.mp3")
+    const nearby = useRef(null)
+    const { receivedBalls, screenHeight, charFace, charName, charLevel, pokemonmap } = useContext(UserContext)
 
     function openPokemonBag() {
         return navigate('/pkbag')
@@ -24,34 +27,23 @@ function Menu() {
     }
 
 
+     useEffect(() => {
+        const nearbyCalc = () => {
+            return pokemonmap.filter((filtrado) => filtrado.activespawn == true)
+        }
+        nearby.current = nearbyCalc()
+    }, [])
 
-    const { receivedBalls, screenHeight, screenWidth, charFace, charName, charLevel, data, setData, pokemonmap } = useContext(UserContext)
+  
 
-
-
-    
-
-    
-
-useEffect(() => {
-    const nearbyCalc = () => {
-        return pokemonmap.filter((filtrado) => filtrado.activespawn == true)
+    if (!nearby.current) {
+        return <></>
     }
-    nearby.current = nearbyCalc()
-}, [])
-
-const [pokeballMenuOpen, setpokeballMenuOpen] = useState(false)
-    const soundSelect = new Audio("./assets/sfx/select.mp3")
-    const nearby = useRef(null)
-   
-if(!nearby.current){
-    return <></>
-}
 
     return (
         <div className='w-full h-16 absolute bottom-16 z-30 px-2 justify-between flex items-center '>
 
-            <div id='facePersonagem' className='w-20 border-4 border-yellow-100 rounded-full h-20 overflow-hidden bg-gray-500'
+            <div id='charFace' className='w-20 border-4 border-yellow-100 rounded-full h-20 overflow-hidden bg-gray-500'
                 style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
             >
                 <img src={charFace} draggable='false' alt="" />
@@ -62,7 +54,7 @@ if(!nearby.current){
                 <div className="bg-blue-600 h-[10.1px] rounded-full w-[10%]"></div>
             </div>
 
-            <div id='nomePersonagem' className='absolute bottom-[-40px] left-2'
+            <div id='charName' className='absolute bottom-[-40px] left-2'
                 style={{ userSelect: 'none', WebkitUserSelect: 'none' }}>
                 <h1 className='text-white text-md drop-shadow-md'>{charName}</h1>
             </div>
@@ -105,11 +97,11 @@ if(!nearby.current){
 
             <div id='nearby' className='w-28 bg-white h-10 sm:h-8 rounded-2xl sm:translate-x-6 translate-x-7 opacity-70 flex   overflow-hidden pl-2 gap-1'>
                 {nearby.current.map((pokemon) =>
-                
+
                     <div className="flex items-center brightness-0 sm:min-w-[20px] min-w-[24px]  ">
                         <img src={pokemon.imgbag} alt='' draggable='false' style={{ margin: '0 auto' }} />
                     </div>
-                
+
                 )}
 
 

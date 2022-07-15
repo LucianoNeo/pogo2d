@@ -6,7 +6,7 @@ function PokemonItemsButton(props) {
         <div className='items-center flex flex-col hover:scale-125'>
             <h1 style={{ color: '#1F5394', fontSize: '10px' }}>Items</h1>
             <div
-                
+
                 style={{
                     display: 'flex',
                     backgroundColor: '#1F8394',
@@ -49,7 +49,3 @@ function PokemonItemsButton(props) {
 }
 
 export default PokemonItemsButton
-
-
-
-//bg-[#1F8394] w-12 h-12 text-white border-2 hover:scale-105 border-[#9CF5E7]

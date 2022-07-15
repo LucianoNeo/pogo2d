@@ -1,5 +1,5 @@
-import {useNavigate} from 'react-router-dom'
-import { useContext,memo } from 'react';
+import React, { memo, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import UserContext from '../contexts/userContext';
 
 function Pokemon(props) {

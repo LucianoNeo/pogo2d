@@ -10,7 +10,7 @@ const {music,screenH}= useContext(UserContext)
 useEffect(() => {
     music.current.pause()
     music.current = new Audio("./assets/music/start.mp3")
-    music.current.volume = 0.08
+    music.current.volume = 0.1
     music.current.play()
     setTimeout(() => {
         return navigate('/world')

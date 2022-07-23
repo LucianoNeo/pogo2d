@@ -1,6 +1,6 @@
 import { SpeakerHigh } from 'phosphor-react';
 import React, { useEffect, useRef, useState } from 'react';
-import { BrowserRouter,MemoryRouter } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import { Pokemons } from './components/array.js';
 import UserContext from './contexts/userContext';
 import { Router } from './Router';
@@ -30,7 +30,7 @@ const App = () => {
     const [charName, setCharName] = useState('Prof. Carvalho')
     const [charLevel, setLevel] = useState(1)
     const [pokemonBag, setPokemonBag] = useState([])
-    const [pokemonSelected, setPokemonSelected]= useState({})
+    const [pokemonSelected, setPokemonSelected] = useState({})
     const [msgPokeball, setMsgPokeball] = useState(false)
     let soundON = useRef(true)
     const [soundIcon, setSoundIcon] = useState(<SpeakerHigh size={32} />)
@@ -95,9 +95,9 @@ const App = () => {
 
     )
     let screenH = useRef(100)
+    const [move1Details,setMVD] = useState()
 
 
- 
     let details = navigator.userAgent;
     let regexp = /iphone/i;
     let isMobileDevice = regexp.test(details);
@@ -105,6 +105,7 @@ const App = () => {
         screenH.current = 85
     }
 
+    globalId.current= Number(localStorage.getItem('globalId'))
 
     const generatePokemonMap = () => {
         for (let i = 0; i < 150; i++) {
@@ -112,9 +113,11 @@ const App = () => {
             let pokemonNumber = randompokenumber + 1
             let imgNumber = utils.leftPad(pokemonNumber, 3)
             let newid = globalId.current
+            localStorage.setItem('globalId',newid.toString())
             const captureDate = new Date()
-            const formatedDate = ((captureDate.getDate() )) + "/" + ((captureDate.getMonth() + 1)) + "/" + captureDate.getFullYear();
+            const formatedDate = ((captureDate.getDate())) + "/" + ((captureDate.getMonth() + 1)) + "/" + captureDate.getFullYear();
             globalId.current++
+
             let hastype2 = () => {
                 if (pokemons[randompokenumber].types[1]) {
                     return pokemons[randompokenumber].types[1].type.name
@@ -123,6 +126,28 @@ const App = () => {
                     return null
                 }
             }
+
+            let move1 = {}
+            const getMove1 = (() => {
+                if (pokemons[randompokenumber].moves[0].move) {
+                    move1= pokemons[randompokenumber].moves[0].move
+                   
+                } else {
+                    return null
+                }
+            })()
+          
+
+            let move2
+            const getMove2 = (() => {
+                if (pokemons[randompokenumber].moves[1]) {
+                    move2= pokemons[randompokenumber].moves[1].move
+                    
+                } else {
+                    move2 = null
+                }
+            })()
+
             let newpoke =
             {
                 id: `${newid}`,
@@ -138,21 +163,16 @@ const App = () => {
                 height: ((pokemons[randompokenumber].height * 0.1).toFixed(2)),
                 type1: pokemons[randompokenumber].types[0].type.name,
                 type2: hastype2(),
-                level: utils.random(1,Number(charLevel+4)),
+                level: utils.random(1, Number(charLevel + 4)),
                 captureDate: formatedDate,
                 move1: {
-                    name: pokemons[randompokenumber].moves[0].move.name ,
+                    name: move1.name,
                     type: 'normal',
-                    details: pokemons[randompokenumber].moves[0].move.url
+                    url: pokemons[randompokenumber].moves[0].move.url
                 },
-                move2: {
-                    name: pokemons[randompokenumber].moves[1].move.name ,
-                    type: 'normal',
-                    details: pokemons[randompokenumber].moves[1].move.url
-                },
-
-
+                move2: move2
             }
+         
             pkmmap.push(newpoke)
         }
     }
@@ -175,18 +195,19 @@ const App = () => {
 
 
     useEffect(() => {
+        
         generatePokemonMap()
         generatePokestopMap()
         setPkmMap(pkmmap)
         setPksMap(pkspmap)
-
+       
     }, [])
 
 
     return (
         <MemoryRouter>
             <UserContext.Provider
-                value={{ user, setUser, pokeballs, setPokeballs, speed, posGlobal, setPosGlobal, pokemonImg, pokemons, numberPoke, pokestopmap, setPksMap, pokemonmap, setPkmMap, walking, receivedBalls, screenSize, setScreenSize, screenWidth, screenHeight, setSpeed, charFace, setcharFace, charSprite, setcharSprite, charName, setCharName, charLevel, setLevel, soundON, setSoundIcon, soundIcon, started, msgPokeball, setMsgPokeball, globalId, pokemonBag, setPokemonBag, pokemonIndex, setPokemonIndex, music, data, setData, screenH ,pokemonSelected, setPokemonSelected}}>
+                value={{ user, setUser, pokeballs, setPokeballs, speed, posGlobal, setPosGlobal, pokemonImg, pokemons, numberPoke, pokestopmap, setPksMap, pokemonmap, setPkmMap, walking, receivedBalls, screenSize, setScreenSize, screenWidth, screenHeight, setSpeed, charFace, setcharFace, charSprite, setcharSprite, charName, setCharName, charLevel, setLevel, soundON, setSoundIcon, soundIcon, started, msgPokeball, setMsgPokeball, globalId, pokemonBag, setPokemonBag, pokemonIndex, setPokemonIndex, music, data, setData, screenH, pokemonSelected, setPokemonSelected }}>
                 <Router />
             </UserContext.Provider>
         </MemoryRouter>

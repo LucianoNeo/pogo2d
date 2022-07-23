@@ -102,22 +102,27 @@ function PokemonDetails(pokemon) {
 
     async function move1details() {
 
-        const response = await fetch(pokemonSelected[0].move1.details)
+        const response = await fetch(pokemonSelected[0].move1.url)
         const data = await response.json()
         move1Data.current = data
+        
     }
 
     async function move2details() {
 
-        const response = await fetch(pokemonSelected[0].move2.details)
+        const response = await fetch(pokemonSelected[0].move2.url)
         const data = await response.json()
         move2Data.current = data
-        setisLoading(false)
+        if(move2Data.current){
+            setisLoading(false)
+        }
     }
 
     useEffect(() => {
         move1details()
         move2details()
+       
+            
         
     }, [])
 
@@ -146,6 +151,9 @@ function PokemonDetails(pokemon) {
 
 
             </div>
+            <span className="text-white text-xs top-1 sm:top-1 left-2 absolute font-sans" >ID {pokemonSelected[0].id}</span>
+
+         
             <span className="text-white text-2xl sm:text-lg top-16 sm:top-10 absolute " >LEVEL {pokemonSelected[0].level}</span>
 
             <div id='pokemonCP' className="flex pt-14 items-end absolute top-32 sm:translate-y-[-120px] translate-y-[-80px]">
@@ -178,6 +186,7 @@ function PokemonDetails(pokemon) {
                             <img src={`./assets/img/types-icon/${pokemonSelected[0].type2}.png`} alt="" width={20} />
                             <p className="text-sm sm:text-xs text-slate-400 pt-1">{type2()}</p>
                         </div>
+
                     </div>
                     <div className="flex-col text-center text-xl sm:text-sm">
                         <p>{pokemonSelected[0].height}m</p>

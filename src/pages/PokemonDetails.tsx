@@ -9,9 +9,9 @@ import UserContext from "../contexts/userContext"
 function PokemonDetails(pokemon) {
 
 
-    const { pokemonBag, setPokemonBag, music, soundON, screenH, pokemonSelected, setPokemonSelected } = useContext(UserContext)
-    const [busca, setBusca] = useState('')
-    const [isLoading, setisLoading] = useState(true)
+    const { music,screenH, pokemonSelected } = useContext(UserContext)
+   
+   
 
     const navigate = useNavigate()
     const type1 = () => {
@@ -96,46 +96,14 @@ function PokemonDetails(pokemon) {
         }
     }
 
-    const move1Data = useRef()
-    const move2Data = useRef()
+  
 
-
-    async function move1details() {
-
-        const response = await fetch(pokemonSelected[0].move1.url)
-        const data = await response.json()
-        move1Data.current = data
-       
-            setisLoading(false)
-        
-    }
-
-    async function move2details() {
-
-        const response = await fetch(pokemonSelected[0].move2.url)
-        const data = await response.json()
-        move2Data.current = data
-        
-            setisLoading(false)
-        
-        
-        
-    }
-
-    useEffect(() => {
-        move1details()
-        move2details()
-       
-            
-        
-    }, [])
-
-    if (isLoading) {
-        return (
-            <div id='tela' className='relative w-screen overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px] flex flex-col items-center justify-center'
-                style={{ height: `${screenH.current}vh`, background: 'white' }}></div>
-        )
-    }
+    // if (isLoading) {
+    //     return (
+    //         <div id='tela' className='relative w-screen overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px] flex flex-col items-center justify-center'
+    //             style={{ height: `${screenH.current}vh`, background: 'white' }}></div>
+    //     )
+    // }
 
     return (
         <div id='tela' className='relative w-screen overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px] flex flex-col items-center justify-center'
@@ -206,15 +174,15 @@ function PokemonDetails(pokemon) {
                     className="w-full px-5 h-20  py-5 flex flex-col justify-evenly gap-2"
                 >
                     <div className="flex justify-between">
-                    <img src={!isLoading ? `./assets/img/types-icon/${move1Data.current.type.name}.png` : null} alt="" width={20} />
+                    <img src={`./assets/img/types-icon/${pokemonSelected[0].move1.type}.png`} alt="" width={20} />
                         <span className="text-sm sm:text-xs text-green-900">{pokemonSelected[0].move1.name.toUpperCase()}</span>
-                        <span className="text-sm sm:text-xs text-green-900">{move1Data.current.power || 0}</span>
+                        <span className="text-sm sm:text-xs text-green-900">{pokemonSelected[0].move1.power || 0}</span>
                     </div>
                     
                     <div className="flex justify-between">
-                        <img src={!isLoading ? `./assets/img/types-icon/${move2Data.current.type.name}.png` : null} alt="" width={20} />
+                        <img src={`./assets/img/types-icon/${pokemonSelected[0].move2.type}.png`} alt="" width={20} />
                         <span className="text-sm sm:text-xs text-green-900">{pokemonSelected[0].move2.name.toUpperCase()}</span>
-                        <span className="text-sm sm:text-xs text-green-900">{move2Data.current.power || 0}</span>
+                        <span className="text-sm sm:text-xs text-green-900">{pokemonSelected[0].move2.power || 0}</span>
                     </div>
                 </div>
 

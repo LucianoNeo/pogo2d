@@ -5,7 +5,7 @@ import { Pokemons } from './components/array.js';
 import UserContext from './contexts/userContext';
 import { Router } from './Router';
 import Utils from './utils';
-
+import { Movesets } from './components/movesets.js';
 
 const App = () => {
     const utils = Utils()
@@ -19,6 +19,7 @@ const App = () => {
     const pokemonImg = useRef(`./assets/img/pokemon_catch/pokemon (${numberPoke.current}).gif`)
     const [pokeballs, setPokeballs] = useState(5)
     const pokemons = Pokemons
+    const movesets = Movesets
     const [speed, setSpeed] = useState(5)
     const [pokemonIndex, setPokemonIndex] = useState()
     const receivedBalls = useRef(1)
@@ -137,16 +138,28 @@ const App = () => {
                 }
             })()
           
+            const moveId = pokemons[randompokenumber].moves[0].move.url.replace("https://pokeapi.co/api/v2/move/",'').replace('/','')
+
 
             let move2
             const getMove2 = (() => {
                 if (pokemons[randompokenumber].moves[1]) {
-                    move2= pokemons[randompokenumber].moves[1].move
+                    const moveId = pokemons[randompokenumber].moves[1].move.url.replace("https://pokeapi.co/api/v2/move/",'').replace('/','')
+                    move2= {
+                    name: pokemons[randompokenumber].moves[1].move.name,
+                    type: movesets[moveId].type.name,
+                    id: moveId,
+                    accuracy : movesets[moveId].accuracy,
+                    power: movesets[moveId].power,
+                    pp: movesets[moveId].pp,
+
+                    }
                     
                 } else {
                     move2 = null
                 }
             })()
+            
 
             let newpoke =
             {
@@ -167,12 +180,15 @@ const App = () => {
                 captureDate: formatedDate,
                 move1: {
                     name: move1.name,
-                    type: 'normal',
-                    url: pokemons[randompokenumber].moves[0].move.url
+                    type: movesets[moveId].type.name,
+                    id: moveId,
+                    accuracy : movesets[moveId].accuracy,
+                    power: movesets[moveId].power,
+                    pp: movesets[moveId].pp,
                 },
                 move2: move2
             }
-         
+            
             pkmmap.push(newpoke)
         }
     }

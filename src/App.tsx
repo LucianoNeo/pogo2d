@@ -138,7 +138,7 @@ const App = () => {
                 }
             })()
           
-            const moveId = pokemons[randompokenumber].moves[0].move.url.replace("https://pokeapi.co/api/v2/move/",'').replace('/','')
+            
 
 
             let move2
@@ -147,11 +147,11 @@ const App = () => {
                     const moveId = pokemons[randompokenumber].moves[1].move.url.replace("https://pokeapi.co/api/v2/move/",'').replace('/','')
                     move2= {
                     name: pokemons[randompokenumber].moves[1].move.name,
-                    type: movesets[moveId].type.name,
+                    type: movesets[Number(moveId-1)].type.name,
                     id: moveId,
-                    accuracy : movesets[moveId].accuracy,
-                    power: movesets[moveId].power,
-                    pp: movesets[moveId].pp,
+                    accuracy : movesets[Number(moveId-1)].accuracy,
+                    power: movesets[Number(moveId-1)].power,
+                    pp: movesets[Number(moveId-1)].pp,
 
                     }
                     
@@ -160,6 +160,7 @@ const App = () => {
                 }
             })()
             
+            const moveId = pokemons[randompokenumber].moves[0].move.url.replace("https://pokeapi.co/api/v2/move/",'').replace('/','')
 
             let newpoke =
             {
@@ -180,15 +181,15 @@ const App = () => {
                 captureDate: formatedDate,
                 move1: {
                     name: move1.name,
-                    type: movesets[moveId].type.name,
+                    type: movesets[Number(moveId-1)].type.name,
                     id: moveId,
-                    accuracy : movesets[moveId].accuracy,
-                    power: movesets[moveId].power,
-                    pp: movesets[moveId].pp,
+                    accuracy : movesets[Number(moveId-1)].accuracy,
+                    power: movesets[Number(moveId-1)].power,
+                    pp: movesets[Number(moveId-1)].pp,
                 },
                 move2: move2
             }
-            
+            console.log(newpoke)
             pkmmap.push(newpoke)
         }
     }

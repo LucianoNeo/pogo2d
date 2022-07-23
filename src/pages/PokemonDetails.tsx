@@ -105,6 +105,8 @@ function PokemonDetails(pokemon) {
         const response = await fetch(pokemonSelected[0].move1.url)
         const data = await response.json()
         move1Data.current = data
+       
+            setisLoading(false)
         
     }
 
@@ -113,9 +115,11 @@ function PokemonDetails(pokemon) {
         const response = await fetch(pokemonSelected[0].move2.url)
         const data = await response.json()
         move2Data.current = data
-        if(move2Data.current){
+        
             setisLoading(false)
-        }
+        
+        
+        
     }
 
     useEffect(() => {

@@ -28,8 +28,9 @@ const App = () => {
     const [charFace, setcharFace] = useState('./assets/img/oakface.png')
     const [charSprite, setcharSprite] = useState('./assets/img/sprites/oak.png')
     const [charName, setCharName] = useState('Prof. Carvalho')
-    const [charLevel, setLevel] = useState(99)
+    const [charLevel, setLevel] = useState(1)
     const [pokemonBag, setPokemonBag] = useState([])
+    const [pokemonSelected, setPokemonSelected]= useState({})
     const [msgPokeball, setMsgPokeball] = useState(false)
     let soundON = useRef(true)
     const [soundIcon, setSoundIcon] = useState(<SpeakerHigh size={32} />)
@@ -111,6 +112,8 @@ const App = () => {
             let pokemonNumber = randompokenumber + 1
             let imgNumber = utils.leftPad(pokemonNumber, 3)
             let newid = globalId.current
+            const captureDate = new Date()
+            const formatedDate = ((captureDate.getDate() )) + "/" + ((captureDate.getMonth() + 1)) + "/" + captureDate.getFullYear();
             globalId.current++
             let hastype2 = () => {
                 if (pokemons[randompokenumber].types[1]) {
@@ -135,6 +138,18 @@ const App = () => {
                 height: ((pokemons[randompokenumber].height * 0.1).toFixed(2)),
                 type1: pokemons[randompokenumber].types[0].type.name,
                 type2: hastype2(),
+                level: utils.random(1,Number(charLevel+4)),
+                captureDate: formatedDate,
+                move1: {
+                    name: pokemons[randompokenumber].moves[0].move.name ,
+                    type: 'normal',
+                    details: pokemons[randompokenumber].moves[0].move.url
+                },
+                move2: {
+                    name: pokemons[randompokenumber].moves[1].move.name ,
+                    type: 'normal',
+                    details: pokemons[randompokenumber].moves[1].move.url
+                },
 
 
             }
@@ -171,7 +186,7 @@ const App = () => {
     return (
         <MemoryRouter>
             <UserContext.Provider
-                value={{ user, setUser, pokeballs, setPokeballs, speed, posGlobal, setPosGlobal, pokemonImg, pokemons, numberPoke, pokestopmap, setPksMap, pokemonmap, setPkmMap, walking, receivedBalls, screenSize, setScreenSize, screenWidth, screenHeight, setSpeed, charFace, setcharFace, charSprite, setcharSprite, charName, setCharName, charLevel, setLevel, soundON, setSoundIcon, soundIcon, started, msgPokeball, setMsgPokeball, globalId, pokemonBag, setPokemonBag, pokemonIndex, setPokemonIndex, music, data, setData, screenH }}>
+                value={{ user, setUser, pokeballs, setPokeballs, speed, posGlobal, setPosGlobal, pokemonImg, pokemons, numberPoke, pokestopmap, setPksMap, pokemonmap, setPkmMap, walking, receivedBalls, screenSize, setScreenSize, screenWidth, screenHeight, setSpeed, charFace, setcharFace, charSprite, setcharSprite, charName, setCharName, charLevel, setLevel, soundON, setSoundIcon, soundIcon, started, msgPokeball, setMsgPokeball, globalId, pokemonBag, setPokemonBag, pokemonIndex, setPokemonIndex, music, data, setData, screenH ,pokemonSelected, setPokemonSelected}}>
                 <Router />
             </UserContext.Provider>
         </MemoryRouter>

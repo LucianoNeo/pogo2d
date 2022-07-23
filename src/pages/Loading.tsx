@@ -49,7 +49,7 @@ function Loading() {
                 <h1 className="text-2xl text-center animate-fadein mt-5">Desenvolvido por LucianoNeo</h1>
             </div>
             <Social />
-            <h1>v0.85</h1>
+            <h1>v0.90</h1>
         </div>
     )
 

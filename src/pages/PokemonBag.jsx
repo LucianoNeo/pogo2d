@@ -7,7 +7,7 @@ import UserContext from "../contexts/userContext"
 function PokemonBagScreen() {
 
 
-    const { pokemonBag, setPokemonBag, music, soundON, screenH } = useContext(UserContext)
+    const { pokemonBag, music, soundON, screenH, pokemonSelected, setPokemonSelected } = useContext(UserContext)
     const [busca, setBusca] = useState('')
     const navigate = useNavigate()
     const filtrados = useMemo(() => {
@@ -26,7 +26,7 @@ function PokemonBagScreen() {
 
     if (pokemonBag === []) return <></>
 
-    
+
     return (
         <div id='tela' className='relative w-screen overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px] flex items-center justify-center'
             style={{ height: `${screenH.current}vh`, background: 'linear-gradient(170deg, rgba(57,154,93,1) 20%, rgba(46,103,115,1) 83%)' }}
@@ -46,7 +46,16 @@ function PokemonBagScreen() {
 
                     {filtrados.map((pokemon) =>
                         <div className="hover:scale-110 w-28 h-28 flex  flex-col justify-around text-center  sm:w-14 sm:h-16 sm:mb-14 sm:mx-2 mt-8 gap-4"
-                            key={pokemon.id}>
+                            key={pokemon.id}
+                            onClick={() => {
+                                const selected = pokemonBag.filter(item => item.id.includes(pokemon.id));
+                                setPokemonSelected(selected)
+                                
+                                navigate('/pkdetails')
+                            }
+                            }
+
+                        >
                             <div className="flex text-center items-center gap-2 justify-center ">
                                 <span className="text-sm font-mono">CP </span>
                                 <p>{pokemon.cp}</p>
@@ -61,7 +70,11 @@ function PokemonBagScreen() {
                 </div>
                 <div className="flex w-full items-center justify-center">
                     <div className="absolute bottom-6">
-                        <CloseButton onclick={() => { return navigate('/world'), music.current.pause() }} />
+                        <CloseButton
+                            onclick={() => {
+                                return navigate('/world')
+                                    , music.current.pause()
+                            }} />
                     </div>
                 </div>
 

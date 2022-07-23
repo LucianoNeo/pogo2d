@@ -9,6 +9,7 @@ import PokemonBagScreen from './pages/PokemonBag'
 import Continue from './pages/Continue'
 import React from 'react'
 import ItemsBag from './pages/ItemsBag'
+import PokemonDetails from './pages/PokemonDetails'
 
 
 export function Router() {
@@ -24,6 +25,7 @@ export function Router() {
             <Route path='/world' element={ <World/>} />
             <Route path='/catch' element={ <Catch/>} />
             <Route path='/pkbag' element={ <PokemonBagScreen/>} />
+            <Route path='/pkdetails' element={ <PokemonDetails/>} />
             <Route path='/itbag' element={ <ItemsBag/>} />
         </Routes>
         

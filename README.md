@@ -64,8 +64,8 @@ Para o sistema de batalhas as informações que serão adicionadas serão:<br>
 - [x] sfx
 - [x] permanent save (localstorage)
 - [x] continue / new game
-- [ ] pokemon movesets
-- [ ] pokemon details screen
+- [x] pokemon movesets
+- [x] pokemon details screen
 - [ ] level up system
 
 

@@ -48,9 +48,8 @@ function PokemonBagScreen() {
                         <div className="hover:scale-110 w-28 h-28 flex  flex-col justify-around text-center  sm:w-14 sm:h-16 sm:mb-14 sm:mx-2 mt-8 gap-4"
                             key={pokemon.id}
                             onClick={() => {
-                                const selected = pokemonBag.filter(item => item.id.includes(pokemon.id));
-                                setPokemonSelected(selected)
-                                
+                                const selected = pokemonBag.filter(item => item.id == pokemon.id);
+                                setPokemonSelected(selected)                                
                                 navigate('/pkdetails')
                             }
                             }

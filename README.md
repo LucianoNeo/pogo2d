@@ -14,6 +14,10 @@ O projeto está totalmente responsivo para PC, ANDROID e IOS.
 
 LINK PARA O JOGO:<br>
 https://pokemongo2d.vercel.app/
+<br>
+
+ATENÇÃO AS BREAKINGS CHANGES NA V9.00
+INICIE UM NOVO JOGO PARA NÃO QUEBRAR 
 
 ## Detalhes técnicos:
 O objetivo do jogo (até a versão 1.00) é andar pelo mapa capturando os pokémon, para posteriormente montar seu time que será usado para batalhas (na versão 2.00).

@@ -9,9 +9,9 @@ import UserContext from "../contexts/userContext"
 function PokemonDetails(pokemon) {
 
 
-    const { pokemonBag, setPokemonBag, music, soundON, screenH, pokemonSelected, setPokemonSelected } = useContext(UserContext)
-    const [busca, setBusca] = useState('')
-    const [isLoading, setisLoading] = useState(true)
+    const { music,screenH, pokemonSelected } = useContext(UserContext)
+   
+   
 
     const navigate = useNavigate()
     const type1 = () => {
@@ -96,37 +96,14 @@ function PokemonDetails(pokemon) {
         }
     }
 
-    const move1Data = useRef()
-    const move2Data = useRef()
+  
 
-
-    async function move1details() {
-
-        const response = await fetch(pokemonSelected[0].move1.details)
-        const data = await response.json()
-        move1Data.current = data
-    }
-
-    async function move2details() {
-
-        const response = await fetch(pokemonSelected[0].move2.details)
-        const data = await response.json()
-        move2Data.current = data
-        setisLoading(false)
-    }
-
-    useEffect(() => {
-        move1details()
-        move2details()
-        
-    }, [])
-
-    if (isLoading) {
-        return (
-            <div id='tela' className='relative w-screen overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px] flex flex-col items-center justify-center'
-                style={{ height: `${screenH.current}vh`, background: 'white' }}></div>
-        )
-    }
+    // if (isLoading) {
+    //     return (
+    //         <div id='tela' className='relative w-screen overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px] flex flex-col items-center justify-center'
+    //             style={{ height: `${screenH.current}vh`, background: 'white' }}></div>
+    //     )
+    // }
 
     return (
         <div id='tela' className='relative w-screen overflow-hidden m-auto sm:w-[300px] sm:rounded-[20px] sm:border-[10px] sm:border-black sm:h-[90vh] sm:max-h-[600px] flex flex-col items-center justify-center'
@@ -146,6 +123,9 @@ function PokemonDetails(pokemon) {
 
 
             </div>
+            <span className="text-white text-xs top-1 sm:top-1 left-2 absolute font-sans" >ID {pokemonSelected[0].id}</span>
+
+         
             <span className="text-white text-2xl sm:text-lg top-16 sm:top-10 absolute " >LEVEL {pokemonSelected[0].level}</span>
 
             <div id='pokemonCP' className="flex pt-14 items-end absolute top-32 sm:translate-y-[-120px] translate-y-[-80px]">
@@ -178,6 +158,7 @@ function PokemonDetails(pokemon) {
                             <img src={`./assets/img/types-icon/${pokemonSelected[0].type2}.png`} alt="" width={20} />
                             <p className="text-sm sm:text-xs text-slate-400 pt-1">{type2()}</p>
                         </div>
+
                     </div>
                     <div className="flex-col text-center text-xl sm:text-sm">
                         <p>{pokemonSelected[0].height}m</p>
@@ -193,15 +174,15 @@ function PokemonDetails(pokemon) {
                     className="w-full px-5 h-20  py-5 flex flex-col justify-evenly gap-2"
                 >
                     <div className="flex justify-between">
-                    <img src={!isLoading ? `./assets/img/types-icon/${move1Data.current.type.name}.png` : null} alt="" width={20} />
+                    <img src={`./assets/img/types-icon/${pokemonSelected[0].move1.type}.png`} alt="" width={20} />
                         <span className="text-sm sm:text-xs text-green-900">{pokemonSelected[0].move1.name.toUpperCase()}</span>
-                        <span className="text-sm sm:text-xs text-green-900">{move1Data.current.power || 0}</span>
+                        <span className="text-sm sm:text-xs text-green-900">{pokemonSelected[0].move1.power || 0}</span>
                     </div>
                     
                     <div className="flex justify-between">
-                        <img src={!isLoading ? `./assets/img/types-icon/${move2Data.current.type.name}.png` : null} alt="" width={20} />
+                        <img src={`./assets/img/types-icon/${pokemonSelected[0].move2.type}.png`} alt="" width={20} />
                         <span className="text-sm sm:text-xs text-green-900">{pokemonSelected[0].move2.name.toUpperCase()}</span>
-                        <span className="text-sm sm:text-xs text-green-900">{move2Data.current.power || 0}</span>
+                        <span className="text-sm sm:text-xs text-green-900">{pokemonSelected[0].move2.power || 0}</span>
                     </div>
                 </div>
 

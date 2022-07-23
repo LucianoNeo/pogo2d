@@ -56,6 +56,7 @@ function Continue() {
         soundSelect.play()
         localStorage.clear()
         localStorage.removeItem("pokemonbag");
+        localStorage.removeItem("globalId");
         setPokemonBag([])
         setPokeballs(5)
         return navigate('/char-select')

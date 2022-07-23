@@ -30,13 +30,13 @@ Utilizei arrays para:
 <br>
 Até que o back-end seja implantado estes dados são salvos a cada alteração, utilizando <b>LOCALSTORAGE</b>, assim se o usuário sai da página, ao voltar ele tem suas informações obtidas novamente e continuará com o mesmo estado em que saiu do jogo, podendo escolher se quer CONTINUAR ou iniciar um NOVO JOGO (limpando assim o LOCALSTORAGE).<br>
 Cada pokémon tem seus atributos principais retirados de um array fixo, que foi obtido através da POKEAPI (https://pokeapi.co/) para agilizar o desenvolvimento.<br>
-Inicialmente (na versão 0.85) estão sendo utilizados:
+Inicialmente (na versão 0.85) estão sendo utilizados:<br>
 - name
 - number(id)
 - types
 <br>
 Para o sistema de batalhas as informações que serão adicionadas serão:<br>
-- baseStats (attack, defense, stamina)
+- baseStats (attack, defense, stamina)<br>
 - movesets
 
 

@@ -6,6 +6,7 @@ import UserContext from './contexts/userContext';
 import { Router } from './Router';
 import Utils from './utils';
 import { Movesets } from './components/movesets.js';
+import axios from 'axios';
 
 const App = () => {
     const utils = Utils()
@@ -31,6 +32,24 @@ const App = () => {
     const [charName, setCharName] = useState('Prof. Carvalho')
     const [charLevel, setLevel] = useState(1)
     const [pokemonBag, setPokemonBag] = useState([])
+    const [itensBag, setItensBag] = useState([{
+        pokeball: {
+            img: './assets/img/pokeball_catch.png',
+            quantity: 5,
+            captureChance: 0.3,
+        },
+        greatball: {
+            img: './assets/img/greatball.png',
+            quantity: 0,
+            captureChance: 0.45,
+        },
+        ultraball: {
+            img: './assets/img/ultraball.png',
+            quantity: 0,
+            captureChance: 0.6,
+        }
+    }])
+
     const [pokemonSelected, setPokemonSelected] = useState({})
     const [msgPokeball, setMsgPokeball] = useState(false)
     let soundON = useRef(true)
@@ -38,65 +57,9 @@ const App = () => {
     let started = useRef(false)
     const pkmmap = []
     let music = useRef()
-    const [data, setData] = useState(
-        {
-            users: [
-                {
-                    id: '1',
-                    username: 'reduser',
-                    password: 'redpass',
-                    email: 'red@red.com',
-                    charData: {
-                        name: 'red',
-                        avatar: '',
-                        level: 1,
-                        sprite: './assets/img/sprites/red.png',
-                        xp: 0,
-                        pokemonBag: [
-                            {
-                                globalID: '1',
-                                name: 'charmander',
-                                level: 1,
-                                xp: 0,
-                                number: 3,
-                                imgbag: './assets/img/pokemon_catch/pokemon (3).gif',
-                                cp: 500,
-                                weight: 7,
-                                height: 7,
-                                type1: 'fire',
-                                type2: null
-                            }
-                        ],
-                        itemsBag: [
-                            {
-                                itemName: 'Pokebola',
-                                itemQtd: 5,
-                                img: './assets/img/pokeball.png'
-                            },
-                            {
-                                itemName: 'Frambo',
-                                itemQtd: 5,
-                                img: './assets/img/frambo.png'
-                            },
-                            {
-                                itemName: 'Caxi',
-                                itemQtd: 5,
-                                img: './assets/img/caxi.png'
-                            },
-                            {
-                                itemName: 'Nanab',
-                                itemQtd: 5,
-                                img: './assets/img/nanab.png'
-                            },
-                        ]
-                    }
-                },
-            ]
-        }
 
-    )
     let screenH = useRef(100)
-    const [move1Details,setMVD] = useState()
+    const [move1Details, setMVD] = useState()
 
 
     let details = navigator.userAgent;
@@ -106,7 +69,9 @@ const App = () => {
         screenH.current = 85
     }
 
-    globalId.current= Number(localStorage.getItem('globalId'))
+
+
+    globalId.current = Number(localStorage.getItem('globalId'))
 
     const generatePokemonMap = () => {
         for (let i = 0; i < 150; i++) {
@@ -114,7 +79,7 @@ const App = () => {
             let pokemonNumber = randompokenumber + 1
             let imgNumber = utils.leftPad(pokemonNumber, 3)
             let newid = globalId.current
-            localStorage.setItem('globalId',newid.toString())
+            localStorage.setItem('globalId', newid.toString())
             const captureDate = new Date()
             const formatedDate = ((captureDate.getDate())) + "/" + ((captureDate.getMonth() + 1)) + "/" + captureDate.getFullYear();
             globalId.current++
@@ -131,66 +96,86 @@ const App = () => {
             let move1 = {}
             const getMove1 = (() => {
                 if (pokemons[randompokenumber].moves[0].move) {
-                    move1= pokemons[randompokenumber].moves[0].move
-                   
+                    move1 = pokemons[randompokenumber].moves[0].move
+
                 } else {
                     return null
                 }
             })()
-          
-            
+
+
 
 
             let move2
             const getMove2 = (() => {
                 if (pokemons[randompokenumber].moves[1]) {
-                    const moveId = pokemons[randompokenumber].moves[1].move.url.replace("https://pokeapi.co/api/v2/move/",'').replace('/','')
-                    move2= {
-                    name: pokemons[randompokenumber].moves[1].move.name,
-                    type: movesets[Number(moveId-1)].type.name,
-                    id: moveId,
-                    accuracy : movesets[Number(moveId-1)].accuracy,
-                    power: movesets[Number(moveId-1)].power,
-                    pp: movesets[Number(moveId-1)].pp,
+                    const moveId = pokemons[randompokenumber].moves[1].move.url.replace("https://pokeapi.co/api/v2/move/", '').replace('/', '')
+                    move2 = {
+                        name: pokemons[randompokenumber].moves[1].move.name,
+                        type: movesets[Number(moveId - 1)].type.name,
+                        id: moveId,
+                        accuracy: movesets[Number(moveId - 1)].accuracy,
+                        power: movesets[Number(moveId - 1)].power,
+                        pp: movesets[Number(moveId - 1)].pp,
 
                     }
-                    
+
                 } else {
                     move2 = null
                 }
             })()
-            
-            const moveId = pokemons[randompokenumber].moves[0].move.url.replace("https://pokeapi.co/api/v2/move/",'').replace('/','')
 
-            let newpoke =
-            {
-                id: `${newid}`,
-                name: `${pokemons[randompokenumber].name[0].toUpperCase() + pokemons[randompokenumber].name.substring(1)}`,
-                left: `${utils.random(80, 2900)}px`,
-                top: `${utils.random(100, 4900)}px`,
-                img: `url(./assets/img/sprites/${imgNumber}.png)`,
-                number: randompokenumber,
-                activespawn: true,
-                imgbag: `./assets/img/pokemon_catch/pokemon (${randompokenumber + 1}).gif`,
-                cp: utils.random(10, 600),
-                weight: ((pokemons[randompokenumber].weight * 0.1).toFixed(0)),
-                height: ((pokemons[randompokenumber].height * 0.1).toFixed(2)),
-                type1: pokemons[randompokenumber].types[0].type.name,
-                type2: hastype2(),
-                level: utils.random(1, Number(charLevel + 4)),
-                captureDate: formatedDate,
-                move1: {
-                    name: move1.name,
-                    type: movesets[Number(moveId-1)].type.name,
-                    id: moveId,
-                    accuracy : movesets[Number(moveId-1)].accuracy,
-                    power: movesets[Number(moveId-1)].power,
-                    pp: movesets[Number(moveId-1)].pp,
-                },
-                move2: move2
+            const moveId = pokemons[randompokenumber].moves[0].move.url.replace("https://pokeapi.co/api/v2/move/", '').replace('/', '')
+
+
+            async function getCaptureRate() {
+
+                const response = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${randompokenumber}`)
+                const resultado = await response.data.capture_rate
+                return resultado
+
             }
-            console.log(newpoke)
-            pkmmap.push(newpoke)
+
+            async function createNewPokemon() {
+
+
+                let newpoke =
+                {
+                    id: `${newid}`,
+                    name: `${pokemons[randompokenumber].name[0].toUpperCase() + pokemons[randompokenumber].name.substring(1)}`,
+                    left: `${utils.random(80, 2900)}px`,
+                    top: `${utils.random(100, 4900)}px`,
+                    img: `url(./assets/img/sprites/${imgNumber}.png)`,
+                    number: randompokenumber,
+                    activespawn: true,
+                    imgbag: `./assets/img/pokemon_catch/pokemon (${randompokenumber + 1}).gif`,
+                    cp: utils.random(10, 600),
+                    weight: ((pokemons[randompokenumber].weight * 0.1).toFixed(0)),
+                    height: ((pokemons[randompokenumber].height * 0.1).toFixed(2)),
+                    type1: pokemons[randompokenumber].types[0].type.name,
+                    type2: hastype2(),
+                    level: utils.random(1, Number(charLevel + 4)),
+                    captureDate: formatedDate,
+                    move1: {
+                        name: move1.name,
+                        type: movesets[Number(moveId - 1)].type.name,
+                        id: moveId,
+                        accuracy: movesets[Number(moveId - 1)].accuracy,
+                        power: movesets[Number(moveId - 1)].power,
+                        pp: movesets[Number(moveId - 1)].pp,
+                    },
+                    move2: move2,
+                    baseStats: {
+                        hp: pokemons[randompokenumber].stats[0].base_stat,
+                        attack: pokemons[randompokenumber].stats[1].base_stat,
+                        defense: pokemons[randompokenumber].stats[2].base_stat,
+                        captureRate: await getCaptureRate()
+                    }
+                }
+                console.log(newpoke)
+                pkmmap.push(newpoke)
+            }
+            createNewPokemon()
         }
     }
 
@@ -212,19 +197,19 @@ const App = () => {
 
 
     useEffect(() => {
-        
+
         generatePokemonMap()
         generatePokestopMap()
         setPkmMap(pkmmap)
         setPksMap(pkspmap)
-       
+
     }, [])
 
 
     return (
         <MemoryRouter>
             <UserContext.Provider
-                value={{ user, setUser, pokeballs, setPokeballs, speed, posGlobal, setPosGlobal, pokemonImg, pokemons, numberPoke, pokestopmap, setPksMap, pokemonmap, setPkmMap, walking, receivedBalls, screenSize, setScreenSize, screenWidth, screenHeight, setSpeed, charFace, setcharFace, charSprite, setcharSprite, charName, setCharName, charLevel, setLevel, soundON, setSoundIcon, soundIcon, started, msgPokeball, setMsgPokeball, globalId, pokemonBag, setPokemonBag, pokemonIndex, setPokemonIndex, music, data, setData, screenH, pokemonSelected, setPokemonSelected }}>
+                value={{ user, setUser, pokeballs, setPokeballs, speed, posGlobal, setPosGlobal, pokemonImg, pokemons, numberPoke, pokestopmap, setPksMap, pokemonmap, setPkmMap, walking, receivedBalls, screenSize, setScreenSize, screenWidth, screenHeight, setSpeed, charFace, setcharFace, charSprite, setcharSprite, charName, setCharName, charLevel, setLevel, soundON, setSoundIcon, soundIcon, started, msgPokeball, setMsgPokeball, globalId, pokemonBag, setPokemonBag, pokemonIndex, setPokemonIndex, music, screenH, pokemonSelected, setPokemonSelected, itensBag, setItensBag }}>
                 <Router />
             </UserContext.Provider>
         </MemoryRouter>

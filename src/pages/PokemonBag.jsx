@@ -15,6 +15,7 @@ function PokemonBagScreen() {
     }, [, pokemonBag, busca])
 
     useEffect(() => {
+        console.log(pokemonBag)
         music.current.pause()
         music.current = new Audio("./assets/music/menutheme.mp3")
         if (soundON.current) {
